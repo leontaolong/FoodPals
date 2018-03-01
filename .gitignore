@@ -1,0 +1,24 @@
+# MacOS
+.DS_Store
+
+# Node Server
+node_modules
+tls
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+*.xcworkspace/
+project.xcworkspace/
+xcuserdata/
+
+# Podfiles
+Pods/
+
+# SSL
+encrypt
+*.csr
+*.key
