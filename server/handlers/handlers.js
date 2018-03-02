@@ -19,13 +19,13 @@ module.exports = (userStore, postStore) => {
     });
 
     // add a post with post info
-    // respond with matched appointment if find one, otherwise respond descriptive text
+    // respond with new post with matching info if find one, otherwise respond descriptive text
     router.post('/v1/post', (req, res, next) => {
         
     });
 
     // update a post with post info
-    // respond with matched appointment if find one, otherwise respond descriptive text
+    // respond with new post with matching info if find one, otherwise respond descriptive text
     router.put('/v1/post', (req, res, next) => {
         
     });
@@ -47,7 +47,7 @@ module.exports = (userStore, postStore) => {
     });
 
     // respond a match request with user id and post id
-    // respond with matched appointment if find one, otherwise respond descriptive text  
+    // respond with new post with matching info, otherwise respond descriptive text  
     router.post('/v1/response', (req, res, next) => {
             
     });
