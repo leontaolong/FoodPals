@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D4E435420490C2E00108B71 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E435320490C2E00108B71 /* DataModels.swift */; };
 		F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868C20477EEB000AF99F /* AppDelegate.swift */; };
 		F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868E20477EEB000AF99F /* FirstViewController.swift */; };
 		F630869120477EEB000AF99F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630869020477EEB000AF99F /* SecondViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D4E435320490C2E00108B71 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		F630868920477EEB000AF99F /* HungryPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungryPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F630868C20477EEB000AF99F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F630868E20477EEB000AF99F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		F630868B20477EEB000AF99F /* HungryPals */ = {
 			isa = PBXGroup;
 			children = (
+				9D4E435320490C2E00108B71 /* DataModels.swift */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
 				F630869020477EEB000AF99F /* SecondViewController.swift */,
@@ -267,6 +270,7 @@
 			files = (
 				F630869120477EEB000AF99F /* SecondViewController.swift in Sources */,
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
+				9D4E435420490C2E00108B71 /* DataModels.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
 			);
