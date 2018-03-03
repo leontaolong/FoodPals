@@ -2,6 +2,8 @@
 
 const express = require('express');
 
+let requiredUserFields = ["username", "userId", "profilePic", "deviceToken", "friendList" ]
+
 //export a function from this module 
 //that accepts stores implementation
 module.exports = (userStore, postStore) => {
@@ -9,8 +11,24 @@ module.exports = (userStore, postStore) => {
     let router = express.Router();
     
     // add new user with user info
-    router.post('/v1/user', (req, res, next) => {
-        
+    router.post('/v1/user', async (req, res, next) => {
+        let userInfo = req.body
+        var missingInfo = false;
+        requiredUserFields.forEach((field) => {
+            if(!userInfo.hasOwnProperty(field)){
+                missingInfo = true;
+            }
+        })
+        if (!missingInfo) {
+            try {
+                await userStore.addUser(userInfo);
+            } catch (err) {
+                next(err);
+            }
+            res.send("User successfully added.")
+        } else {
+            res.status(400).send(`Missing user information`);
+        }
     });
 
     // get specific user info by id
