@@ -14,25 +14,34 @@ class Post {
     private var username:String
     private var userId:String
     private var matchingStatus:String // MATCHING, WAITING_OTHER_TO_RESPOND, COMFIRMED_BY_OTHER, REJECTED, ACCEPTED
-    private var matchedUsername:String
-    private var matchedUserId:String
+    private var matchedUsername:String = ""
+    private var matchedUserId:String = ""
+    private var matchedUserPic:String = ""
     private var startTime:Date
     private var endTime:Date 
     private var restaurant:String
     private var cuisine:String
     
     
-    init(postId:String, username:String, userId:String, matchingStatus:String, matchedUsername:String, matchedUserId:String, startTime:Date, endTime:Date, restaurant:String, cuisine:String ) {
+    init(postId:String, username:String, userId:String, matchingStatus:String, startTime:Date, endTime:Date, restaurant:String, cuisine:String ) {
         self.postId = postId
         self.username = username
         self.userId = userId
         self.matchingStatus = matchingStatus
-        self.matchedUsername = matchedUsername
-        self.matchedUserId = matchedUserId
         self.startTime = startTime
         self.endTime = endTime
         self.restaurant = restaurant
         self.cuisine = cuisine
+    }
+    
+    func getMatched(matchedUsername:String, matchedUserId:String, matchedUserPic:String) {
+        self.matchedUserId = matchedUserId
+        self.matchedUsername = matchedUsername
+        self.matchedUserPic = matchedUserPic
+    }
+    
+    func updateMatchingStatus(matchingStatus:String) {
+        self.matchingStatus = matchingStatus
     }
 }
 

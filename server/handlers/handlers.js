@@ -3,7 +3,7 @@
 const express = require('express');
 
 let requiredUserFields = ["username", "userId", "profilePic", "deviceToken", "friendList" ]
-
+let requiredPostFields = ["username", "startTime", "endTime", "restaurant", "cuisine" ]
 //export a function from this module 
 //that accepts stores implementation
 module.exports = (userStore, postStore) => {
@@ -39,7 +39,24 @@ module.exports = (userStore, postStore) => {
     // add a post with post info
     // respond with new post with matching info if find one, otherwise respond descriptive text
     router.post('/v1/post', (req, res, next) => {
-        
+        let postInfo = req.body
+        var missingInfo = false;
+        requiredPsotFields.forEach((field) => {
+            if(!postInfo.hasOwnProperty(field)){
+                missingInfo = true;
+            }
+        })
+        if (!missingInfo) {
+            try {
+                let matchingResult = await postStore.match(postInfo)
+                await postStore.addPost(postInfo);
+            } catch (err) {
+                next(err);
+            }
+            res.send("Post successfully added.")
+        } else {
+            res.status(400).send(`Missing post information`);
+        }
     });
 
     // update a post with post info
@@ -60,13 +77,13 @@ module.exports = (userStore, postStore) => {
 
     // request matching for a post by user id and post id
     // respond with descriptive text 
-    router.post('/v1/request', (req, res, next) => {
+    router.post('/v1/invite', (req, res, next) => {
             
     });
 
     // respond a match request with user id and post id
     // respond with new post with matching info, otherwise respond descriptive text  
-    router.post('/v1/response', (req, res, next) => {
+    router.post('/v1/respond', (req, res, next) => {
             
     });
 
