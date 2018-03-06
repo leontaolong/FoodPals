@@ -3,7 +3,7 @@
 const express = require('express');
 
 let requiredUserFields = ["username", "userId", "profilePic", "deviceToken", "friendList" ]
-let requiredPostFields = ["username", "startTime", "endTime", "restaurant", "cuisine" ]
+let requiredPostFields = ["creator", "startTime", "endTime", "restaurant", "cuisine", "notes" ]
 //export a function from this module 
 //that accepts stores implementation
 module.exports = (userStore, postStore) => {

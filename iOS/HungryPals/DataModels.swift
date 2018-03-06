@@ -11,33 +11,40 @@ import Foundation
 
 class Post {
     private var postId:String
-    private var username:String
-    private var userId:String
+    private var creator:User
     private var matchingStatus:String // MATCHING, WAITING_OTHER_TO_RESPOND, COMFIRMED_BY_OTHER, REJECTED, ACCEPTED
-    private var matchedUsername:String = ""
-    private var matchedUserId:String = ""
-    private var matchedUserPic:String = ""
+    private var matchedPost:Post? = nil
+    private var matchedUser:User? = nil
     private var startTime:Date
     private var endTime:Date 
     private var restaurant:String
     private var cuisine:String
+    private var notes:String
     
-    
-    init(postId:String, username:String, userId:String, matchingStatus:String, startTime:Date, endTime:Date, restaurant:String, cuisine:String ) {
+    init(postId:String, creator:User, matchingStatus:String, startTime:Date, endTime:Date, restaurant:String, cuisine:String, notes:String ) {
         self.postId = postId
-        self.username = username
-        self.userId = userId
+        self.creator = creator
         self.matchingStatus = matchingStatus
         self.startTime = startTime
         self.endTime = endTime
         self.restaurant = restaurant
         self.cuisine = cuisine
+        self.notes = notes
     }
     
-    func getMatched(matchedUsername:String, matchedUserId:String, matchedUserPic:String) {
-        self.matchedUserId = matchedUserId
-        self.matchedUsername = matchedUsername
-        self.matchedUserPic = matchedUserPic
+    func getMatchedWithPost(matchedPost:Post, matchingStatus:String) {
+        self.matchedPost = matchedPost
+        self.matchingStatus = matchingStatus
+    }
+    
+    func getMatchedWithUser(matchedUser:User, matchingStatus:String) {
+        self.matchedUser = matchedUser
+        self.matchingStatus = matchingStatus
+    }
+    
+    // direct invite by user
+    func invite(userId:String) {
+        // TODO: send invite to server
     }
     
     func updateMatchingStatus(matchingStatus:String) {
