@@ -8,12 +8,29 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return cuisines.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
 
+    @IBOutlet weak var cuisine: UITextField!
+    @IBOutlet weak var restaurant: UITextField!
+    @IBOutlet weak var time: UITextField!
+    @IBOutlet weak var numberPeople: UITextField!
+    @IBOutlet weak var notes: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        
+        cuisine.inputView = pickerView
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +38,28 @@ class ThirdViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var pickerTextField : UITextField!
+    
+    let cuisines = ["Japanese", "Chinese", "American", "Greek"]
+    
+    // Sets number of columns in picker view
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
-
+    
+    // Sets the number of rows in the picker view
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return cuisines[row]
+    }
+    
+    // This function sets the text of the picker view to the content of the "salutations" array
+//    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return cuisines[row]
+//    }
+    
+    // When user selects an option, this function will set the text of the text field to reflect
+    // the selected option.
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        cuisine.text = cuisines[row]
+    }
 }
