@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A7639204D249600E8A34A /* PostViewController.swift */; };
 		1F3A763C204D24B400E8A34A /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A763B204D24B400E8A34A /* MyPostViewController.swift */; };
-		1F3A763E204D25BE00E8A34A /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A763D204D25BE00E8A34A /* DataModels.swift */; };
 		F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868C20477EEB000AF99F /* AppDelegate.swift */; };
 		F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868E20477EEB000AF99F /* FirstViewController.swift */; };
 		F630869120477EEB000AF99F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630869020477EEB000AF99F /* SecondViewController.swift */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		1F3A7639204D249600E8A34A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		1F3A763B204D24B400E8A34A /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
-		1F3A763D204D25BE00E8A34A /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		F630868920477EEB000AF99F /* HungryPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungryPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F630868C20477EEB000AF99F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F630868E20477EEB000AF99F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 			children = (
 				F630869220477EEB000AF99F /* Main.storyboard */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
-				1F3A763D204D25BE00E8A34A /* DataModels.swift */,
 				1F3A7639204D249600E8A34A /* PostViewController.swift */,
 				1F3A763B204D24B400E8A34A /* MyPostViewController.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
@@ -278,7 +275,6 @@
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
-				1F3A763E204D25BE00E8A34A /* DataModels.swift in Sources */,
 				1F3A763C204D24B400E8A34A /* MyPostViewController.swift in Sources */,
 				1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */,
 			);
