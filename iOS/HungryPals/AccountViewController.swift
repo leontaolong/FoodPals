@@ -8,16 +8,21 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var labelLocation: UILabel!
     @IBOutlet weak var img: UIImageView!
     let appdata = AppData.shared
     
+    @IBOutlet weak var picker: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.picker.dataSource = self
+        self.picker.delegate = self
         print("appdata")
+        print(appdata.cuisine)
         print(appdata.id)
         print(appdata.name)
         print(appdata.location)
@@ -38,6 +43,24 @@ class AccountViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return appdata.cuisine.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return appdata.cuisine[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // code here
     }
     
 
