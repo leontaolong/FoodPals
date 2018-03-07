@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnLogin(_ sender: UIButton) {
         let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) { result in
+        loginManager.logIn(readPermissions: [.publicProfile, .email, .userFriends], viewController: self) { result in
             switch result {
             case .failed(let error):
                 print(error)
@@ -31,14 +31,18 @@ class LoginViewController: UIViewController {
                     if let userInfo = userInfo, let pictureUrl = ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String {
                         print("pictureUrl: \(pictureUrl)")
                     }
+                    if let userInfo = userInfo, let friends = userInfo["friends"] as? NSDictionary {
+                        print("userInfo friends: \(friends)")
+                    }
                 }
+                
             }
         }
     }
     
     
     func getUserInfo(completion: @escaping (_:[String: Any]?, _:Error?) -> Void) {
-        let request = GraphRequest(graphPath: "me",parameters: ["fields": "id, name, email, picture"])
+        let request = GraphRequest(graphPath: "me",parameters: ["fields": "id, name, email, picture, friends"])
         request.start { response, result in
             switch result {
             case .failed(let error):
