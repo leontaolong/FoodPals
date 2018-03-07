@@ -12,11 +12,11 @@ import FacebookLogin
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var facebookInfo: UILabel!
-    
+    let appdata = AppData.shared
     
     @IBAction func btnLogin(_ sender: UIButton) {
         let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [.publicProfile, .email, .userFriends], viewController: self) { result in
+        loginManager.logIn(readPermissions: [.publicProfile, .email, .userFriends, .userLocation], viewController: self) { result in
             switch result {
             case .failed(let error):
                 print(error)
@@ -27,12 +27,22 @@ class LoginViewController: UIViewController {
                     if let error = error { print(error.localizedDescription)}
                     if let userInfo = userInfo, let id = userInfo["id"], let name = userInfo["name"], let email = userInfo["email"] {
                         self.facebookInfo.text = "ID: \(id), Name: \(name), Email: \(email)"
+                        self.appdata.name = name as! String
+                        self.appdata.id = id as! String
+                        self.appdata.email = email as! String
                     }
                     if let userInfo = userInfo, let pictureUrl = ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String {
                         print("pictureUrl: \(pictureUrl)")
+                        self.appdata.profilePicUrl = pictureUrl
                     }
                     if let userInfo = userInfo, let friends = userInfo["friends"] as? NSDictionary {
                         print("userInfo friends: \(friends)")
+                        
+                    }
+                    
+                    if let userInfo = userInfo, let location = userInfo["location"] as? NSDictionary {
+                        print("location: \(location)")
+                        self.appdata.location = (location["name"] as? String)!
                     }
                 }
                 
@@ -42,7 +52,7 @@ class LoginViewController: UIViewController {
     
     
     func getUserInfo(completion: @escaping (_:[String: Any]?, _:Error?) -> Void) {
-        let request = GraphRequest(graphPath: "me",parameters: ["fields": "id, name, email, picture, friends"])
+        let request = GraphRequest(graphPath: "me",parameters: ["fields": "id, name, email, picture, friends, location"])
         request.start { response, result in
             switch result {
             case .failed(let error):

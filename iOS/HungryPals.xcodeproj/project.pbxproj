@@ -11,6 +11,8 @@
 		584CFF43D86C16BEB4AB8944 /* Pods_HungryPalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BBB2364C12EEC843B19E20 /* Pods_HungryPalsTests.framework */; };
 		D547979BB338C6B1656512CF /* Pods_HungryPalsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C71E2528C01E804392F4FE /* Pods_HungryPalsUITests.framework */; };
 		EF3492E920492A510014A9C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3492E820492A510014A9C2 /* LoginViewController.swift */; };
+		EF9B9C57204FB49A003B574B /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B9C56204FB49A003B574B /* AppData.swift */; };
+		EF9B9C59204FBAD0003B574B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B9C58204FBAD0003B574B /* AccountViewController.swift */; };
 		F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868C20477EEB000AF99F /* AppDelegate.swift */; };
 		F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868E20477EEB000AF99F /* FirstViewController.swift */; };
 		F630869120477EEB000AF99F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630869020477EEB000AF99F /* SecondViewController.swift */; };
@@ -49,6 +51,8 @@
 		C227D8910BC62952B859D006 /* Pods_HungryPals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C342D9CF3398A1FB59A21F2B /* Pods-HungryPals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.debug.xcconfig"; sourceTree = "<group>"; };
 		EF3492E820492A510014A9C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF9B9C56204FB49A003B574B /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		EF9B9C58204FBAD0003B574B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		F630868920477EEB000AF99F /* HungryPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungryPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F630868C20477EEB000AF99F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F630868E20477EEB000AF99F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
 				F630869020477EEB000AF99F /* SecondViewController.swift */,
 				F630869220477EEB000AF99F /* Main.storyboard */,
+				EF9B9C58204FBAD0003B574B /* AccountViewController.swift */,
+				EF9B9C56204FB49A003B574B /* AppData.swift */,
 				EF3492E820492A510014A9C2 /* LoginViewController.swift */,
 				F63086BC2047806D000AF99F /* ThirdViewController.swift */,
 				F630869520477EEB000AF99F /* Assets.xcassets */,
@@ -481,9 +487,11 @@
 			files = (
 				F630869120477EEB000AF99F /* SecondViewController.swift in Sources */,
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
+				EF9B9C59204FBAD0003B574B /* AccountViewController.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
 				EF3492E920492A510014A9C2 /* LoginViewController.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
+				EF9B9C57204FB49A003B574B /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
