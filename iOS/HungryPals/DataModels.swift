@@ -12,6 +12,7 @@ import Foundation
 class Post {
     private var postId:String
     private var creator:User
+    private var createdAt:Date
     private var matchingStatus:String // MATCHING, WAITING_OTHER_TO_RESPOND, COMFIRMED_BY_OTHER, REJECTED, ACCEPTED
     private var matchedPost:Post? = nil
     private var matchedUser:User? = nil
@@ -21,9 +22,10 @@ class Post {
     private var cuisine:String
     private var notes:String
     
-    init(postId:String, creator:User, matchingStatus:String, startTime:Date, endTime:Date, restaurant:String, cuisine:String, notes:String ) {
+    init(postId:String, creator:User, createdAt:Date, matchingStatus:String, startTime:Date, endTime:Date, restaurant:String, cuisine:String, notes:String ) {
         self.postId = postId
         self.creator = creator
+        self.createdAt = createdAt
         self.matchingStatus = matchingStatus
         self.startTime = startTime
         self.endTime = endTime
@@ -58,20 +60,14 @@ class User {
     private var profilePic:String
     private var cuisinePrefs:[String] = []
     private var deviceToken:String = ""
-    private var friendList:String
+    private var friendList:[String]
     
-    init(username:String, userId:String, profilePic:String, friendList:String) {
+    init(username:String, userId:String, profilePic:String, friendList:[String], deviceToken:String, cuisinePrefs:[String]) {
         self.username = username
         self.userId = userId
         self.profilePic = profilePic
         self.friendList = friendList
-    }
-    
-    public func setDeviceToken(_ deviceToken:String) {
-        self.deviceToken = deviceToken
-    }
-    
-    public func setCuisinePrefs(_ cuisinePrefs:[String]) {
         self.cuisinePrefs = cuisinePrefs
+        self.deviceToken = deviceToken
     }
 }
