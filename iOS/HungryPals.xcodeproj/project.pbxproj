@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20881E2204F837900ED6D3E /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20881E1204F837900ED6D3E /* DummyData.swift */; };
+		C20881E4204FABF300ED6D3E /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20881E3204FABF300ED6D3E /* DataModels.swift */; };
 		F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868C20477EEB000AF99F /* AppDelegate.swift */; };
 		F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868E20477EEB000AF99F /* FirstViewController.swift */; };
 		F630869120477EEB000AF99F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630869020477EEB000AF99F /* SecondViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C20881E1204F837900ED6D3E /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		C20881E3204FABF300ED6D3E /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		F630868920477EEB000AF99F /* HungryPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungryPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F630868C20477EEB000AF99F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F630868E20477EEB000AF99F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
+				C20881E1204F837900ED6D3E /* DummyData.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
 				F630869020477EEB000AF99F /* SecondViewController.swift */,
 				F630869220477EEB000AF99F /* Main.storyboard */,
@@ -109,6 +114,7 @@
 				F630869520477EEB000AF99F /* Assets.xcassets */,
 				F630869720477EEB000AF99F /* LaunchScreen.storyboard */,
 				F630869A20477EEB000AF99F /* Info.plist */,
+				C20881E3204FABF300ED6D3E /* DataModels.swift */,
 			);
 			path = HungryPals;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 				F630869120477EEB000AF99F /* SecondViewController.swift in Sources */,
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
+				C20881E4204FABF300ED6D3E /* DataModels.swift in Sources */,
+				C20881E2204F837900ED6D3E /* DummyData.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
