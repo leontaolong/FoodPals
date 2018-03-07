@@ -107,13 +107,13 @@
 		F630868B20477EEB000AF99F /* HungryPals */ = {
 			isa = PBXGroup;
 			children = (
+				F630869220477EEB000AF99F /* Main.storyboard */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
 				1F3A763D204D25BE00E8A34A /* DataModels.swift */,
 				1F3A7639204D249600E8A34A /* PostViewController.swift */,
 				1F3A763B204D24B400E8A34A /* MyPostViewController.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
 				F630869020477EEB000AF99F /* SecondViewController.swift */,
-				F630869220477EEB000AF99F /* Main.storyboard */,
 				F63086BC2047806D000AF99F /* ThirdViewController.swift */,
 				F630869520477EEB000AF99F /* Assets.xcassets */,
 				F630869720477EEB000AF99F /* LaunchScreen.storyboard */,
