@@ -38,36 +38,77 @@ module.exports = (userStore, postStore, apnProvider) => {
         } else {
             try {
                 let matchingResult = await postStore.match(postInfo)
-                await postStore.addPost(postInfo);
+                if (matchingResult) {
+                    postInfo.matchingStatus = "WAITING_OTHER_TO_RESPOND";
+                    postInfo.matchedPost = matchingResult;
+                } else {
+                    postInfo.matchingStatus = "MATCHING";
+                }
+                let post = await postStore.addPost(postInfo);
+
+                if (matchingResult) {
+                    matchingResult.matchedPost = post;
+                    matchingResult.matchingStatus = "WAITING_OTHER_TO_RESPOND";
+                    await postStore.updatePost(matchingResult);
+                }
+                Utils.notifyMatching(apnProvider, matchingResult)
             } catch (err) {
                 next(err);
             }
-            res.send("Post successfully added.")
+            res.send(post);
         }
     });
 
     // delete a post by post id
-    router.delete('/v1/post', (req, res, next) => {
-        
+    router.delete('/v1/post', async (req, res, next) => {
+        let post = req.body;
+        await postStore.deletePost(post);
+        res.send("Post successfully deleted.");
     });
 
     // get all existing posts
     router.get('/v1/posts', async (req, res, next) => {
-        let posts = await postStore.getAll(postInfo);
+        let posts = await postStore.getAllMatchable(postInfo);
         res.send(posts);
     });
 
     // request matching for a post by user id and post id
     // respond with descriptive text 
     router.post('/v1/invite', (req, res, next) => {
-            
+        let inviteInfo = req.body
+        Utils.notifyInvite(apnProvider, inviteInfo)    
     });
 
     // respond a match request with user id and post id
     // respond with new post with matching info, otherwise respond descriptive text  
-    router.post('/v1/respond', (req, res, next) => {
+    router.post('/v1/respond', async (req, res, next) => {
         let responseInfo = req.body
-        Utils.notifyInvite(apnProvider, responseInfo)  
+        if (!responseInfo.confirmed)  { // rejected
+            await postStore.updateMatchingStatus(responseInfo.postId, "REJECTED");
+            await postStore.updateMatchingStatus(responseInfo.matchedPostId, "REJECTED");
+            let postToNotify = await postStore.getPost(responseInfo.matchedPostId);
+            let deviceToken = postToNotify.creator.deviceToken;
+            let titie = "Rejected";
+            let body = postToNotify.matchedPost.creator.username;
+            Utils.notifyMatchingStatus(deviceToken, title, body, postToNotify.postId, "REJECTED");
+            res.send({matchingStatus: "REJECTED"});
+        } else {
+            let confirmedByOther = await postStore.confirmedByOther(responseInfo);
+            if (confirmedByOther) { // all confirmed
+                await postStore.updateMatchingStatus(responseInfo.postId, "MATCHED");
+                await postStore.updateMatchingStatus(responseInfo.matchedPostId, "MATCHED");
+                let postToNotify = await postStore.getPost(responseInfo.matchedPostId);
+                let deviceToken = postToNotify.creator.deviceToken;
+                let titie = "Matched";
+                let body = postToNotify.matchedPost.creator.username;
+                Utils.notifyMatchingStatus(deviceToken, title, body, postToNotify.postId, "MATCHED");
+                res.send({matchingStatus: "MATCHED"});
+            } else {
+                await postStore.updateMatchingStatus(responseInfo.postId, "WAITING_OTHER_TO_RESPOND");
+                await postStore.updateMatchingStatus(responseInfo.matchedPostId, "COMFIRMED_BY_OTHER");
+                res.send({matchingStatus: "WAITING_OTHER_TO_RESPOND"});
+            }
+        }
     });
 
     return router;

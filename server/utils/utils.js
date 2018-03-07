@@ -9,14 +9,43 @@ let Utils = {
             if(!requestBody.hasOwnProperty(field)){
                 missingInfo = true;
             }
-        })
+        });
         return missingInfo;
     },
 
-    notifyInvite: (apnProvider, responseInfo) => {
+    notifyMatching: (apnProvider, post) => {
         let notification = new apn.Notification({
             title: "Hello, world!",
-            body: responseInfo.matchedPostId,
+            body: post.matchedPost.creator.username,
+            sound: "default",
+            contentAvailable: 1,
+            badge: 1,
+            mutableContent: 1,
+            topic: "edu.uw.ischool.loners.HungryPals",
+            matchingInfo : {
+            matchedPost: post.matchedPost,
+            matchingStatus: post.matchingStatus
+            },
+            payload: {
+              "sender": "node-apn",
+            },
+        });
+
+        let deviceToken = post.creator.deviceToken;
+
+        apnProvider.send(notification, deviceToken).then( (result) => {
+            if (result.failed.length == 0) {
+                console.log("notification successfully sent.")
+            } else {
+                console.log(result)
+            }
+        });     
+    },
+
+    notifyInvite: (apnProvider, inviteInfo) => {
+        let notification = new apn.Notification({
+            title: "Let's eat together!",
+            body: inviteInfo.matchedPostId,
             sound: "default",
             contentAvailable: 1,
             badge: 1,
@@ -26,8 +55,35 @@ let Utils = {
               "sender": "node-apn",
             },
         });
-        
-        apnProvider.send(notification, responseInfo.deviceToken).then( (result) => {
+
+        apnProvider.send(notification, inviteInfo.deviceToken).then( (result) => {
+            if (result.failed.length == 0) {
+                console.log("notification successfully sent.")
+            } else {
+                console.log(result)
+            }
+        });
+    },
+
+    notifyMatchingStatus: (deviceToken, title, body, postId, matchingStatus) => {
+        let notification = new apn.Notification({
+            title: title,
+            body: body,
+            sound: "default",
+            contentAvailable: 1,
+            badge: 1,
+            mutableContent: 1,
+            topic: "edu.uw.ischool.loners.HungryPals",
+            statusInfo : {
+                matchingStatus: matchingStatus,
+                postId: postId
+            },
+            payload: {
+              "sender": "node-apn",
+            },
+        });
+
+        apnProvider.send(notification, deviceToken).then( (result) => {
             if (result.failed.length == 0) {
                 console.log("notification successfully sent.")
             } else {

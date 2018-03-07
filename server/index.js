@@ -16,6 +16,9 @@ const app = express();
 
 app.use(morgan(process.env.LOGFORMAT || 'dev'));
 
+//  increase the default limit globally 
+require('events').EventEmitter.prototype._maxListeners = 100;
+
 const port = process.env.PORT || '80';
 const dbAddr = process.env.DBADDR;
 const apnsPath = process.env.APNSPATH;
@@ -40,8 +43,8 @@ let apnsOptions = {
 };
 
 // set up APNs connection
-// var apnProvider = new apn.Provider(apnsOptions);
-let apnProvider = null;  // for dev purpose, don't frequently connect to APNs
+var apnProvider = new apn.Provider(apnsOptions);
+// let apnProvider = null;  // for dev purpose, don't frequently connect to APNs
 
 app.use(bodyParser.text());
 app.use(bodyParser.json());
