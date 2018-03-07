@@ -28,11 +28,6 @@ module.exports = (userStore, postStore, apnProvider) => {
         }
     });
 
-    // get specific user info by id
-    router.get('/v1/user', (req, res, next) => {
-
-    });
-
     // add a post with post info
     // respond with new post with matching info if find one, otherwise respond descriptive text
     router.post('/v1/post', async (req, res, next) => {
@@ -42,7 +37,7 @@ module.exports = (userStore, postStore, apnProvider) => {
             res.status(400).send(`Missing post information`);
         } else {
             try {
-                // let matchingResult = await postStore.match(postInfo)
+                let matchingResult = await postStore.match(postInfo)
                 await postStore.addPost(postInfo);
             } catch (err) {
                 next(err);
@@ -51,20 +46,15 @@ module.exports = (userStore, postStore, apnProvider) => {
         }
     });
 
-    // update a post with post info
-    // respond with new post with matching info if find one, otherwise respond descriptive text
-    router.put('/v1/post', (req, res, next) => {
+    // delete a post by post id
+    router.delete('/v1/post', (req, res, next) => {
         
     });
 
-    // delete a post by post id
-    router.delete('/v1/post', (req, res, next) => {
-            
-    });
-
     // get all existing posts
-    router.get('/v1/posts', (req, res, next) => {
-    
+    router.get('/v1/posts', async (req, res, next) => {
+        let posts = await postStore.getAll(postInfo);
+        res.send(posts);
     });
 
     // request matching for a post by user id and post id

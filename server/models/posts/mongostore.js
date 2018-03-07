@@ -14,6 +14,9 @@ class MongoStore {
     addPost(postInfo) {
         this.collection.insert(postInfo);
     }
+
+    match(postInfo) {
+    }
     
     getAll() {
         return this.collection.find().toArray();
