@@ -39,6 +39,10 @@ class Post {
         return self.restaurant
     }
     
+    public func getCuisine() -> String {
+        return self.cuisine
+    }
+    
     public func getStartTime() -> Date {
         return self.startTime
     }
@@ -77,7 +81,11 @@ class User {
 extension Date {
     func toString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "H:mm a"
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+        //dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: self)
     }
 }

@@ -24,6 +24,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         postsTable.dataSource = self
         postsTable.delegate = self
+        //postsTable.separatorStyle = UITableViewCellSeparatorStyle.none
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,22 +36,29 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return posts!.count;
     }
     
+    private func maskRoundedImage(image: UIImage, radius: CGFloat) -> UIImage {
+        let imageView: UIImageView = UIImageView(image: image)
+        let layer = imageView.layer
+        layer.masksToBounds = true
+        layer.cornerRadius = radius
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return roundedImage!
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let post = posts![index]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         cell.textLabel?.text = post.getCreator().getUsername()
-        cell.detailTextLabel?.text = "Wants to eat \(post.getRestaurant())\n At \(post.getStartTime().toString()) - \(post.getEndTime().toString()), Today"
+        cell.detailTextLabel?.text = "Wants to eat \(post.getCuisine())\nAt \(post.getStartTime().toString()) - \(post.getEndTime().toString()), Today"
         
         let imageUrl = URL(string: post.getCreator().getProfilePic())!
-        
         let imageData = try! Data(contentsOf: imageUrl)
-        
-        //let image = UIImage(data: imageData)
-        
-        cell.imageView?.image = UIImage(data: imageData)
-        //cell.imageView?.image = UIImage(named: post.getCreator().getProfilePic())
+        cell.imageView?.image = maskRoundedImage(image: UIImage(data: imageData)!, radius: CGFloat(160))
         return cell
     }
     
