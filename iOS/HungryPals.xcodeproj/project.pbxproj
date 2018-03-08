@@ -107,7 +107,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F037FDD2050C55300C623B3 /* New Group */ = {
+		2F037FDD2050C55300C623B3 /* font */ = {
 			isa = PBXGroup;
 			children = (
 				2F037FDE2050C56500C623B3 /* Candara Bold Italic.ttf */,
@@ -115,7 +115,7 @@
 				2F037FDF2050C56500C623B3 /* Candara Italic.ttf */,
 				2F037FE12050C56600C623B3 /* Candara.ttf */,
 			);
-			path = "New Group";
+			path = font;
 			sourceTree = "<group>";
 		};
 		800889CC4DF8A5092E356BB2 /* Pods */ = {
@@ -166,7 +166,7 @@
 		F630868B20477EEB000AF99F /* HungryPals */ = {
 			isa = PBXGroup;
 			children = (
-				2F037FDD2050C55300C623B3 /* New Group */,
+				2F037FDD2050C55300C623B3 /* font */,
 				2F037FD92050B31D00C623B3 /* FormViewController2.swift */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
