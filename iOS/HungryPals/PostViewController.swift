@@ -13,15 +13,18 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     let postRepo = PostRepository.shared
     var posts: [Post]? = nil
+    var users: [User]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         posts = UIApplication.shared.postRepository.getPosts()
+        users = UIApplication.shared.postRepository.getUsers()
         
         // Do any additional setup after loading the view.
         postsTable.dataSource = self
         postsTable.delegate = self
+        //postsTable.separatorStyle = UITableViewCellSeparatorStyle.none
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,14 +36,29 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return posts!.count;
     }
     
+    private func maskRoundedImage(image: UIImage, radius: CGFloat) -> UIImage {
+        let imageView: UIImageView = UIImageView(image: image)
+        let layer = imageView.layer
+        layer.masksToBounds = true
+        layer.cornerRadius = radius
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return roundedImage!
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let post = posts![index]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-        cell.textLabel?.text = post.getRestaurant()
-        //cell.detailTextLabel?.text = post.desc
-        //cell.imageView?.image = UIImage(named: post.image)
+        cell.textLabel?.text = post.getCreator().getUsername()
+        cell.detailTextLabel?.text = "Wants to eat \(post.getCuisine())\nAt \(post.getStartTime().toString()) - \(post.getEndTime().toString()), Today"
+        
+        let imageUrl = URL(string: post.getCreator().getProfilePic())!
+        let imageData = try! Data(contentsOf: imageUrl)
+        cell.imageView?.image = maskRoundedImage(image: UIImage(data: imageData)!, radius: CGFloat(160))
         return cell
     }
     
