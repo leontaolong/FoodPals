@@ -11,10 +11,6 @@
 		2F037FD82050ACA900C623B3 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F037FD72050ACA900C623B3 /* FormViewController.swift */; };
 		2F037FDA2050B31D00C623B3 /* FormViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F037FD92050B31D00C623B3 /* FormViewController2.swift */; };
 		2F037FDC2050C1EB00C623B3 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F037FDB2050C1EB00C623B3 /* ResultsViewController.swift */; };
-		2F037FE22050C56700C623B3 /* Candara Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F037FDE2050C56500C623B3 /* Candara Bold Italic.ttf */; };
-		2F037FE32050C56700C623B3 /* Candara Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F037FDF2050C56500C623B3 /* Candara Italic.ttf */; };
-		2F037FE42050C56700C623B3 /* Candara Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F037FE02050C56600C623B3 /* Candara Bold.ttf */; };
-		2F037FE52050C56700C623B3 /* Candara.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F037FE12050C56600C623B3 /* Candara.ttf */; };
 		4719885F5153AEE71C734FDE /* Pods_HungryPalsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EBF645A2C0EF119D0ECA01 /* Pods_HungryPalsUITests.framework */; };
 		C680A579DF7BBFD1E1D97DD2 /* Pods_HungryPalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D25A7D1409CEFBA6AFE4E9C /* Pods_HungryPalsTests.framework */; };
 		F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868C20477EEB000AF99F /* AppDelegate.swift */; };
@@ -50,10 +46,6 @@
 		2F037FD72050ACA900C623B3 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		2F037FD92050B31D00C623B3 /* FormViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController2.swift; sourceTree = "<group>"; };
 		2F037FDB2050C1EB00C623B3 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		2F037FDE2050C56500C623B3 /* Candara Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Candara Bold Italic.ttf"; path = "../../../../../Downloads/Candara Bold Italic.ttf"; sourceTree = "<group>"; };
-		2F037FDF2050C56500C623B3 /* Candara Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Candara Italic.ttf"; path = "../../../../../Downloads/Candara Italic.ttf"; sourceTree = "<group>"; };
-		2F037FE02050C56600C623B3 /* Candara Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Candara Bold.ttf"; path = "../../../../../Downloads/Candara Bold.ttf"; sourceTree = "<group>"; };
-		2F037FE12050C56600C623B3 /* Candara.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Candara.ttf; path = ../../../../../Downloads/Candara.ttf; sourceTree = "<group>"; };
 		3EAF624C4D1012DC26FDE257 /* Pods_HungryPals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2EE032CE519866FE0C306 /* Pods-HungryPalsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		51B2408370029E70BB92F6D1 /* Pods-HungryPals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,17 +99,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F037FDD2050C55300C623B3 /* font */ = {
-			isa = PBXGroup;
-			children = (
-				2F037FDE2050C56500C623B3 /* Candara Bold Italic.ttf */,
-				2F037FE02050C56600C623B3 /* Candara Bold.ttf */,
-				2F037FDF2050C56500C623B3 /* Candara Italic.ttf */,
-				2F037FE12050C56600C623B3 /* Candara.ttf */,
-			);
-			path = font;
-			sourceTree = "<group>";
-		};
 		800889CC4DF8A5092E356BB2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +147,6 @@
 		F630868B20477EEB000AF99F /* HungryPals */ = {
 			isa = PBXGroup;
 			children = (
-				2F037FDD2050C55300C623B3 /* font */,
 				2F037FD92050B31D00C623B3 /* FormViewController2.swift */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
@@ -316,13 +296,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F037FE52050C56700C623B3 /* Candara.ttf in Resources */,
-				2F037FE22050C56700C623B3 /* Candara Bold Italic.ttf in Resources */,
 				F630869920477EEB000AF99F /* LaunchScreen.storyboard in Resources */,
-				2F037FE32050C56700C623B3 /* Candara Italic.ttf in Resources */,
 				F630869620477EEB000AF99F /* Assets.xcassets in Resources */,
 				F630869420477EEB000AF99F /* Main.storyboard in Resources */,
-				2F037FE42050C56700C623B3 /* Candara Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
