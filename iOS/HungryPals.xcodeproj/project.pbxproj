@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080029B17A6CE1A1DD69999D /* Pods_HungryPals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAF624C4D1012DC26FDE257 /* Pods_HungryPals.framework */; };
+		2F037FD82050ACA900C623B3 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F037FD72050ACA900C623B3 /* FormViewController.swift */; };
+		2F037FDA2050B31D00C623B3 /* FormViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F037FD92050B31D00C623B3 /* FormViewController2.swift */; };
+		2F037FDC2050C1EB00C623B3 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F037FDB2050C1EB00C623B3 /* ResultsViewController.swift */; };
+		2F037FE22050C56700C623B3 /* Candara Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F037FDE2050C56500C623B3 /* Candara Bold Italic.ttf */; };
+		2F037FE32050C56700C623B3 /* Candara Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F037FDF2050C56500C623B3 /* Candara Italic.ttf */; };
+		2F037FE42050C56700C623B3 /* Candara Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F037FE02050C56600C623B3 /* Candara Bold.ttf */; };
+		2F037FE52050C56700C623B3 /* Candara.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F037FE12050C56600C623B3 /* Candara.ttf */; };
+		4719885F5153AEE71C734FDE /* Pods_HungryPalsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EBF645A2C0EF119D0ECA01 /* Pods_HungryPalsUITests.framework */; };
+		C680A579DF7BBFD1E1D97DD2 /* Pods_HungryPalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D25A7D1409CEFBA6AFE4E9C /* Pods_HungryPalsTests.framework */; };
 		F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868C20477EEB000AF99F /* AppDelegate.swift */; };
 		F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868E20477EEB000AF99F /* FirstViewController.swift */; };
 		F630869120477EEB000AF99F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630869020477EEB000AF99F /* SecondViewController.swift */; };
@@ -36,6 +46,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D25A7D1409CEFBA6AFE4E9C /* Pods_HungryPalsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPalsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F037FD72050ACA900C623B3 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		2F037FD92050B31D00C623B3 /* FormViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController2.swift; sourceTree = "<group>"; };
+		2F037FDB2050C1EB00C623B3 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		2F037FDE2050C56500C623B3 /* Candara Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Candara Bold Italic.ttf"; path = "../../../../../Downloads/Candara Bold Italic.ttf"; sourceTree = "<group>"; };
+		2F037FDF2050C56500C623B3 /* Candara Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Candara Italic.ttf"; path = "../../../../../Downloads/Candara Italic.ttf"; sourceTree = "<group>"; };
+		2F037FE02050C56600C623B3 /* Candara Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Candara Bold.ttf"; path = "../../../../../Downloads/Candara Bold.ttf"; sourceTree = "<group>"; };
+		2F037FE12050C56600C623B3 /* Candara.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Candara.ttf; path = ../../../../../Downloads/Candara.ttf; sourceTree = "<group>"; };
+		3EAF624C4D1012DC26FDE257 /* Pods_HungryPals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44B2EE032CE519866FE0C306 /* Pods-HungryPalsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		51B2408370029E70BB92F6D1 /* Pods-HungryPals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.release.xcconfig"; sourceTree = "<group>"; };
+		799AEF365F65BB00B9A2C46F /* Pods-HungryPalsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7A97087075939D4CC70C8ACB /* Pods-HungryPalsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests.release.xcconfig"; sourceTree = "<group>"; };
+		7F603111D93D0682A10062F7 /* Pods-HungryPals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.debug.xcconfig"; sourceTree = "<group>"; };
+		D0EB39F30E969E2BEE65A712 /* Pods-HungryPalsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D2EBF645A2C0EF119D0ECA01 /* Pods_HungryPalsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPalsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F630868920477EEB000AF99F /* HungryPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungryPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F630868C20477EEB000AF99F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F630868E20477EEB000AF99F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				080029B17A6CE1A1DD69999D /* Pods_HungryPals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C680A579DF7BBFD1E1D97DD2 /* Pods_HungryPalsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +100,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4719885F5153AEE71C734FDE /* Pods_HungryPalsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F037FDD2050C55300C623B3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				2F037FDE2050C56500C623B3 /* Candara Bold Italic.ttf */,
+				2F037FE02050C56600C623B3 /* Candara Bold.ttf */,
+				2F037FDF2050C56500C623B3 /* Candara Italic.ttf */,
+				2F037FE12050C56600C623B3 /* Candara.ttf */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		800889CC4DF8A5092E356BB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F603111D93D0682A10062F7 /* Pods-HungryPals.debug.xcconfig */,
+				51B2408370029E70BB92F6D1 /* Pods-HungryPals.release.xcconfig */,
+				D0EB39F30E969E2BEE65A712 /* Pods-HungryPalsTests.debug.xcconfig */,
+				7A97087075939D4CC70C8ACB /* Pods-HungryPalsTests.release.xcconfig */,
+				799AEF365F65BB00B9A2C46F /* Pods-HungryPalsUITests.debug.xcconfig */,
+				44B2EE032CE519866FE0C306 /* Pods-HungryPalsUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E30049A04ADABDCF776CEB0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EAF624C4D1012DC26FDE257 /* Pods_HungryPals.framework */,
+				2D25A7D1409CEFBA6AFE4E9C /* Pods_HungryPalsTests.framework */,
+				D2EBF645A2C0EF119D0ECA01 /* Pods_HungryPalsUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F630868020477EEB000AF99F = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +148,8 @@
 				F63086A220477EEB000AF99F /* HungryPalsTests */,
 				F63086AD20477EEB000AF99F /* HungryPalsUITests */,
 				F630868A20477EEB000AF99F /* Products */,
+				800889CC4DF8A5092E356BB2 /* Pods */,
+				E30049A04ADABDCF776CEB0C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +166,14 @@
 		F630868B20477EEB000AF99F /* HungryPals */ = {
 			isa = PBXGroup;
 			children = (
+				2F037FDD2050C55300C623B3 /* New Group */,
+				2F037FD92050B31D00C623B3 /* FormViewController2.swift */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
 				F630869020477EEB000AF99F /* SecondViewController.swift */,
+				2F037FD72050ACA900C623B3 /* FormViewController.swift */,
 				F630869220477EEB000AF99F /* Main.storyboard */,
+				2F037FDB2050C1EB00C623B3 /* ResultsViewController.swift */,
 				F63086BC2047806D000AF99F /* ThirdViewController.swift */,
 				F630869520477EEB000AF99F /* Assets.xcassets */,
 				F630869720477EEB000AF99F /* LaunchScreen.storyboard */,
@@ -138,9 +207,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F63086B320477EEB000AF99F /* Build configuration list for PBXNativeTarget "HungryPals" */;
 			buildPhases = (
+				00B9ED9D0899263277161ACE /* [CP] Check Pods Manifest.lock */,
 				F630868520477EEB000AF99F /* Sources */,
 				F630868620477EEB000AF99F /* Frameworks */,
 				F630868720477EEB000AF99F /* Resources */,
+				BCE7C7330BDEF9081DF07750 /* [CP] Embed Pods Frameworks */,
+				CEA66D4678DE108D6D40C406 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,9 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F63086B620477EEB000AF99F /* Build configuration list for PBXNativeTarget "HungryPalsTests" */;
 			buildPhases = (
+				B981D3EAEED9484644D3B5C0 /* [CP] Check Pods Manifest.lock */,
 				F630869B20477EEB000AF99F /* Sources */,
 				F630869C20477EEB000AF99F /* Frameworks */,
 				F630869D20477EEB000AF99F /* Resources */,
+				C3960569453F1887012163F4 /* [CP] Embed Pods Frameworks */,
+				516980B678C064E61641B90D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,9 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F63086B920477EEB000AF99F /* Build configuration list for PBXNativeTarget "HungryPalsUITests" */;
 			buildPhases = (
+				EFCBB1ACE854E1DC1803F829 /* [CP] Check Pods Manifest.lock */,
 				F63086A620477EEB000AF99F /* Sources */,
 				F63086A720477EEB000AF99F /* Frameworks */,
 				F63086A820477EEB000AF99F /* Resources */,
+				62C681054150DB6B0315DB06 /* [CP] Embed Pods Frameworks */,
+				49ABE7C36FF4377246ED538E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,9 +316,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F037FE52050C56700C623B3 /* Candara.ttf in Resources */,
+				2F037FE22050C56700C623B3 /* Candara Bold Italic.ttf in Resources */,
 				F630869920477EEB000AF99F /* LaunchScreen.storyboard in Resources */,
+				2F037FE32050C56700C623B3 /* Candara Italic.ttf in Resources */,
 				F630869620477EEB000AF99F /* Assets.xcassets in Resources */,
 				F630869420477EEB000AF99F /* Main.storyboard in Resources */,
+				2F037FE42050C56700C623B3 /* Candara Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +342,156 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00B9ED9D0899263277161ACE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HungryPals-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49ABE7C36FF4377246ED538E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		516980B678C064E61641B90D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62C681054150DB6B0315DB06 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B981D3EAEED9484644D3B5C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HungryPalsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCE7C7330BDEF9081DF07750 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3960569453F1887012163F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEA66D4678DE108D6D40C406 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFCBB1ACE854E1DC1803F829 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HungryPalsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F630868520477EEB000AF99F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -268,6 +500,9 @@
 				F630869120477EEB000AF99F /* SecondViewController.swift in Sources */,
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
+				2F037FDC2050C1EB00C623B3 /* ResultsViewController.swift in Sources */,
+				2F037FDA2050B31D00C623B3 /* FormViewController2.swift in Sources */,
+				2F037FD82050ACA900C623B3 /* FormViewController.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +667,7 @@
 		};
 		F63086B420477EEB000AF99F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F603111D93D0682A10062F7 /* Pods-HungryPals.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -446,6 +682,7 @@
 		};
 		F63086B520477EEB000AF99F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51B2408370029E70BB92F6D1 /* Pods-HungryPals.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -460,6 +697,7 @@
 		};
 		F63086B720477EEB000AF99F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0EB39F30E969E2BEE65A712 /* Pods-HungryPalsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -476,6 +714,7 @@
 		};
 		F63086B820477EEB000AF99F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A97087075939D4CC70C8ACB /* Pods-HungryPalsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +731,7 @@
 		};
 		F63086BA20477EEB000AF99F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 799AEF365F65BB00B9A2C46F /* Pods-HungryPalsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -507,6 +747,7 @@
 		};
 		F63086BB20477EEB000AF99F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44B2EE032CE519866FE0C306 /* Pods-HungryPalsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -34,10 +34,10 @@ class FormViewController2: UIViewController {
         self.view.addSubview(button)
         
         //button Constraints
-//        button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-//        button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-//        button.widthAnchor.constraint(equalToConstant: 270).isActive = true
-//        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 270).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         //Set the drop down menu's options
         button.dropView.dropDownOptions = ["Chinese", "American", "Italian", "Japanese", "Korean", "Pizza"]
@@ -79,10 +79,10 @@ class dropDownBtn: UIButton, dropDownProtocol {
     override func didMoveToSuperview() {
         self.superview?.addSubview(dropView)
         self.superview?.bringSubview(toFront: dropView)
-//        dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-//        dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-//        dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-//        height = dropView.heightAnchor.constraint(equalToConstant: 0)
+        dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        height = dropView.heightAnchor.constraint(equalToConstant: 0)
     }
     
     var isOpen = false
