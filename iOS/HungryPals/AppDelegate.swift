@@ -8,6 +8,14 @@
 
 import UIKit
 
+extension UIApplication {
+    var postRepository : PostRepository {
+        get {
+            return PostRepository.shared
+        }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
