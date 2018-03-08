@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C20881E2204F837900ED6D3E /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20881E1204F837900ED6D3E /* DummyData.swift */; };
-		C20881E4204FABF300ED6D3E /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20881E3204FABF300ED6D3E /* DataModels.swift */; };
+		1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A7639204D249600E8A34A /* PostViewController.swift */; };
+		1F3A763C204D24B400E8A34A /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A763B204D24B400E8A34A /* MyPostViewController.swift */; };
+		1F773A652050A5BD000F14DA /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F773A642050A5BD000F14DA /* DataModels.swift */; };
 		F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868C20477EEB000AF99F /* AppDelegate.swift */; };
 		F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868E20477EEB000AF99F /* FirstViewController.swift */; };
 		F630869120477EEB000AF99F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630869020477EEB000AF99F /* SecondViewController.swift */; };
@@ -38,8 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C20881E1204F837900ED6D3E /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		C20881E3204FABF300ED6D3E /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		1F3A7639204D249600E8A34A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		1F3A763B204D24B400E8A34A /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
+		1F773A642050A5BD000F14DA /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		F630868920477EEB000AF99F /* HungryPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungryPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F630868C20477EEB000AF99F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F630868E20477EEB000AF99F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F61FDB1E204E5F95003D0808 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F630868020477EEB000AF99F = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +98,7 @@
 				F63086A220477EEB000AF99F /* HungryPalsTests */,
 				F63086AD20477EEB000AF99F /* HungryPalsUITests */,
 				F630868A20477EEB000AF99F /* Products */,
+				F61FDB1E204E5F95003D0808 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,16 +115,19 @@
 		F630868B20477EEB000AF99F /* HungryPals */ = {
 			isa = PBXGroup;
 			children = (
+
+
+				F630869220477EEB000AF99F /* Main.storyboard */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
-				C20881E1204F837900ED6D3E /* DummyData.swift */,
+				1F3A7639204D249600E8A34A /* PostViewController.swift */,
+				1F3A763B204D24B400E8A34A /* MyPostViewController.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
 				F630869020477EEB000AF99F /* SecondViewController.swift */,
-				F630869220477EEB000AF99F /* Main.storyboard */,
 				F63086BC2047806D000AF99F /* ThirdViewController.swift */,
 				F630869520477EEB000AF99F /* Assets.xcassets */,
 				F630869720477EEB000AF99F /* LaunchScreen.storyboard */,
 				F630869A20477EEB000AF99F /* Info.plist */,
-				C20881E3204FABF300ED6D3E /* DataModels.swift */,
+				1F773A642050A5BD000F14DA /* DataModels.swift */,
 			);
 			path = HungryPals;
 			sourceTree = "<group>";
@@ -206,6 +219,14 @@
 					F630868820477EEB000AF99F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					F630869E20477EEB000AF99F = {
 						CreatedOnToolsVersion = 9.2;
@@ -273,10 +294,14 @@
 			files = (
 				F630869120477EEB000AF99F /* SecondViewController.swift in Sources */,
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
+				9D4E435420490C2E00108B71 /* DataModels.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
 				C20881E4204FABF300ED6D3E /* DataModels.swift in Sources */,
 				C20881E2204F837900ED6D3E /* DummyData.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
+				1F773A652050A5BD000F14DA /* DataModels.swift in Sources */,
+				1F3A763C204D24B400E8A34A /* MyPostViewController.swift in Sources */,
+				1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,10 +467,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HungryPals/HungryPals.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6UZHVQ52BK;
 				INFOPLIST_FILE = HungryPals/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.uw.ischool.-loners.HungryPals";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.loners.HungryPals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,10 +484,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HungryPals/HungryPals.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6UZHVQ52BK;
 				INFOPLIST_FILE = HungryPals/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.uw.ischool.-loners.HungryPals";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.loners.HungryPals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
