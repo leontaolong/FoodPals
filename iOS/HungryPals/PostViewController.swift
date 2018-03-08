@@ -32,6 +32,10 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+ 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts!.count;
     }
@@ -47,18 +51,29 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         UIGraphicsEndImageContext()
         return roundedImage!
     }
-    
+ 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let post = posts![index]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         cell.textLabel?.text = post.getCreator().getUsername()
+        //cell.textLabel?.font = UIFont(name: "Lato", size: 18)
         cell.detailTextLabel?.text = "Wants to eat \(post.getCuisine())\nAt \(post.getStartTime().toString()) - \(post.getEndTime().toString()), Today"
         
         let imageUrl = URL(string: post.getCreator().getProfilePic())!
         let imageData = try! Data(contentsOf: imageUrl)
+        //let imageUI = UIImage(data: imageData)!
         cell.imageView?.image = maskRoundedImage(image: UIImage(data: imageData)!, radius: CGFloat(160))
+        //cell.imageView?.topAnchor.constraint(equalTo: cell.topAnchor, constant: 50).isActive = true
+        //cell.imageView?.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 50).isActive = true
+        
+        //cell.imageView?.image = UIImage(data: imageData)!
+        //cell.imageView?.frame = CGRect(x:0, y:0, width:50, height: 50)
+        
+        //cell.imageView?.layer.cornerRadius = 160;
+        //cell.imageView?.layer.masksToBounds = true;
+        
         return cell
     }
     
