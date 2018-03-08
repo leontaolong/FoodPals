@@ -202,6 +202,52 @@
             </objects>
             <point key="canvasLocation" x="-879.20000000000005" y="392.65367316341832"/>
         </scene>
+        <!--Preference View Controller-->
+        <scene sceneID="TyM-Kd-Y7I">
+            <objects>
+                <viewController id="ht1-Bp-KOG" customClass="PreferenceViewController" customModule="HungryPals" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p6q-Gs-brm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5rb-z6-77j">
+                                <rect key="frame" x="0.0" y="0.0" width="415" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Your Preference" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Y8-Gv-BZ0">
+                                <rect key="frame" x="94" y="28" width="186" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mkf-RK-eED">
+                                <rect key="frame" x="67" y="151" width="240" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6Yh-qQ-GPN" customClass="PreferenceTableViewCell" customModule="HungryPals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Yh-qQ-GPN" id="MRk-cW-1ao">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AZW-7A-7FV"/>
+                    </view>
+                    <connections>
+                        <outlet property="img" destination="5rb-z6-77j" id="2oV-RF-G0F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A1a-bV-pdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-879.20000000000005" y="1158.1709145427287"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="5dQ-yQ-SJu">
             <objects>
@@ -211,10 +257,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7l-Kq-yRz">
-                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
+                                <rect key="frame" x="90" y="555" width="223" height="60"/>
                                 <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="0.73064507378472221" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="fcy-IC-e2W"/>
                                     <constraint firstAttribute="height" constant="60" id="fmK-1g-DQ1"/>
+                                    <constraint firstAttribute="width" constant="223" id="oRi-om-HdF"/>
                                 </constraints>
                                 <state key="normal" title="Log in With Facebook">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -223,30 +271,48 @@
                                     <action selector="btnLogin:" destination="TzQ-8U-zdy" eventType="touchUpInside" id="nNP-tQ-Bux"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNq-EE-Iqw">
-                                <rect key="frame" x="10" y="100" width="355" height="547"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNq-EE-Iqw">
+                                <rect key="frame" x="92" y="211" width="218" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFA-tn-6Ns">
-                                <rect key="frame" x="164" y="153" width="46" height="30"/>
+                                <rect key="frame" x="196" y="412" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="ghI-Ji-1GA" kind="show" id="vH6-I7-gav"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hungray Pals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oo-rd-U4w">
+                                <rect key="frame" x="57" y="58" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="don't eat alone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqN-3e-huz">
+                                <rect key="frame" x="57" y="87" width="114" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="find a person to eat together" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjb-4A-lsV">
+                                <rect key="frame" x="57" y="116" width="218" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GLH-qO-ngD" firstAttribute="trailing" secondItem="O7l-Kq-yRz" secondAttribute="trailing" id="BbS-6H-gZi"/>
-                            <constraint firstItem="O7l-Kq-yRz" firstAttribute="top" secondItem="GLH-qO-ngD" secondAttribute="top" id="NXP-zt-nwX"/>
-                            <constraint firstItem="O7l-Kq-yRz" firstAttribute="leading" secondItem="GLH-qO-ngD" secondAttribute="leading" id="pHR-M1-s7t"/>
-                            <constraint firstItem="QNq-EE-Iqw" firstAttribute="top" secondItem="O7l-Kq-yRz" secondAttribute="bottom" constant="20" id="pJ8-GK-OPl"/>
-                            <constraint firstItem="GLH-qO-ngD" firstAttribute="bottom" secondItem="QNq-EE-Iqw" secondAttribute="bottom" constant="20" id="uK0-a9-nmv"/>
-                            <constraint firstItem="GLH-qO-ngD" firstAttribute="trailing" secondItem="QNq-EE-Iqw" secondAttribute="trailing" constant="10" id="yQK-LS-53w"/>
-                            <constraint firstItem="QNq-EE-Iqw" firstAttribute="leading" secondItem="GLH-qO-ngD" secondAttribute="leading" constant="10" id="zUz-ZF-2vO"/>
+                            <constraint firstItem="O7l-Kq-yRz" firstAttribute="leading" secondItem="GLH-qO-ngD" secondAttribute="leading" constant="90" id="asS-Yp-Vue"/>
+                            <constraint firstItem="GLH-qO-ngD" firstAttribute="bottom" secondItem="O7l-Kq-yRz" secondAttribute="bottom" constant="52" id="dn2-bO-iL7"/>
+                            <constraint firstItem="GLH-qO-ngD" firstAttribute="trailing" secondItem="O7l-Kq-yRz" secondAttribute="trailing" constant="62" id="lTg-AN-1F1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GLH-qO-ngD"/>
                     </view>
@@ -312,19 +378,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food you want to eat " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOc-z8-uPo">
-                                <rect key="frame" x="54" y="180" width="158.5" height="21"/>
+                                <rect key="frame" x="54" y="179" width="166.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Specific Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3O-jo-1Yt">
-                                <rect key="frame" x="54" y="264" width="140.5" height="21"/>
+                                <rect key="frame" x="54" y="262" width="149" height="20"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferred eating time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRR-MM-0LL">
-                                <rect key="frame" x="54" y="360" width="158" height="21"/>
+                                <rect key="frame" x="54" y="357" width="159" height="20"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -346,7 +412,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="mxv-Xk-NK5">
-                                <rect key="frame" x="54" y="217" width="267" height="30"/>
+                                <rect key="frame" x="54" y="215" width="267" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PGV-x9-f6g"/>
                                 </constraints>
@@ -354,7 +420,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRD-PK-DWM">
-                                <rect key="frame" x="54" y="301" width="267" height="38"/>
+                                <rect key="frame" x="54" y="298" width="267" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="Dcb-B6-L9t"/>
                                     <constraint firstAttribute="width" constant="267" id="trH-B5-j9C"/>
@@ -364,19 +430,19 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make your choice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKy-dK-XcI">
-                                <rect key="frame" x="54" y="101" width="135" height="21"/>
+                                <rect key="frame" x="54" y="101" width="135" height="20"/>
                                 <fontDescription key="fontDescription" name="Candara-BoldItalic" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="find the person who can eat together..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byQ-er-g6c">
-                                <rect key="frame" x="54" y="120" width="296" height="21"/>
+                                <rect key="frame" x="54" y="120" width="296" height="20"/>
                                 <fontDescription key="fontDescription" name="Candara-BoldItalic" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLw-UA-s9a">
-                                <rect key="frame" x="76" y="395" width="97" height="30"/>
+                                <rect key="frame" x="76" y="391" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BGx-IZ-zKU"/>
                                     <constraint firstAttribute="width" constant="97" id="NDo-ZL-51e"/>
@@ -386,7 +452,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OOw-QO-Oly">
-                                <rect key="frame" x="224" y="395" width="97" height="30"/>
+                                <rect key="frame" x="224" y="392" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="193-Fn-Hyv"/>
                                     <constraint firstAttribute="height" constant="30" id="scH-1f-aKz"/>
@@ -402,19 +468,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="T:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeW-z6-J3V">
-                                <rect key="frame" x="208" y="400" width="13" height="21"/>
+                                <rect key="frame" x="208" y="396" width="13" height="20"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMa-kQ-Xr9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMa-kQ-Xr9">
                                 <rect key="frame" x="54" y="446" width="37" height="21"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mGF-wU-rNm">
-                                <rect key="frame" x="54" y="486" width="267" height="38"/>
+                                <rect key="frame" x="54" y="481" width="267" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="a2h-vo-aoh"/>
                                 </constraints>
@@ -533,25 +599,25 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncc-hQ-ZTR">
-                                <rect key="frame" x="167.5" y="361" width="39.5" height="21"/>
+                                <rect key="frame" x="166.5" y="361" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6s-Of-Enp">
-                                <rect key="frame" x="167.5" y="410" width="39.5" height="21"/>
+                                <rect key="frame" x="166.5" y="410" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5a-zx-5s4">
-                                <rect key="frame" x="167.5" y="459" width="39.5" height="21"/>
+                                <rect key="frame" x="166.5" y="459" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Joyce Huang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN5-DU-g9e">
-                                <rect key="frame" x="132.5" y="323" width="108.5" height="24.5"/>
+                                <rect key="frame" x="128" y="323" width="118" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -590,4 +656,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="RPg-Rm-oAJ"/>
+    </inferredMetricsTieBreakers>
 </document>
