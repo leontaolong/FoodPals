@@ -9,9 +9,12 @@
 import UIKit
 
 class FormViewController2: UIViewController {
-    
+    @IBOutlet weak var restaurantField: UITextField!
     @IBOutlet weak var cuisine: UITextField!
-    @IBOutlet weak var restaurant: UITextField!
+    @IBOutlet weak var notesField: UITextField!
+    @IBOutlet weak var fromTime: UITextField!
+    @IBOutlet weak var toTime: UITextField!
+    
     var button = dropDownBtn()
     
     override func viewDidLoad() {
@@ -19,29 +22,49 @@ class FormViewController2: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         cuisine.isHidden = true
-        restaurant.isHidden = true
+        restaurantField.layer.borderColor = UIColor.lightGray.cgColor
+        notesField.layer.borderColor = UIColor.lightGray.cgColor
+        fromTime.layer.borderColor = UIColor.lightGray.cgColor
+        toTime.layer.borderColor = UIColor.lightGray.cgColor
+        
+        restaurantField.layer.borderWidth = 1.0
+        notesField.layer.borderWidth = 1.0
+        toTime.layer.borderWidth = 1.0
+        fromTime.layer.borderWidth = 1.0
         
         //Configure the button
         button = dropDownBtn.init(frame: CGRect(x: 54, y: 217, width: 270, height: 40))
-        button.setTitle("Cuisines", for: .normal)
+        button.setTitle("", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 1.0
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.frame = CGRect(x: 54, y: 217, width: 270, height: 40)
+        button.frame = CGRect(x: UIScreen.main.bounds.width - 110, y: 217, width: 270, height: 40)
         
         //Add Button to the View Controller
         self.view.addSubview(button)
         
-        //button Constraints
-        button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 270).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.translatesAutoresizingMaskIntoConstraints = false
         
+        //button Constraints
+//        button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//        button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 305).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.topAnchor.constraint(equalTo: view.topAnchor, constant: 210).isActive = true
+        button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 55).isActive = true
         //Set the drop down menu's options
         button.dropView.dropDownOptions = ["Chinese", "American", "Italian", "Japanese", "Korean", "Pizza"]
         
+        //time picker
+        let datePicker = UIDatePicker()
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        datePicker.datePickerMode = UIDatePickerMode.time
+        self.fromTime.inputView = datePicker
+        self.fromTime.text = timeFormatter.string(from: datePicker.date) as String
+        self.toTime.inputView = datePicker
+        self.toTime.text = timeFormatter.string(from: datePicker.date) as String
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,6 +81,7 @@ class dropDownBtn: UIButton, dropDownProtocol {
     
     func dropDownPressed(string: String) {
         self.setTitle(string, for: .normal)
+        
         self.dismissDropDown()
     }
     
@@ -192,6 +216,7 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
         self.tableView.deselectRow(at: indexPath, animated: true)
+        NSLog(dropDownOptions[indexPath.row])
     }
     
 }
