@@ -13,6 +13,7 @@
 		1F773A652050A5BD000F14DA /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F773A642050A5BD000F14DA /* DataModels.swift */; };
 		584CFF43D86C16BEB4AB8944 /* Pods_HungryPalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BBB2364C12EEC843B19E20 /* Pods_HungryPalsTests.framework */; };
 		D547979BB338C6B1656512CF /* Pods_HungryPalsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C71E2528C01E804392F4FE /* Pods_HungryPalsUITests.framework */; };
+		EF236E312053306300E8E741 /* PreferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF236E302053306200E8E741 /* PreferenceTableViewController.swift */; };
 		EF3492E920492A510014A9C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3492E820492A510014A9C2 /* LoginViewController.swift */; };
 		EF9B9C57204FB49A003B574B /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B9C56204FB49A003B574B /* AppData.swift */; };
 		EF9B9C59204FBAD0003B574B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B9C58204FBAD0003B574B /* AccountViewController.swift */; };
@@ -58,6 +59,7 @@
 		A50139DA39FBE19748C2C775 /* Pods-HungryPalsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C227D8910BC62952B859D006 /* Pods_HungryPals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C342D9CF3398A1FB59A21F2B /* Pods-HungryPals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.debug.xcconfig"; sourceTree = "<group>"; };
+		EF236E302053306200E8E741 /* PreferenceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceTableViewController.swift; sourceTree = "<group>"; };
 		EF3492E820492A510014A9C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF9B9C56204FB49A003B574B /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		EF9B9C58204FBAD0003B574B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		F630868020477EEB000AF99F = {
 			isa = PBXGroup;
 			children = (
+				EF236E302053306200E8E741 /* PreferenceTableViewController.swift */,
 				F630868B20477EEB000AF99F /* HungryPals */,
 				F63086A220477EEB000AF99F /* HungryPalsTests */,
 				F63086AD20477EEB000AF99F /* HungryPalsUITests */,
@@ -512,6 +515,7 @@
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
 				EF9B9C59204FBAD0003B574B /* AccountViewController.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
+				EF236E312053306300E8E741 /* PreferenceTableViewController.swift in Sources */,
 				EF3492E920492A510014A9C2 /* LoginViewController.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
 				EF9B9C57204FB49A003B574B /* AppData.swift in Sources */,
