@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FacebookLogin
+import FacebookCore
+
 
 class AccountViewController: UIViewController  {
     
@@ -19,6 +22,10 @@ class AccountViewController: UIViewController  {
     
     @IBAction func btnEdit(_ sender: Any) {
         appdata.fromProfile = true
+    }
+    @IBAction func btnLogout(_ sender: Any) {
+        LoginManager().logOut()
+        performSegue(withIdentifier: "profileToLogin", sender: self)
     }
     //@IBOutlet weak var picker: UIPickerView!
     override func viewDidLoad() {

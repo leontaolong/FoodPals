@@ -11,7 +11,7 @@ import FacebookCore
 import FacebookLogin
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var facebookInfo: UILabel!
+    //@IBOutlet weak var facebookInfo: UILabel!
     let appdata = AppData.shared
     var fbLogin = false
     
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
                 self.getUserInfo { userInfo, error in
                     if let error = error { print(error.localizedDescription)}
                     if let userInfo = userInfo, let id = userInfo["id"], let name = userInfo["name"], let email = userInfo["email"] {
-                        self.facebookInfo.text = "ID: \(id), Name: \(name), Email: \(email)"
+                        //self.facebookInfo.text = "ID: \(id), Name: \(name), Email: \(email)"
                         self.appdata.name = name as! String
                         self.appdata.id = id as! String
                         self.appdata.email = email as! String
