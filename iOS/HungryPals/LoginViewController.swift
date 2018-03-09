@@ -13,6 +13,7 @@ import FacebookLogin
 class LoginViewController: UIViewController {
     @IBOutlet weak var facebookInfo: UILabel!
     let appdata = AppData.shared
+    var fbLogin = false
     
     @IBAction func btnLogin(_ sender: UIButton) {
         let loginManager = LoginManager()
@@ -23,6 +24,7 @@ class LoginViewController: UIViewController {
             case .cancelled:
                 print("user cancelled the login")
             case .success(_, _, _):
+                self.fbLogin = true
                 self.getUserInfo { userInfo, error in
                     if let error = error { print(error.localizedDescription)}
                     if let userInfo = userInfo, let id = userInfo["id"], let name = userInfo["name"], let email = userInfo["email"] {
@@ -45,6 +47,8 @@ class LoginViewController: UIViewController {
                         self.appdata.location = (location["name"] as? String)!
                     }
                 }
+                // segue
+
                 
             }
         }
@@ -69,8 +73,14 @@ class LoginViewController: UIViewController {
         backgroundImage.image = UIImage(named: "log-in")
         backgroundImage.contentMode =  UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if fbLogin {
+            // sending to profile page for now, will change to main page
+            self.performSegue(withIdentifier: "loginToPreference", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
