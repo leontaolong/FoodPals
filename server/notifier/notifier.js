@@ -2,36 +2,20 @@
 
 const apn = require('apn');
 
-let Utils = {
-    validateRequest: (requestBody, requiredFields) => {
-        var missingInfo = false;
-        requiredUserFields.forEach((field) => {
-            if(!requestBody.hasOwnProperty(field)){
-                missingInfo = true;
-            }
-        });
-        return missingInfo;
-    },
-
-    notifyMatching: (apnProvider, post) => {
+let Notifier = {
+    notifyMatching: (apnProvider, deviceToken, post) => {
         let notification = new apn.Notification({
             title: "Hello, world!",
-            body: post.matchedPost.creator.username,
+            body: post,
             sound: "default",
             contentAvailable: 1,
             badge: 1,
             mutableContent: 1,
             topic: "edu.uw.ischool.loners.HungryPals",
-            matchingInfo : {
-            matchedPost: post.matchedPost,
-            matchingStatus: post.matchingStatus
-            },
             payload: {
               "sender": "node-apn",
             },
         });
-
-        let deviceToken = post.creator.deviceToken;
 
         apnProvider.send(notification, deviceToken).then( (result) => {
             if (result.failed.length == 0) {
@@ -42,10 +26,10 @@ let Utils = {
         });     
     },
 
-    notifyInvite: (apnProvider, inviteInfo) => {
+    notifyInvite: (apnProvider, deviceToken, inviter) => {
         let notification = new apn.Notification({
             title: "Let's eat together!",
-            body: inviteInfo.matchedPostId,
+            body: inviter,
             sound: "default",
             contentAvailable: 1,
             badge: 1,
@@ -56,7 +40,7 @@ let Utils = {
             },
         });
 
-        apnProvider.send(notification, inviteInfo.deviceToken).then( (result) => {
+        apnProvider.send(notification, deviceToken).then( (result) => {
             if (result.failed.length == 0) {
                 console.log("notification successfully sent.")
             } else {
@@ -65,19 +49,38 @@ let Utils = {
         });
     },
 
-    notifyMatchingStatus: (deviceToken, title, body, postId, matchingStatus) => {
+    notifyConfirmed: (apnProvider, deviceToken, post) => {
         let notification = new apn.Notification({
-            title: title,
-            body: body,
+            title: "Let's eat together!",
+            body: post,
             sound: "default",
             contentAvailable: 1,
             badge: 1,
             mutableContent: 1,
             topic: "edu.uw.ischool.loners.HungryPals",
-            statusInfo : {
-                matchingStatus: matchingStatus,
-                postId: postId
+            payload: {
+              "sender": "node-apn",
             },
+        });
+
+        apnProvider.send(notification, deviceToken).then( (result) => {
+            if (result.failed.length == 0) {
+                console.log("notification successfully sent.")
+            } else {
+                console.log(result)
+            }
+        });
+    },
+
+    notifyRejected: (apnProvider, deviceToken, post) => {
+        let notification = new apn.Notification({
+            title: "Let's eat together!",
+            body: post,
+            sound: "default",
+            contentAvailable: 1,
+            badge: 1,
+            mutableContent: 1,
+            topic: "edu.uw.ischool.loners.HungryPals",
             payload: {
               "sender": "node-apn",
             },
@@ -91,7 +94,6 @@ let Utils = {
             }
         });
     }
-
 }
 
-module.exports = Utils;
+module.exports = Notifier;

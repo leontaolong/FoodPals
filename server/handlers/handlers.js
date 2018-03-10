@@ -1,9 +1,9 @@
 "use strict";
 
 const express = require('express');
-let Utils = require('../utils/utils.js');
+let Notifier = require('../notifier/notifier.js');
 
-let requiredUserFields = ["username", "userId", "profilePic", "deviceToken", "friendList" ]
+let requiredUserFields = ["username", "userId", "profilePic", "deviceToken" ]
 let requiredPostFields = ["creator", "startTime", "endTime", "restaurant", "cuisine", "notes" ]
 
 //export a function from this module 
@@ -15,7 +15,7 @@ module.exports = (userStore, postStore, apnProvider) => {
     // add new user with user info
     router.post('/v1/user', async (req, res, next) => {
         let userInfo = req.body
-        let missingInfo = Utils.validateRequest(userInfo, requiredUserFields)
+        let missingInfo = validateRequest(userInfo, requiredUserFields)
         if (missingInfo) {
             res.status(400).send(`Missing user information`);
         } else {
@@ -32,26 +32,16 @@ module.exports = (userStore, postStore, apnProvider) => {
     // respond with new post with matching info if find one, otherwise respond descriptive text
     router.post('/v1/post', async (req, res, next) => {
         let postInfo = req.body
-        let missingInfo = Utils.validateRequest(postInfo, requiredPostFields)
+        let missingInfo = validateRequest(postInfo, requiredPostFields)
         if (missingInfo) {
             res.status(400).send(`Missing post information`);
         } else {
             try {
+                let post = await postStore.addPost(postInfo);
                 let matchingResult = await postStore.match(postInfo)
                 if (matchingResult) {
-                    postInfo.matchingStatus = "WAITING_OTHER_TO_RESPOND";
-                    postInfo.matchedPost = matchingResult;
-                } else {
-                    postInfo.matchingStatus = "MATCHING";
+                    Notifier.notifyMatching(apnProvider, matchingResult.creator.deviceToken, post)
                 }
-                let post = await postStore.addPost(postInfo);
-
-                if (matchingResult) {
-                    matchingResult.matchedPost = post;
-                    matchingResult.matchingStatus = "WAITING_OTHER_TO_RESPOND";
-                    await postStore.updatePost(matchingResult);
-                }
-                Utils.notifyMatching(apnProvider, matchingResult)
             } catch (err) {
                 next(err);
             }
@@ -61,8 +51,8 @@ module.exports = (userStore, postStore, apnProvider) => {
 
     // delete a post by post id
     router.delete('/v1/post', async (req, res, next) => {
-        let post = req.body;
-        await postStore.deletePost(post);
+        let postInfo = req.body;
+        await postStore.deletePost(postInfo);
         res.send("Post successfully deleted.");
     });
 
@@ -74,42 +64,52 @@ module.exports = (userStore, postStore, apnProvider) => {
 
     // request matching for a post by user id and post id
     // respond with descriptive text 
-    router.post('/v1/invite', (req, res, next) => {
+    router.post('/v1/invite', async (req, res, next) => {
         let inviteInfo = req.body
-        Utils.notifyInvite(apnProvider, inviteInfo)    
+        if (!inviteInfo.inviter) {
+            inviteInfo.inviter = null;
+        }
+        if (!inviteInfo.matchedPostId) {
+            inviteInfo.matchedPostId = "";
+        }
+        await postStore.updatePostStatus(inviteInfo, "INVITED");
+        let postToNotify = await postStore.getPost(inviteInfo.postId);
+        Notifier.notifyInvite(apnProvider, postToNotify.creator.deviceToken, inviter);    
     });
 
     // respond a match request with user id and post id
     // respond with new post with matching info, otherwise respond descriptive text  
     router.post('/v1/respond', async (req, res, next) => {
-        let responseInfo = req.body
+        let responseInfo = req.body;
+        let postToNotify = await postStore.getPost(responseInfo.postId);  
         if (!responseInfo.confirmed)  { // rejected
-            await postStore.updateMatchingStatus(responseInfo.postId, "REJECTED");
-            await postStore.updateMatchingStatus(responseInfo.matchedPostId, "REJECTED");
-            let postToNotify = await postStore.getPost(responseInfo.matchedPostId);
-            let deviceToken = postToNotify.creator.deviceToken;
-            let titie = "Rejected";
-            let body = postToNotify.matchedPost.creator.username;
-            Utils.notifyMatchingStatus(deviceToken, title, body, postToNotify.postId, "REJECTED");
-            res.send({matchingStatus: "REJECTED"});
+            // Clear post
+            let updates = {};
+            updates.postId = responseInfo.postId;
+            updates.inviter = null;
+            updates.matchedPostId = "";
+            await postStore.updatePostStatus(updates, "WAITING");
+
+            Notifier.notifyRejected(apnProvider, postToNotify.invitedBy.deviceToken, postToNotify)
         } else {
-            let confirmedByOther = await postStore.confirmedByOther(responseInfo);
-            if (confirmedByOther) { // all confirmed
-                await postStore.updateMatchingStatus(responseInfo.postId, "MATCHED");
-                await postStore.updateMatchingStatus(responseInfo.matchedPostId, "MATCHED");
-                let postToNotify = await postStore.getPost(responseInfo.matchedPostId);
-                let deviceToken = postToNotify.creator.deviceToken;
-                let titie = "Matched";
-                let body = postToNotify.matchedPost.creator.username;
-                Utils.notifyMatchingStatus(deviceToken, title, body, postToNotify.postId, "MATCHED");
-                res.send({matchingStatus: "MATCHED"});
-            } else {
-                await postStore.updateMatchingStatus(responseInfo.postId, "WAITING_OTHER_TO_RESPOND");
-                await postStore.updateMatchingStatus(responseInfo.matchedPostId, "COMFIRMED_BY_OTHER");
-                res.send({matchingStatus: "WAITING_OTHER_TO_RESPOND"});
+            if (postToNotify.matchedPostId) {
+                postStore.deletePost(postToNotify.matchedPostId);
             }
+            await postStore.updateInviteStatus(postToNotify._id, "CONFIRMED");
+            Notifier.notifyConfirmed(apnProvider, postToNotify.invitedBy.deviceToken, postToNotify);    
         }
+        res.send("Response Sent Successfully.");
     });
 
     return router;
+}
+
+let validateRequest = (requestBody, requiredFields) => {
+    var missingInfo = false;
+    requiredUserFields.forEach((field) => {
+        if(!requestBody.hasOwnProperty(field)){
+            missingInfo = true;
+        }
+    });
+    return missingInfo;
 }
