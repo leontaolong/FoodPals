@@ -2,7 +2,7 @@
 
 const apn = require('apn');
 
-let Notifier = {
+let Notifiers = {
     notifyMatching: (apnProvider, deviceToken, post) => {
         let bodyTxt = `${post.creator.username} also wants to eat ${post.cuisine} food. Send a request to eat together. `;
         let notification = new apn.Notification({
@@ -80,4 +80,4 @@ let Notifier = {
     }
 }
 
-module.exports = Notifier;
+module.exports = Notifiers;

@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require('express');
-const Notifier = require('../notifier/notifier.js');
+const Notifiers = require('../notifiers/notifiers.js');
 
 const requiredAddUserFields = ["username", "userId", "profilePic", "deviceToken", "cuisinePrefs" ];
 const requiredAddPostFields = ["creator", "startTime", "endTime", "restaurant", "cuisine", "notes" ];
@@ -50,7 +50,7 @@ module.exports = (userStore, postStore, apnProvider) => {
                     post = insertResult.ops[0];
                     let matchingResult = await postStore.match(post)
                     if (matchingResult) {
-                        Notifier.notifyMatching(apnProvider, matchingResult.creator.deviceToken, post)
+                        Notifiers.notifyMatching(apnProvider, matchingResult.creator.deviceToken, post)
                     }
                     res.send(post);
                 }
@@ -117,7 +117,7 @@ module.exports = (userStore, postStore, apnProvider) => {
                     if (!postToNotify) {
                         res.status(300).send("Cannot find post");
                     } 
-                    Notifier.notifyRequest(apnProvider, postToNotify.creator.deviceToken, postToNotify); 
+                    Notifiers.notifyRequest(apnProvider, postToNotify.creator.deviceToken, postToNotify); 
                     res.send("Request successfully sent.");
                 }
             } catch (err) {
@@ -150,7 +150,7 @@ module.exports = (userStore, postStore, apnProvider) => {
                     let creatorName = postToNotify.creator.username;
                     let titleTxt = `Uh oh, ${creatorName} doesn't want to eat together :( `;
                     let bodyTxt = `We're trying our best to match you with others who also want to eat ${postToNotify.cuisine} food. `;
-                    Notifier.notifyResponse(apnProvider, postToNotify.requestedBy.deviceToken, titleTxt, bodyTxt, postToNotify); 
+                    Notifiers.notifyResponse(apnProvider, postToNotify.requestedBy.deviceToken, titleTxt, bodyTxt, postToNotify); 
 
                 } else {
                     if (postToNotify.matchedPostId) {
@@ -161,7 +161,7 @@ module.exports = (userStore, postStore, apnProvider) => {
                     let creatorName = postToNotify.creator.username;
                     let titleTxt = `Yay, ${creatorName} wants to eat together as well! `;
                     let bodyTxt = `Enjoy wonderful ${postToNotify.cuisine} food with ${creatorName}. `;
-                    Notifier.notifyResponse(apnProvider, postToNotify.requestedBy.deviceToken, titleTxt, bodyTxt, postToNotify);    
+                    Notifiers.notifyResponse(apnProvider, postToNotify.requestedBy.deviceToken, titleTxt, bodyTxt, postToNotify);    
                 }
                 res.send("Response Sent Successfully.");
             } catch (err) {
