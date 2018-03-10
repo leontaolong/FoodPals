@@ -40,11 +40,14 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! PreferenceTableViewCell
-        if indexPath.row == 1 {
+        print(appdata.location)
+        if appdata.accountList[indexPath.row] == "Live in " {
+            print("IM HERE \(appdata.location)")
             cell.accountList.text =
-                "\(appdata.accountList[indexPath.row]) \(appdata.location) "
+            "Live in \(appdata.location)"
+        } else {
+            cell.accountList.text = appdata.accountList[indexPath.row]
         }
-        cell.accountList.text = appdata.accountList[indexPath.row]
 
         cell.accountIcon.image = UIImage(named: appdata.accountListIcon[indexPath.row])
         return cell

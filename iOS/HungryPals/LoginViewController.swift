@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     let appdata = AppData.shared
     var fbLogin = false
     
+    @IBOutlet weak var fbIcon: UIImageView!
     @IBAction func btnLogin(_ sender: UIButton) {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .email, .userFriends, .userLocation], viewController: self) { result in
@@ -73,6 +74,7 @@ class LoginViewController: UIViewController {
         backgroundImage.image = UIImage(named: "log-in")
         backgroundImage.contentMode =  UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
+        fbIcon.image = UIImage(named: "fb")
         // Do any additional setup after loading the view.
     }
     
