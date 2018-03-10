@@ -4,9 +4,10 @@ const apn = require('apn');
 
 let Notifier = {
     notifyMatching: (apnProvider, deviceToken, post) => {
+        let bodyTxt = `${post.creator.username} also wants to eat ${post.cuisine} food. Send a request to eat together. `;
         let notification = new apn.Notification({
-            title: "Hello, world!",
-            body: post,
+            title: "We've found a hungry pal for you.",
+            body: bodyTxt,
             sound: "default",
             contentAvailable: 1,
             badge: 1,
@@ -15,6 +16,7 @@ let Notifier = {
             payload: {
               "sender": "node-apn",
             },
+            post: post,
         });
 
         apnProvider.send(notification, deviceToken).then( (result) => {
@@ -26,10 +28,13 @@ let Notifier = {
         });     
     },
 
-    notifyInvite: (apnProvider, deviceToken, inviter) => {
+    notifyRequest: (apnProvider, deviceToken, post) => {
+        let requester = post.requestedBy.username;
+        let titleTxt = `${requester} wants to eat with you. `;
+        let bodyTxt = `Let ${requester} know if you would love to eat ${post.cuisine} food together. `;
         let notification = new apn.Notification({
-            title: "Let's eat together!",
-            body: inviter,
+            title: titleTxt,
+            body: bodyTxt,
             sound: "default",
             contentAvailable: 1,
             badge: 1,
@@ -38,6 +43,7 @@ let Notifier = {
             payload: {
               "sender": "node-apn",
             },
+            post: post,
         });
 
         apnProvider.send(notification, deviceToken).then( (result) => {
@@ -49,10 +55,10 @@ let Notifier = {
         });
     },
 
-    notifyConfirmed: (apnProvider, deviceToken, post) => {
+    notifyResponse: (apnProvider, deviceToken, titleTxt, bodyTxt, post) => {
         let notification = new apn.Notification({
-            title: "Let's eat together!",
-            body: post,
+            title: titleTxt,
+            body: bodyTxt,
             sound: "default",
             contentAvailable: 1,
             badge: 1,
@@ -61,29 +67,7 @@ let Notifier = {
             payload: {
               "sender": "node-apn",
             },
-        });
-
-        apnProvider.send(notification, deviceToken).then( (result) => {
-            if (result.failed.length == 0) {
-                console.log("notification successfully sent.")
-            } else {
-                console.log(result)
-            }
-        });
-    },
-
-    notifyRejected: (apnProvider, deviceToken, post) => {
-        let notification = new apn.Notification({
-            title: "Let's eat together!",
-            body: post,
-            sound: "default",
-            contentAvailable: 1,
-            badge: 1,
-            mutableContent: 1,
-            topic: "edu.uw.ischool.loners.HungryPals",
-            payload: {
-              "sender": "node-apn",
-            },
+            post, post
         });
 
         apnProvider.send(notification, deviceToken).then( (result) => {

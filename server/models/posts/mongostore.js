@@ -16,12 +16,11 @@ class MongoStore {
         postInfo.startTime = new Date(postInfo.startTime *1000)
         postInfo.endTime = new Date(postInfo.endTime *1000)
         postInfo.matchedPostId = "";
-        postInfo.invitedBy = null;
+        postInfo.requestedBy = null;
         return this.collection.insert(postInfo);
     }
 
     match(postInfo) {
-        console.log(postInfo.startTime);
         let query =  { $and: [ 
             { startTime: { $lte: postInfo.endTime} }, 
             { endTime: { $gte: postInfo.startTime} },
@@ -29,7 +28,6 @@ class MongoStore {
             { status: "WAITING" },
             { 'creator.userId': { $not: { $eq: postInfo.creator.userId } } } //exclude self
         ] }
-        // return this.collection.find(query).sort({"createdAt": 1 }).limit(1).toArray()[0];
         return this.collection.findOne(query);
     }
 
@@ -46,15 +44,15 @@ class MongoStore {
         return this.collection.find(query).toArray();
     }
 
-    updatePostStatus(inviteInfo, newStatus) {
-        return this.collection.updateOne({_id : ObjectId(inviteInfo.postId)}, {$set: { 
+    updatePostStatus(requestInfo, newStatus) {
+        return this.collection.updateOne({_id : ObjectId(requestInfo.postId)}, {$set: { 
             status : newStatus, 
-            invitedBy : inviteInfo.inviter,
-            matchedPostId : inviteInfo.matchedPostId
+            requestedBy : requestInfo.requestedBy,
+            matchedPostId : requestInfo.matchedPostId
         }});
     }
 
-    updateInviteStatus(postId, newStatus) {
+    updateRequestStatus(postId, newStatus) {
         return this.collection.updateOne({_id : ObjectId(postId)}, {$set: { status : newStatus }});
     }
 }

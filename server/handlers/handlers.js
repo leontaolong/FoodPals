@@ -6,7 +6,7 @@ let Notifier = require('../notifier/notifier.js');
 let requiredAddUserFields = ["username", "userId", "profilePic", "deviceToken", "cuisinePrefs" ];
 let requiredAddPostFields = ["creator", "startTime", "endTime", "restaurant", "cuisine", "notes" ];
 let requiredDeletePostFields = ["postId"];
-let requiredInviteFields = ["postId", "inviter", "matchedPostId"];
+let requiredRequestFields = ["postId", "requestedBy", "matchedPostId"];
 let requiredRespondFields = ["postId", "confirmed"];
 
 //export a function from this module 
@@ -50,7 +50,7 @@ module.exports = (userStore, postStore, apnProvider) => {
                     post = insertResult.ops[0];
                     let matchingResult = await postStore.match(post)
                     if (matchingResult) {
-                        // Notifier.notifyMatching(apnProvider, matchingResult.creator.deviceToken, post)
+                        Notifier.notifyMatching(apnProvider, matchingResult.creator.deviceToken, post)
                     }
                     res.send(post);
                 }
@@ -97,31 +97,28 @@ module.exports = (userStore, postStore, apnProvider) => {
         }
     });
 
-    // invite with inviter, postId, and matchedPostId (empty string if no)
+    // request with requestedBy, postId, and matchedPostId (empty string if no)
     // respond with descriptive text 
-    router.post('/v1/invite', async (req, res, next) => {
-        let inviteInfo = req.body;
-        let missingInfo = validateRequest(inviteInfo, requiredInviteFields);
+    router.post('/v1/request', async (req, res, next) => {
+        let requestInfo = req.body;
+        let missingInfo = validateRequest(requestInfo, requiredRequestFields);
         if (missingInfo) {
             res.status(400).send("Missing post information");
         } else {
-            if (!inviteInfo.inviter) {
-                inviteInfo.inviter = null;
-            }
-            if (!inviteInfo.matchedPostId) {
-                inviteInfo.matchedPostId = "";
+            if (!requestInfo.matchedPostId) {
+                requestInfo.matchedPostId = "";
             }
             try { 
-                let result = await postStore.updatePostStatus(inviteInfo, "INVITED");
+                let result = await postStore.updatePostStatus(requestInfo, "REQUESTED");
                 if (!result) {
-                    res.status(500).send("Server internal error inviting.");
+                    res.status(500).send("Server internal error requesting.");
                 } else {
-                    let postToNotify = await postStore.getPost(inviteInfo.postId);
+                    let postToNotify = await postStore.getPost(requestInfo.postId);
                     if (!postToNotify) {
                         res.status(300).send("Cannot find post");
                     } 
-                    // Notifier.notifyInvite(apnProvider, postToNotify.creator.deviceToken, inviter); 
-                    res.send("Invite successfully sent.");
+                    Notifier.notifyRequest(apnProvider, postToNotify.creator.deviceToken, postToNotify); 
+                    res.send("Request successfully sent.");
                 }
             } catch (err) {
                 next(err);
@@ -146,17 +143,25 @@ module.exports = (userStore, postStore, apnProvider) => {
                     // Clear post
                     let updates = {};
                     updates.postId = responseInfo.postId;
-                    updates.inviter = null;
+                    updates.requestedBy = null;
                     updates.matchedPostId = "";
                     await postStore.updatePostStatus(updates, "WAITING");
-        
-                    // Notifier.notifyRejected(apnProvider, postToNotify.invitedBy.deviceToken, postToNotify)
+
+                    let creatorName = postToNotify.creator.username;
+                    let titleTxt = `Uh oh, ${creatorName} doesn't want to eat together :( `;
+                    let bodyTxt = `We're trying our best to match you with others who also want to eat ${postToNotify.cuisine} food. `;
+                    Notifier.notifyResponse(apnProvider, postToNotify.requestedBy.deviceToken, titleTxt, bodyTxt, postToNotify); 
+
                 } else {
                     if (postToNotify.matchedPostId) {
                         await postStore.deletePost(postToNotify.matchedPostId);
                     }
-                    await postStore.updateInviteStatus(postToNotify._id, "CONFIRMED");
-                    // Notifier.notifyConfirmed(apnProvider, postToNotify.invitedBy.deviceToken, postToNotify);    
+                    await postStore.updateRequestStatus(postToNotify._id, "CONFIRMED");
+
+                    let creatorName = postToNotify.creator.username;
+                    let titleTxt = `Yay, ${creatorName} wants to eat together as well! `;
+                    let bodyTxt = `Enjoy wonderful ${postToNotify.cuisine} food with ${creatorName}. `;
+                    Notifier.notifyResponse(apnProvider, postToNotify.requestedBy.deviceToken, titleTxt, bodyTxt, postToNotify);    
                 }
                 res.send("Response Sent Successfully.");
             } catch (err) {
