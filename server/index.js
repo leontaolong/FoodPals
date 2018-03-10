@@ -8,6 +8,7 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const apn = require('apn');
+const forceSsl = require('express-force-ssl');
 
 const PostStore = require('./models/posts/mongostore.js');
 const UserStore = require('./models/users/mongostore.js');
@@ -15,11 +16,13 @@ const UserStore = require('./models/users/mongostore.js');
 const app = express();
 
 app.use(morgan(process.env.LOGFORMAT || 'dev'));
+app.use(forceSsl);
 
 //  increase the default limit globally 
 require('events').EventEmitter.prototype._maxListeners = 100;
 
 const port = process.env.PORT || '80';
+const httpPort = process.env.HTTPPORT || '80'
 const dbAddr = process.env.DBADDR;
 const apnsPath = process.env.APNSPATH;
 
@@ -49,13 +52,13 @@ var apnProvider = new apn.Provider(apnsOptions);
 app.use(bodyParser.text());
 app.use(bodyParser.json());
 
-// let certPath = process.env.CERTPATH;
-// let keyPath = process.env.KEYPATH;
+let certPath = process.env.CERTPATH;
+let keyPath = process.env.KEYPATH;
 
-// var options = {
-//     key: fs.readFileSync(keyPath),
-//     cert: fs.readFileSync(certPath),
-// };
+var options = {
+    key: fs.readFileSync(keyPath),
+    cert: fs.readFileSync(certPath),
+};
 
 mongodb.MongoClient.connect(`mongodb://${dbAddr}/hungrypals`)
     .then(db => {
@@ -75,13 +78,13 @@ mongodb.MongoClient.connect(`mongodb://${dbAddr}/hungrypals`)
             res.status(err.status || 500).send(err.message);
         });
 
-        http.createServer(app).listen(port, () => {
-            console.log(`server running at ${port} ...`)
+        http.createServer(app).listen(httpPort, () => {
+            console.log(`server running at ${httpPort} ...`)
         });  
         
-        // https.createServer(options, app).listen(port, () => {
-        //     console.log(`server running at ${port} ...`)
-        // });
+        https.createServer(options, app).listen(port, () => {
+            console.log(`server running at ${port} ...`)
+        });
         
     })
     .catch(err => {

@@ -5,9 +5,9 @@ brew update
 brew install mongodb --devel
 
 # make db dir and spin up mongodb
-rm -r ./db
-mkdir db
-mongod --dbpath ./db
+rm -r ~/data
+mkdir ~/data
+mongod --dbpath ~/data
 
 # OR: start up mongodb using docker
 mkdir ~/data
