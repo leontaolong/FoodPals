@@ -1,23 +1,27 @@
 //
-//  PreferenceViewController.swift
+//  AccountPreferenceViewController.swift
 //  HungryPals
 //
-//  Created by Christy Lu on 3/8/18.
+//  Created by Christy Lu on 3/9/18.
 //  Copyright © 2018 UW iSchool. All rights reserved.
 //
 
 import UIKit
 
-class PreferenceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var imgTop: UIImageView!
-    //@IBOutlet weak var btnSubmit: UIButton!
-    @IBOutlet weak var btnStart: UIButton!
+class AccountPreferenceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     let appdata = AppData.shared
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+    @IBOutlet weak var labelName: UILabel!
     
+    @IBOutlet weak var btnOK: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backImg: UIImageView!
+    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var labelEmail: UILabel!
+    
+    @IBAction func btnOK(_ sender: Any) {
+        performSegue(withIdentifier: "prefToAccount", sender: self)
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
         return appdata.cuisine.count
@@ -43,33 +47,28 @@ class PreferenceViewController: UIViewController, UITableViewDelegate, UITableVi
             print(appdata.cuisineMarked)
         }
     }
-    
-    @IBAction func btnOK(_ sender: Any) {
-        print("go to main page ")
-        /*let from = appdata.fromProfile
-        appdata.fromProfile = false
-        if from {
-            performSegue(withIdentifier: "preferenceToProfile", sender: self)
-        } else {
-            print("go to main page ")
-        }*/
-        
-    }
-    
-    @IBOutlet weak var img: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        img.image = UIImage(named: "preference-top")
-        img.contentMode =  UIViewContentMode.scaleAspectFill
-        view.sendSubview(toBack: img)
-        btnStart.layer.cornerRadius = 5
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        backImg.image = UIImage(named: "account-preference")
+        labelName.text = appdata.name
+        labelEmail.text = appdata.email
+        
+        let url = URL(string: appdata.profilePicUrl)
+        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        img.image = UIImage(data: data!)
+        //img.image = UIImage(named: "log-in")
+        img.layer.cornerRadius = img.frame.height / 2
+        img.clipsToBounds = true
+        btnOK.layer.cornerRadius = 5
+
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
         // Dispose of any resources that can be recreated.
     }
     

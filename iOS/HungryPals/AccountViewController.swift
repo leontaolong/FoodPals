@@ -14,6 +14,7 @@ import FacebookCore
 class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
 
+    @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelEmail: UILabel!
     //@IBOutlet weak var labelLocation: UILabel!
@@ -75,6 +76,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         img.layer.cornerRadius = img.frame.height / 2
         img.clipsToBounds = true
         // Do any additional setup after loading the view.
+        btnLogout.layer.cornerRadius = 5
     }
     
     
