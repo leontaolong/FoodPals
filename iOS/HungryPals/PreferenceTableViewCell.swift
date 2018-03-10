@@ -10,6 +10,8 @@ import UIKit
 
 class PreferenceTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var accountIcon: UIImageView!
+    @IBOutlet weak var accountList: UILabel!
     @IBOutlet weak var cuisine: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

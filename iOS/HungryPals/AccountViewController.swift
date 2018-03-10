@@ -11,14 +11,15 @@ import FacebookLogin
 import FacebookCore
 
 
-class AccountViewController: UIViewController  {
+class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
 
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelEmail: UILabel!
-    @IBOutlet weak var labelLocation: UILabel!
+    //@IBOutlet weak var labelLocation: UILabel!
     @IBOutlet weak var img: UIImageView!
     let appdata = AppData.shared
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func btnEdit(_ sender: Any) {
         appdata.fromProfile = true
@@ -27,11 +28,36 @@ class AccountViewController: UIViewController  {
         LoginManager().logOut()
         performSegue(withIdentifier: "profileToLogin", sender: self)
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return appdata.accountList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! PreferenceTableViewCell
+        if indexPath.row == 1 {
+            cell.accountList.text =
+                "\(appdata.accountList[indexPath.row]) \(appdata.location) "
+        }
+        cell.accountList.text = appdata.accountList[indexPath.row]
+
+        cell.accountIcon.image = UIImage(named: appdata.accountListIcon[indexPath.row])
+        return cell
+    }
+    
+    
+    
     //@IBOutlet weak var picker: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.picker.dataSource = self
         //self.picker.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         print("appdata")
         print(appdata.cuisine)
         print(appdata.id)
@@ -39,18 +65,19 @@ class AccountViewController: UIViewController  {
         print(appdata.location)
         print(appdata.profilePicUrl)
         print(appdata.email)
-        /*labelName.text = appdata.name
+        labelName.text = appdata.name
         labelEmail.text = appdata.email
-        labelLocation.text = appdata.location
         
         let url = URL(string: appdata.profilePicUrl)
         let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        img.image = UIImage(data: data!)*/
-        img.image = UIImage(named: "log-in")
+        img.image = UIImage(data: data!)
+        //img.image = UIImage(named: "log-in")
         img.layer.cornerRadius = img.frame.height / 2
         img.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
