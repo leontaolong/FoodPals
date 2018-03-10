@@ -1,13 +1,13 @@
 "use strict";
 
 const express = require('express');
-let Notifier = require('../notifier/notifier.js');
+const Notifier = require('../notifier/notifier.js');
 
-let requiredAddUserFields = ["username", "userId", "profilePic", "deviceToken", "cuisinePrefs" ];
-let requiredAddPostFields = ["creator", "startTime", "endTime", "restaurant", "cuisine", "notes" ];
-let requiredDeletePostFields = ["postId"];
-let requiredRequestFields = ["postId", "requestedBy", "matchedPostId"];
-let requiredRespondFields = ["postId", "confirmed"];
+const requiredAddUserFields = ["username", "userId", "profilePic", "deviceToken", "cuisinePrefs" ];
+const requiredAddPostFields = ["creator", "startTime", "endTime", "restaurant", "cuisine", "notes" ];
+const requiredDeletePostFields = ["postId"];
+const requiredRequestFields = ["postId", "requestedBy", "matchedPostId"];
+const requiredRespondFields = ["postId", "confirmed"];
 
 //export a function from this module 
 //that accepts stores implementation
@@ -84,9 +84,9 @@ module.exports = (userStore, postStore, apnProvider) => {
 
     // get all existing posts
     router.get('/v1/posts', async (req, res, next) => {
-        let posts = {};
+        var posts = {};
         try { 
-            let posts = await postStore.getAllMatchable();
+            posts = await postStore.getAllMatchable();
             if (!posts) {
                 res.status(500).send("Server internal error deletiing post");
             } else {
@@ -141,7 +141,7 @@ module.exports = (userStore, postStore, apnProvider) => {
                 }  
                 if (!responseInfo.confirmed)  { // rejected
                     // Clear post
-                    let updates = {};
+                    var updates = {};
                     updates.postId = responseInfo.postId;
                     updates.requestedBy = null;
                     updates.matchedPostId = "";
