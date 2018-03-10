@@ -43,8 +43,8 @@ let apnsOptions = {
 };
 
 // set up APNs connection
-var apnProvider = new apn.Provider(apnsOptions);
-// let apnProvider = null;  // for dev purpose, don't frequently connect to APNs
+// var apnProvider = new apn.Provider(apnsOptions);
+let apnProvider = null;  // for dev purpose, don't frequently connect to APNs
 
 app.use(bodyParser.text());
 app.use(bodyParser.json());

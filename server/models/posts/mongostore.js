@@ -1,7 +1,6 @@
 "use strict";
 
-const mongodb = require('mongodb'); //for mongodb.ObjectID()
-
+const {ObjectId} = require('mongodb'); // or ObjectID 
 /**
  * MongoStore is a concrete store for Message and Channel models
  */
@@ -14,44 +13,41 @@ class MongoStore {
     addPost(postInfo) {
         postInfo.createdAt = new Date();
         postInfo.status = "WAITING";
+        postInfo.startTime = new Date(postInfo.startTime *1000)
+        postInfo.endTime = new Date(postInfo.endTime *1000)
         postInfo.matchedPostId = "";
         postInfo.invitedBy = null;
         return this.collection.insert(postInfo);
     }
 
     match(postInfo) {
+        console.log(postInfo.startTime);
         let query =  { $and: [ 
-            { startTime: { $lte: postInfo.endTime } }, 
-            { endTime: { $gte: postInfo.startTime } },
+            { startTime: { $lte: postInfo.endTime} }, 
+            { endTime: { $gte: postInfo.startTime} },
             { cuisine: postInfo.cuisine}, 
-            { matchingStatus: "WAITING" }, 
+            { status: "WAITING" },
+            { 'creator.userId': { $not: { $eq: postInfo.creator.userId } } } //exclude self
         ] }
-
-        let result = this.collection.find(query).sort({
-            "createdAt": 1
-        }).limit(1).toArray()[0];
-        if (result) {
-            return result;
-        } else {
-            return null;
-        }
+        // return this.collection.find(query).sort({"createdAt": 1 }).limit(1).toArray()[0];
+        return this.collection.findOne(query);
     }
 
     getPost(postId) {
-        return this.collection.findOne({_id : postId});
+        return this.collection.findOne({_id : ObjectId(postId)});
     }
 
     deletePost(postId) {
-        this.collection.deleteOne({_id : postId});
+        return this.collection.deleteOne({_id : ObjectId(postId)});
     }
     
     getAllMatchable() {
-        let query = { matchingStatus: "WAITING" };
+        let query = { status: "WAITING" };
         return this.collection.find(query).toArray();
     }
 
     updatePostStatus(inviteInfo, newStatus) {
-        this.collection.updateOne({_id : inviteInfo.postId}, {$set: { 
+        return this.collection.updateOne({_id : ObjectId(inviteInfo.postId)}, {$set: { 
             status : newStatus, 
             invitedBy : inviteInfo.inviter,
             matchedPostId : inviteInfo.matchedPostId
@@ -59,7 +55,7 @@ class MongoStore {
     }
 
     updateInviteStatus(postId, newStatus) {
-        this.collection.updateOne({_id : postId}, {$set: { status : newStatus }});
+        return this.collection.updateOne({_id : ObjectId(postId)}, {$set: { status : newStatus }});
     }
 }
 
