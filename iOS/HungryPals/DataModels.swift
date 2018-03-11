@@ -88,6 +88,10 @@ class DataRepository {
     static let shared = DataRepository()
     
     
+    init() {
+        httpFetchPosts()
+    }
+    
     /* IN-APP METHODS FOR OTHER COMPONENTS */
     func getMatchablePosts() -> [Post] {
         httpFetchPosts()
