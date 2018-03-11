@@ -73,9 +73,9 @@ extension Date {
 import UIKit
 
 class DataRepository {
-    private var matchablePosts:[Post] = [] // others' matchable posts
-    private var pendingPosts:[Post] = [] // my posts and pending requested posts
-    private var confirmedPosts:[Post] = []
+    public var matchablePosts:[Post] = [] // others' matchable posts
+    public var pendingPosts:[Post] = [] // my posts and pending requested posts
+    public var confirmedPosts:[Post] = []
     public var user:User? = nil
     
     public let baseURL = "https://appcode.leontaolong.com:8449"
@@ -87,6 +87,8 @@ class DataRepository {
     
     static let shared = DataRepository()
     
+    
+    /* IN-APP METHODS FOR OTHER COMPONENTS */
     func getMatchablePosts() -> [Post] {
         return matchablePosts
     }
@@ -132,10 +134,8 @@ class DataRepository {
     }
     
     
-    
-    
-    /* HTTP METHODS */
-    private func httpAddUser(username:String, email:String, location:String, userId:String, profilePic:String, deviceToken:String) {
+    /* ENCAPSULATED INTERNAL HTTP METHODS */
+    fileprivate func httpAddUser(username:String, email:String, location:String, userId:String, profilePic:String, deviceToken:String) {
         let jsonData = serializeUser(user!)
         Alamofire.request(baseURL + "/v1/user", method: .post, parameters: jsonData, encoding:JSONEncoding.default)
             .responseString {response in
@@ -144,7 +144,7 @@ class DataRepository {
         }
     }
     
-    private func httpAddPost(creator:[String:String], startTime:String, endTime:String, restaurant:String, cuisine:String, notes:String) {
+    fileprivate func httpAddPost(creator:[String:String], startTime:String, endTime:String, restaurant:String, cuisine:String, notes:String) {
         
         let jsonData: [String: Any] = [
             "creator": creator,
@@ -166,7 +166,7 @@ class DataRepository {
     }
     
     
-    private func httpFetchPosts() {
+    fileprivate func httpFetchPosts() {
         Alamofire.request(baseURL + "/v1/posts", method: .get)
             .responseJSON {response in
                 print("Success: \(response.result.isSuccess)")
@@ -185,7 +185,7 @@ class DataRepository {
         }
     }
     
-    private func httpRequestPost(_ index:Int, _ postId:String, _ requestedBy:[String:String], _ matchedPostId:String) {
+    fileprivate func httpRequestPost(_ index:Int, _ postId:String, _ requestedBy:[String:String], _ matchedPostId:String) {
         let jsonData: [String: Any] = [
             "postId": postId,
             "requestedBy": requestedBy,
@@ -203,7 +203,7 @@ class DataRepository {
         }
     }
     
-    private func httpRespondPost(_ confirmed:Bool, _ postId:String) {
+    fileprivate func httpRespondPost(_ confirmed:Bool, _ postId:String) {
         let jsonData: [String: Any] = ["confirmed": confirmed, "postId": postId]
         
         Alamofire.request(baseURL + "/v1/respond", method: .post, parameters: jsonData, encoding:JSONEncoding.default)
@@ -218,7 +218,7 @@ class DataRepository {
         }
     }
     
-    private func httpDeletePost(_ postId:String) {
+    fileprivate func httpDeletePost(_ postId:String) {
         let jsonData = ["postId": postId]
         
         Alamofire.request(baseURL + "/v1/post", method: .delete, parameters: jsonData, encoding:JSONEncoding.default)
@@ -260,6 +260,7 @@ class DataRepository {
         return date
     }
     
+    /* TEMP TEST METHODS */
     //    func test() {
     //        let date1 = parseDate("2018-03-11T05:35:28.719Z")
     //        let date2 = parseDate("2018-03-11T07:35:28.719Z")
