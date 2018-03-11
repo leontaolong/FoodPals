@@ -17,7 +17,6 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         posts = UIApplication.shared.dataRepository.getMatchablePosts()
         user = UIApplication.shared.dataRepository.getUser()
         
@@ -26,7 +25,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         postsTable.delegate = self
         //postsTable.separatorStyle = UITableViewCellSeparatorStyle.none
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -7,20 +7,63 @@
 //
 
 import UIKit
+import FacebookLogin
+import FacebookCore
 
-class AccountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+
+class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
+
+    @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelEmail: UILabel!
-    @IBOutlet weak var labelLocation: UILabel!
+    //@IBOutlet weak var labelLocation: UILabel!
     @IBOutlet weak var img: UIImageView!
     let appdata = AppData.shared
+    let dataRepo = DataRepository.shared
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var picker: UIPickerView!
+    @IBAction func btnEdit(_ sender: Any) {
+        appdata.fromProfile = true
+    }
+    @IBAction func btnLogout(_ sender: Any) {
+        LoginManager().logOut()
+        performSegue(withIdentifier: "profileToLogin", sender: self)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return appdata.accountList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! PreferenceTableViewCell
+        //if appdata.accountList[indexPath.row] == "Live in " {
+        if dataRepo.accountList[indexPath.row] == "Live in" {
+            cell.accountList.text =
+            "Live in \(appdata.location)"
+        } else {
+            //cell.accountList.text = appdata.accountList[indexPath.row]
+            cell.accountList.text = dataRepo.accountList[indexPath.row]
+        }
+
+        //cell.accountIcon.image = UIImage(named: appdata.accountListIcon[indexPath.row])
+        cell.accountIcon.image = UIImage(named: dataRepo.accountListIcon[indexPath.row])
+        return cell
+    }
+    
+    
+    
+    //@IBOutlet weak var picker: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.picker.dataSource = self
-        self.picker.delegate = self
+        //self.picker.dataSource = self
+        //self.picker.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         print("appdata")
         print(appdata.cuisine)
         print(appdata.id)
@@ -30,22 +73,27 @@ class AccountViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         print(appdata.email)
         labelName.text = appdata.name
         labelEmail.text = appdata.email
-        labelLocation.text = appdata.location
         
         let url = URL(string: appdata.profilePicUrl)
         let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
         img.image = UIImage(data: data!)
+        //img.image = UIImage(named: "log-in")
         img.layer.cornerRadius = img.frame.height / 2
         img.clipsToBounds = true
         // Do any additional setup after loading the view.
+        btnLogout.layer.cornerRadius = 5
+        print("DEVICE TOEKN: ")
+        print(UserDefaults.standard.string(forKey: "deviceToken"))
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    /*func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
@@ -61,7 +109,7 @@ class AccountViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // code here
-    }
+    }*/
     
 
     /*

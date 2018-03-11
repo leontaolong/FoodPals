@@ -11,10 +11,12 @@ import FacebookCore
 import FacebookLogin
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var facebookInfo: UILabel!
+    //@IBOutlet weak var facebookInfo: UILabel!
     let appdata = AppData.shared
+    var fbLogin = false
     let dataRepo = DataRepository.shared
     
+    @IBOutlet weak var fbIcon: UIImageView!
     @IBAction func btnLogin(_ sender: UIButton) {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .email, .userFriends, .userLocation], viewController: self) { result in
@@ -24,10 +26,11 @@ class LoginViewController: UIViewController {
             case .cancelled:
                 print("user cancelled the login")
             case .success(_, _, _):
+                self.fbLogin = true
                 self.getUserInfo { userInfo, error in
                     if let error = error { print(error.localizedDescription)}
                     if let userInfo = userInfo, let id = userInfo["id"], let name = userInfo["name"], let email = userInfo["email"] {
-                        self.facebookInfo.text = "ID: \(id), Name: \(name), Email: \(email)"
+                        //self.facebookInfo.text = "ID: \(id), Name: \(name), Email: \(email)"
                         self.appdata.name = name as! String
                         self.appdata.id = id as! String
                         self.appdata.email = email as! String
@@ -46,6 +49,8 @@ class LoginViewController: UIViewController {
                         self.appdata.location = (location["name"] as? String)!
                     }
                 }
+                // segue
+
                 
             }
         }
@@ -66,8 +71,19 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "log-in")
+        backgroundImage.contentMode =  UIViewContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        fbIcon.image = UIImage(named: "fb")
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if fbLogin {
+            // sending to profile page for now, will change to main page
+            self.performSegue(withIdentifier: "loginToPreference", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {

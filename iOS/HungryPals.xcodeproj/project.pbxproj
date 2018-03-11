@@ -13,9 +13,36 @@
 		1F773A652050A5BD000F14DA /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F773A642050A5BD000F14DA /* DataModels.swift */; };
 		584CFF43D86C16BEB4AB8944 /* Pods_HungryPalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BBB2364C12EEC843B19E20 /* Pods_HungryPalsTests.framework */; };
 		D547979BB338C6B1656512CF /* Pods_HungryPalsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C71E2528C01E804392F4FE /* Pods_HungryPalsUITests.framework */; };
+		EF236E5E2053AF8F00E8E741 /* PreferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF236E5D2053AF6900E8E741 /* PreferenceTableViewController.swift */; };
+		EF236E6D2053B0A200E8E741 /* Candara Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E6A2053B08800E8E741 /* Candara Bold Italic.ttf */; };
+		EF236E6E2053B0A200E8E741 /* Candara Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E6C2053B08800E8E741 /* Candara Bold.ttf */; };
+		EF236E6F2053B0A200E8E741 /* Candara Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E692053B08800E8E741 /* Candara Italic.ttf */; };
+		EF236E702053B0A200E8E741 /* Candara.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E6B2053B08800E8E741 /* Candara.ttf */; };
+		EF236E712053B0A700E8E741 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E682053B07B00E8E741 /* Lobster-Regular.ttf */; };
+		EF236E722053B0B100E8E741 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E422053AF5500E8E741 /* Lato-HeavyItalic.ttf */; };
+		EF236E732053B0B100E8E741 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E432053AF5500E8E741 /* Lato-Italic.ttf */; };
+		EF236E742053B0B100E8E741 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E442053AF5500E8E741 /* Lato-LightItalic.ttf */; };
+		EF236E752053B0B100E8E741 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E452053AF5500E8E741 /* Lato-Thin.ttf */; };
+		EF236E762053B0B100E8E741 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E462053AF5500E8E741 /* Lato-Bold.ttf */; };
+		EF236E772053B0B100E8E741 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E472053AF5500E8E741 /* Lato-Black.ttf */; };
+		EF236E782053B0B100E8E741 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E482053AF5500E8E741 /* Lato-SemiboldItalic.ttf */; };
+		EF236E792053B0B100E8E741 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E492053AF5500E8E741 /* Lato-HairlineItalic.ttf */; };
+		EF236E7A2053B0B100E8E741 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E4E2053AF5500E8E741 /* Lato-Regular.ttf */; };
+		EF236E7B2053B0B100E8E741 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E4F2053AF5500E8E741 /* Lato-Hairline.ttf */; };
+		EF236E7C2053B0B100E8E741 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E502053AF5500E8E741 /* Lato-BlackItalic.ttf */; };
+		EF236E7D2053B0B100E8E741 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E512053AF5500E8E741 /* Lato-Semibold.ttf */; };
+		EF236E7E2053B0B100E8E741 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E522053AF5500E8E741 /* Lato-MediumItalic.ttf */; };
+		EF236E7F2053B0BB00E8E741 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E542053AF5500E8E741 /* Lato-Heavy.ttf */; };
+		EF236E802053B0BB00E8E741 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E562053AF5500E8E741 /* Lato-BoldItalic.ttf */; };
+		EF236E812053B0BB00E8E741 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E572053AF5500E8E741 /* Lato-Light.ttf */; };
+		EF236E822053B0BB00E8E741 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E582053AF5500E8E741 /* Lato-Medium.ttf */; };
+		EF236E832053B0BB00E8E741 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF236E592053AF5500E8E741 /* Lato-ThinItalic.ttf */; };
+		EF236E852053B9EA00E8E741 /* AccountPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF236E842053B9EA00E8E741 /* AccountPreferenceViewController.swift */; };
 		EF3492E920492A510014A9C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3492E820492A510014A9C2 /* LoginViewController.swift */; };
 		EF9B9C57204FB49A003B574B /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B9C56204FB49A003B574B /* AppData.swift */; };
 		EF9B9C59204FBAD0003B574B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B9C58204FBAD0003B574B /* AccountViewController.swift */; };
+		EF9C1C442051C70900C9A3D4 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C1C432051C70800C9A3D4 /* PreferenceViewController.swift */; };
+		EF9C1C462051C75300C9A3D4 /* PreferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C1C452051C75300C9A3D4 /* PreferenceTableViewCell.swift */; };
 		F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868C20477EEB000AF99F /* AppDelegate.swift */; };
 		F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868E20477EEB000AF99F /* FirstViewController.swift */; };
 		F630869120477EEB000AF99F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630869020477EEB000AF99F /* SecondViewController.swift */; };
@@ -56,9 +83,40 @@
 		A50139DA39FBE19748C2C775 /* Pods-HungryPalsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C227D8910BC62952B859D006 /* Pods_HungryPals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C342D9CF3398A1FB59A21F2B /* Pods-HungryPals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.debug.xcconfig"; sourceTree = "<group>"; };
+		EF236E3420534E0E00E8E741 /* Candara */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Candara; sourceTree = "<group>"; };
+		EF236E422053AF5500E8E741 /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		EF236E432053AF5500E8E741 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		EF236E442053AF5500E8E741 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		EF236E452053AF5500E8E741 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		EF236E462053AF5500E8E741 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		EF236E472053AF5500E8E741 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		EF236E482053AF5500E8E741 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		EF236E492053AF5500E8E741 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		EF236E4E2053AF5500E8E741 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		EF236E4F2053AF5500E8E741 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		EF236E502053AF5500E8E741 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		EF236E512053AF5500E8E741 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		EF236E522053AF5500E8E741 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
+		EF236E532053AF5500E8E741 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		EF236E542053AF5500E8E741 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		EF236E552053AF5500E8E741 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		EF236E562053AF5500E8E741 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		EF236E572053AF5500E8E741 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		EF236E582053AF5500E8E741 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		EF236E592053AF5500E8E741 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		EF236E5D2053AF6900E8E741 /* PreferenceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceTableViewController.swift; sourceTree = "<group>"; };
+		EF236E672053B07B00E8E741 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		EF236E682053B07B00E8E741 /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster-Regular.ttf"; sourceTree = "<group>"; };
+		EF236E692053B08800E8E741 /* Candara Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Candara Italic.ttf"; sourceTree = "<group>"; };
+		EF236E6A2053B08800E8E741 /* Candara Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Candara Bold Italic.ttf"; sourceTree = "<group>"; };
+		EF236E6B2053B08800E8E741 /* Candara.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Candara.ttf; sourceTree = "<group>"; };
+		EF236E6C2053B08800E8E741 /* Candara Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Candara Bold.ttf"; sourceTree = "<group>"; };
+		EF236E842053B9EA00E8E741 /* AccountPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPreferenceViewController.swift; sourceTree = "<group>"; };
 		EF3492E820492A510014A9C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF9B9C56204FB49A003B574B /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		EF9B9C58204FBAD0003B574B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		EF9C1C432051C70800C9A3D4 /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
+		EF9C1C452051C75300C9A3D4 /* PreferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceTableViewCell.swift; sourceTree = "<group>"; };
 		F630868920477EEB000AF99F /* HungryPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungryPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F630868C20477EEB000AF99F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F630868E20477EEB000AF99F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -128,9 +186,60 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EF236E402053AF3000E8E741 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				EF236E6A2053B08800E8E741 /* Candara Bold Italic.ttf */,
+				EF236E6C2053B08800E8E741 /* Candara Bold.ttf */,
+				EF236E692053B08800E8E741 /* Candara Italic.ttf */,
+				EF236E6B2053B08800E8E741 /* Candara.ttf */,
+				EF236E662053B07B00E8E741 /* Lobster */,
+				EF236E3420534E0E00E8E741 /* Candara */,
+				EF236E412053AF5500E8E741 /* Lato2OFL */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		EF236E412053AF5500E8E741 /* Lato2OFL */ = {
+			isa = PBXGroup;
+			children = (
+				EF236E422053AF5500E8E741 /* Lato-HeavyItalic.ttf */,
+				EF236E432053AF5500E8E741 /* Lato-Italic.ttf */,
+				EF236E442053AF5500E8E741 /* Lato-LightItalic.ttf */,
+				EF236E452053AF5500E8E741 /* Lato-Thin.ttf */,
+				EF236E462053AF5500E8E741 /* Lato-Bold.ttf */,
+				EF236E472053AF5500E8E741 /* Lato-Black.ttf */,
+				EF236E482053AF5500E8E741 /* Lato-SemiboldItalic.ttf */,
+				EF236E492053AF5500E8E741 /* Lato-HairlineItalic.ttf */,
+				EF236E4E2053AF5500E8E741 /* Lato-Regular.ttf */,
+				EF236E4F2053AF5500E8E741 /* Lato-Hairline.ttf */,
+				EF236E502053AF5500E8E741 /* Lato-BlackItalic.ttf */,
+				EF236E512053AF5500E8E741 /* Lato-Semibold.ttf */,
+				EF236E522053AF5500E8E741 /* Lato-MediumItalic.ttf */,
+				EF236E532053AF5500E8E741 /* OFL.txt */,
+				EF236E542053AF5500E8E741 /* Lato-Heavy.ttf */,
+				EF236E552053AF5500E8E741 /* README.txt */,
+				EF236E562053AF5500E8E741 /* Lato-BoldItalic.ttf */,
+				EF236E572053AF5500E8E741 /* Lato-Light.ttf */,
+				EF236E582053AF5500E8E741 /* Lato-Medium.ttf */,
+				EF236E592053AF5500E8E741 /* Lato-ThinItalic.ttf */,
+			);
+			path = Lato2OFL;
+			sourceTree = "<group>";
+		};
+		EF236E662053B07B00E8E741 /* Lobster */ = {
+			isa = PBXGroup;
+			children = (
+				EF236E672053B07B00E8E741 /* OFL.txt */,
+				EF236E682053B07B00E8E741 /* Lobster-Regular.ttf */,
+			);
+			path = Lobster;
+			sourceTree = "<group>";
+		};
 		F630868020477EEB000AF99F = {
 			isa = PBXGroup;
 			children = (
+				EF236E402053AF3000E8E741 /* Font */,
 				F630868B20477EEB000AF99F /* HungryPals */,
 				F63086A220477EEB000AF99F /* HungryPalsTests */,
 				F63086AD20477EEB000AF99F /* HungryPalsUITests */,
@@ -154,6 +263,10 @@
 			isa = PBXGroup;
 			children = (
 				F630869220477EEB000AF99F /* Main.storyboard */,
+				EF236E842053B9EA00E8E741 /* AccountPreferenceViewController.swift */,
+				EF9C1C432051C70800C9A3D4 /* PreferenceViewController.swift */,
+				EF9C1C452051C75300C9A3D4 /* PreferenceTableViewCell.swift */,
+				EF236E5D2053AF6900E8E741 /* PreferenceTableViewController.swift */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
 				1F3A7639204D249600E8A34A /* PostViewController.swift */,
 				1F3A763B204D24B400E8A34A /* MyPostViewController.swift */,
@@ -313,6 +426,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF236E7F2053B0BB00E8E741 /* Lato-Heavy.ttf in Resources */,
+				EF236E802053B0BB00E8E741 /* Lato-BoldItalic.ttf in Resources */,
+				EF236E812053B0BB00E8E741 /* Lato-Light.ttf in Resources */,
+				EF236E822053B0BB00E8E741 /* Lato-Medium.ttf in Resources */,
+				EF236E832053B0BB00E8E741 /* Lato-ThinItalic.ttf in Resources */,
+				EF236E722053B0B100E8E741 /* Lato-HeavyItalic.ttf in Resources */,
+				EF236E732053B0B100E8E741 /* Lato-Italic.ttf in Resources */,
+				EF236E742053B0B100E8E741 /* Lato-LightItalic.ttf in Resources */,
+				EF236E752053B0B100E8E741 /* Lato-Thin.ttf in Resources */,
+				EF236E762053B0B100E8E741 /* Lato-Bold.ttf in Resources */,
+				EF236E772053B0B100E8E741 /* Lato-Black.ttf in Resources */,
+				EF236E782053B0B100E8E741 /* Lato-SemiboldItalic.ttf in Resources */,
+				EF236E792053B0B100E8E741 /* Lato-HairlineItalic.ttf in Resources */,
+				EF236E7A2053B0B100E8E741 /* Lato-Regular.ttf in Resources */,
+				EF236E7B2053B0B100E8E741 /* Lato-Hairline.ttf in Resources */,
+				EF236E7C2053B0B100E8E741 /* Lato-BlackItalic.ttf in Resources */,
+				EF236E7D2053B0B100E8E741 /* Lato-Semibold.ttf in Resources */,
+				EF236E7E2053B0B100E8E741 /* Lato-MediumItalic.ttf in Resources */,
+				EF236E712053B0A700E8E741 /* Lobster-Regular.ttf in Resources */,
+				EF236E6D2053B0A200E8E741 /* Candara Bold Italic.ttf in Resources */,
+				EF236E6E2053B0A200E8E741 /* Candara Bold.ttf in Resources */,
+				EF236E6F2053B0A200E8E741 /* Candara Italic.ttf in Resources */,
+				EF236E702053B0A200E8E741 /* Candara.ttf in Resources */,
 				F630869920477EEB000AF99F /* LaunchScreen.storyboard in Resources */,
 				F630869620477EEB000AF99F /* Assets.xcassets in Resources */,
 				F630869420477EEB000AF99F /* Main.storyboard in Resources */,
@@ -508,11 +644,15 @@
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
 				EF9B9C59204FBAD0003B574B /* AccountViewController.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
+				EF236E5E2053AF8F00E8E741 /* PreferenceTableViewController.swift in Sources */,
 				EF3492E920492A510014A9C2 /* LoginViewController.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
 				EF9B9C57204FB49A003B574B /* AppData.swift in Sources */,
 				1F773A652050A5BD000F14DA /* DataModels.swift in Sources */,
+				EF236E852053B9EA00E8E741 /* AccountPreferenceViewController.swift in Sources */,
 				1F3A763C204D24B400E8A34A /* MyPostViewController.swift in Sources */,
+				EF9C1C442051C70900C9A3D4 /* PreferenceViewController.swift in Sources */,
+				EF9C1C462051C75300C9A3D4 /* PreferenceTableViewCell.swift in Sources */,
 				1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -681,13 +821,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HungryPals/HungryPals.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UZHVQ52BK;
 				INFOPLIST_FILE = HungryPals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.loners.HungryPals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -699,13 +841,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HungryPals/HungryPals.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UZHVQ52BK;
 				INFOPLIST_FILE = HungryPals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.loners.HungryPals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

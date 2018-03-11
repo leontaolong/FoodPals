@@ -79,7 +79,7 @@ class DataRepository {
     public var user:User? = nil
     
     public let baseURL = "https://appcode.leontaolong.com:8449"
-//    public let baseURL = "http://localhost:8448"
+    //    public let baseURL = "http://localhost:8448"
     
     open let accountList: [String] = ["Cuisine Preference", "Live in ", "Terms & privacy policiy", "About Hungry Pals"]
     open let accountListIcon: [String] = ["like", "location", "policy", "about"]
@@ -283,7 +283,7 @@ class DataRepository {
 extension Formatter {
     static let iso8601: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+//        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         return formatter
     }()
 }
