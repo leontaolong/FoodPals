@@ -20,6 +20,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     //@IBOutlet weak var labelLocation: UILabel!
     @IBOutlet weak var img: UIImageView!
     let appdata = AppData.shared
+    let dataRepo = DataRepository.shared
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func btnEdit(_ sender: Any) {
@@ -40,16 +41,17 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! PreferenceTableViewCell
-        print(appdata.location)
-        if appdata.accountList[indexPath.row] == "Live in " {
-            print("IM HERE \(appdata.location)")
+        //if appdata.accountList[indexPath.row] == "Live in " {
+        if dataRepo.accountList[indexPath.row] == "Live in" {
             cell.accountList.text =
             "Live in \(appdata.location)"
         } else {
-            cell.accountList.text = appdata.accountList[indexPath.row]
+            //cell.accountList.text = appdata.accountList[indexPath.row]
+            cell.accountList.text = dataRepo.accountList[indexPath.row]
         }
 
-        cell.accountIcon.image = UIImage(named: appdata.accountListIcon[indexPath.row])
+        //cell.accountIcon.image = UIImage(named: appdata.accountListIcon[indexPath.row])
+        cell.accountIcon.image = UIImage(named: dataRepo.accountListIcon[indexPath.row])
         return cell
     }
     
@@ -80,6 +82,8 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         img.clipsToBounds = true
         // Do any additional setup after loading the view.
         btnLogout.layer.cornerRadius = 5
+        print("DEVICE TOEKN: ")
+        print(UserDefaults.standard.string(forKey: "deviceToken"))
     }
     
     

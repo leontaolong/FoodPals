@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.0)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -26,11 +27,13 @@ PODS:
     - FBSDKCoreKit (~> 4.31.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - FacebookCore
   - FacebookLogin
   - FacebookShare
 
 SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 95a252ddffd6919c0f132a02292f0824616d8709
   FBSDKShareKit: 7c3a2e6bb5be15676aebe256444afb18c5d238b3
 
-PODFILE CHECKSUM: 6c854a0e88cca66eb1096d5f7e556188030a83c9
+PODFILE CHECKSUM: 14200e613a479c30623f7f92b7cab06abc3d16ca
 
 COCOAPODS: 1.4.0

@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     //@IBOutlet weak var facebookInfo: UILabel!
     let appdata = AppData.shared
     var fbLogin = false
+    let dataRepo = DataRepository.shared
     
     @IBOutlet weak var fbIcon: UIImageView!
     @IBAction func btnLogin(_ sender: UIButton) {

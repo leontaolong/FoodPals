@@ -11,22 +11,22 @@ import UIKit
 class PostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var postsTable: UITableView!
     
-    let postRepo = PostRepository.shared
+    let dataRepo = DataRepository.shared
     var posts: [Post]? = nil
-    var users: [User]? = nil
+    var user: User? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        posts = UIApplication.shared.postRepository.getPosts()
-        users = UIApplication.shared.postRepository.getUsers()
+        
+        posts = UIApplication.shared.dataRepository.getMatchablePosts()
+        user = UIApplication.shared.dataRepository.getUser()
         
         // Do any additional setup after loading the view.
         postsTable.dataSource = self
         postsTable.delegate = self
         //postsTable.separatorStyle = UITableViewCellSeparatorStyle.none
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,10 +53,10 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let post = posts![index]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-        cell.textLabel?.text = post.getCreator().getUsername()
-        cell.detailTextLabel?.text = "Wants to eat \(post.getCuisine())\nAt \(post.getStartTime().toString()) - \(post.getEndTime().toString()), Today"
+        cell.textLabel?.text = post.creator.username
+        cell.detailTextLabel?.text = "Wants to eat \(post.cuisine)\nAt \(post.startTime.toString()) - \(post.endTime.toString()), Today"
         
-        let imageUrl = URL(string: post.getCreator().getProfilePic())!
+        let imageUrl = URL(string: post.creator.profilePic)!
         let imageData = try! Data(contentsOf: imageUrl)
         cell.imageView?.image = maskRoundedImage(image: UIImage(data: imageData)!, radius: CGFloat(160))
         return cell
@@ -64,7 +64,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = posts![indexPath.row]
-        NSLog("User selected row at \(post.getRestaurant())")
+        NSLog("User selected row at \(post.restaurant)")
         //performSegue(withIdentifier: "showQuestion", sender: subject)
     }
 }

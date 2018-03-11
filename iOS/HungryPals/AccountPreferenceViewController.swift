@@ -9,7 +9,7 @@
 import UIKit
 
 class AccountPreferenceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    let dataRepo = DataRepository.shared
     let appdata = AppData.shared
     @IBOutlet weak var labelName: UILabel!
     
@@ -24,12 +24,14 @@ class AccountPreferenceViewController: UIViewController, UITableViewDelegate, UI
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
-        return appdata.cuisine.count
+        //return appdata.cuisine.count
+        return dataRepo.cuisine.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "preferenceCell", for: indexPath) as! PreferenceTableViewCell
-        cell.cuisine.text = appdata.cuisine[indexPath.row]
+        //cell.cuisine.text = appdata.cuisine[indexPath.row]
+        cell.cuisine.text = dataRepo.cuisine[indexPath.row]
         if appdata.cuisineMarked[indexPath.row] {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }

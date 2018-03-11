@@ -12,10 +12,17 @@ import FacebookLogin
 
 import UserNotifications
 
-extension UIApplication {
+/*extension UIApplication {
     var postRepository : PostRepository {
         get {
             return PostRepository.shared
+        }
+    }
+}*/
+extension UIApplication {
+    var dataRepository : DataRepository {
+        get {
+            return DataRepository.shared
         }
     }
 }

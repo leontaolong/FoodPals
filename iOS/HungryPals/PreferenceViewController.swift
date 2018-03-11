@@ -14,18 +14,21 @@ class PreferenceViewController: UIViewController, UITableViewDelegate, UITableVi
     //@IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var btnStart: UIButton!
     let appdata = AppData.shared
+    let dataRepo = DataRepository.shared
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
-        return appdata.cuisine.count
+        //return appdata.cuisine.count
+        return dataRepo.cuisine.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "preferenceCell", for: indexPath) as! PreferenceTableViewCell
-        cell.cuisine.text = appdata.cuisine[indexPath.row]
+        //cell.cuisine.text = appdata.cuisine[indexPath.row]
+        cell.cuisine.text = dataRepo.cuisine[indexPath.row]
         if appdata.cuisineMarked[indexPath.row] {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
