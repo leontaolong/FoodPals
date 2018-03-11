@@ -16,12 +16,12 @@ const UserStore = require('./models/users/mongostore.js');
 const app = express();
 
 app.use(morgan(process.env.LOGFORMAT || 'dev'));
-app.use(forceSsl);
+// app.use(forceSsl);
 
 //  increase the default limit globally 
 require('events').EventEmitter.prototype._maxListeners = 100;
 
-const port = process.env.PORT || '80';
+const port = process.env.PORT || '443';
 const httpPort = process.env.HTTPPORT || '80'
 const dbAddr = process.env.DBADDR;
 const apnsPath = process.env.APNSPATH;
@@ -38,9 +38,9 @@ if (!apnsPath) {
 
 let apnsOptions = {
     token: {
-      key: apnsPath,
-      keyId: "LC84854ZM7",
-      teamId: "6UZHVQ52BK"
+        key: apnsPath,
+        keyId: "LC84854ZM7",
+        teamId: "6UZHVQ52BK"
     },
     production: false
 };

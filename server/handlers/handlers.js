@@ -3,7 +3,7 @@
 const express = require('express');
 const Notifiers = require('../notifiers/notifiers.js');
 
-const requiredAddUserFields = ["username", "userId", "profilePic", "deviceToken", "cuisinePrefs" ];
+const requiredAddUserFields = ["username", "userId", "email", "location", "profilePic", "deviceToken"];
 const requiredAddPostFields = ["creator", "startTime", "endTime", "restaurant", "cuisine", "notes" ];
 const requiredDeletePostFields = ["postId"];
 const requiredRequestFields = ["postId", "requestedBy", "matchedPostId"];
