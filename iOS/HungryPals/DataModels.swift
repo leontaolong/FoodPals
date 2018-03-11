@@ -90,6 +90,8 @@ class DataRepository {
     
     /* IN-APP METHODS FOR OTHER COMPONENTS */
     func getMatchablePosts() -> [Post] {
+        httpFetchPosts()
+        print(matchablePosts)
         return matchablePosts
     }
     
