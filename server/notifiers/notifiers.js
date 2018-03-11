@@ -17,6 +17,7 @@ let Notifiers = {
               "sender": "node-apn",
             },
             post: post,
+            subject: "MATCH"
         });
 
         apnProvider.send(notification, deviceToken).then( (result) => {
@@ -44,6 +45,7 @@ let Notifiers = {
               "sender": "node-apn",
             },
             post: post,
+            subject: "REQUEST"
         });
 
         apnProvider.send(notification, deviceToken).then( (result) => {
@@ -67,7 +69,8 @@ let Notifiers = {
             payload: {
               "sender": "node-apn",
             },
-            post, post
+            post, post,
+            subject: "RESPONSE"
         });
 
         apnProvider.send(notification, deviceToken).then( (result) => {
