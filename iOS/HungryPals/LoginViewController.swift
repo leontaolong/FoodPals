@@ -13,6 +13,7 @@ import FacebookLogin
 class LoginViewController: UIViewController {
     @IBOutlet weak var facebookInfo: UILabel!
     let appdata = AppData.shared
+    let dataRepo = DataRepository.shared
     
     @IBAction func btnLogin(_ sender: UIButton) {
         let loginManager = LoginManager()
@@ -65,6 +66,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         // Do any additional setup after loading the view.
     }

@@ -9,6 +9,7 @@ target 'HungryPals' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'Alamofire', '~> 4.7'
 
   # Pods for HungryPals
 
