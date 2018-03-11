@@ -53,8 +53,8 @@ class User {
         self.deviceToken = deviceToken
     }
     
-    func updatePref(_ markedPrefs:[Bool]) {
-        self.cuisineMarked = markedPrefs
+    func updatePref(_ index:Int) {
+        self.cuisineMarked[index] = !self.cuisineMarked[index]
     }
 }
 

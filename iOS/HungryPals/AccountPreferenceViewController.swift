@@ -24,15 +24,13 @@ class AccountPreferenceViewController: UIViewController, UITableViewDelegate, UI
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
-        //return appdata.cuisine.count
         return dataRepo.cuisine.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "preferenceCell", for: indexPath) as! PreferenceTableViewCell
-        //cell.cuisine.text = appdata.cuisine[indexPath.row]
         cell.cuisine.text = dataRepo.cuisine[indexPath.row]
-        if appdata.cuisineMarked[indexPath.row] {
+        if (dataRepo.user?.cuisineMarked[indexPath.row])! {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
         return cell
@@ -41,30 +39,27 @@ class AccountPreferenceViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
-            appdata.cuisineMarked[indexPath.row] = false
-            print(appdata.cuisineMarked)
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            appdata.cuisineMarked[indexPath.row] = true
-            print(appdata.cuisineMarked)
         }
+        dataRepo.user?.updatePref(indexPath.row)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         backImg.image = UIImage(named: "account-preference")
-        labelName.text = appdata.name
-        labelEmail.text = appdata.email
+        labelName.text = dataRepo.user?.username
+        labelEmail.text = dataRepo.user?.email
         
-        let url = URL(string: appdata.profilePicUrl)
+        //let url = URL(string: appdata.profilePicUrl)
+        let url = URL(string: (dataRepo.user?.profilePic)!)
         let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
         img.image = UIImage(data: data!)
         //img.image = UIImage(named: "log-in")
         img.layer.cornerRadius = img.frame.height / 2
         img.clipsToBounds = true
         btnOK.layer.cornerRadius = 5
-
     }
     
     

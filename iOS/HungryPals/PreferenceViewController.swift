@@ -11,7 +11,6 @@ import UIKit
 class PreferenceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imgTop: UIImageView!
-    //@IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var btnStart: UIButton!
     let appdata = AppData.shared
     let dataRepo = DataRepository.shared
@@ -27,9 +26,9 @@ class PreferenceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "preferenceCell", for: indexPath) as! PreferenceTableViewCell
-        //cell.cuisine.text = appdata.cuisine[indexPath.row]
         cell.cuisine.text = dataRepo.cuisine[indexPath.row]
-        if appdata.cuisineMarked[indexPath.row] {
+
+        if (dataRepo.user?.cuisineMarked[indexPath.row])! {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
         return cell
@@ -38,25 +37,14 @@ class PreferenceViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
-            appdata.cuisineMarked[indexPath.row] = false
-            print(appdata.cuisineMarked)
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            appdata.cuisineMarked[indexPath.row] = true
-            print(appdata.cuisineMarked)
         }
+        dataRepo.user?.updatePref(indexPath.row)
     }
     
     @IBAction func btnOK(_ sender: Any) {
         print("go to main page ")
-        /*let from = appdata.fromProfile
-        appdata.fromProfile = false
-        if from {
-            performSegue(withIdentifier: "preferenceToProfile", sender: self)
-        } else {
-            print("go to main page ")
-        }*/
-        
     }
     
     @IBOutlet weak var img: UIImageView!

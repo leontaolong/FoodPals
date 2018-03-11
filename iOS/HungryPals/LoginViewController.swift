@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     let appdata = AppData.shared
     var fbLogin = false
     let dataRepo = DataRepository.shared
-    
+    let this = self
     @IBOutlet weak var fbIcon: UIImageView!
     @IBAction func btnLogin(_ sender: UIButton) {
         let loginManager = LoginManager()
@@ -29,31 +29,21 @@ class LoginViewController: UIViewController {
                 self.fbLogin = true
                 self.getUserInfo { userInfo, error in
                     if let error = error { print(error.localizedDescription)}
-                    if let userInfo = userInfo, let id = userInfo["id"], let name = userInfo["name"], let email = userInfo["email"] {
-                        //self.facebookInfo.text = "ID: \(id), Name: \(name), Email: \(email)"
-                        self.appdata.name = name as! String
-                        self.appdata.id = id as! String
-                        self.appdata.email = email as! String
+                    if let userInfo = userInfo, let id = userInfo["id"], let name = userInfo["name"], let email = userInfo["email"], let pictureUrl = ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String, let location = userInfo["location"] as? NSDictionary {
+
+                        self.dataRepo.createUser(username:name as! String, email:email as! String, location:(location["name"] as? String)!, userId:id as! String, profilePic:pictureUrl, deviceToken:UserDefaults.standard.string(forKey: "deviceToken")!)
                     }
-                    if let userInfo = userInfo, let pictureUrl = ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String {
-                        print("pictureUrl: \(pictureUrl)")
-                        self.appdata.profilePicUrl = pictureUrl
-                    }
-                    if let userInfo = userInfo, let friends = userInfo["friends"] as? NSDictionary {
-                        print("userInfo friends: \(friends)")
-                        
-                    }
-                    
-                    if let userInfo = userInfo, let location = userInfo["location"] as? NSDictionary {
-                        print("location: \(location)")
-                        self.appdata.location = (location["name"] as? String)!
-                    }
+                    self.goToPref()
                 }
                 // segue
 
                 
             }
         }
+    }
+    
+    func goToPref() {
+        self.performSegue(withIdentifier: "loginToPreference", sender: self)
     }
     
     
@@ -81,8 +71,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if fbLogin {
-            // sending to profile page for now, will change to main page
-            self.performSegue(withIdentifier: "loginToPreference", sender: self)
+            goToPref()
         }
     }
 

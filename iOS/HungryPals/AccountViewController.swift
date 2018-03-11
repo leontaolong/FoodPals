@@ -21,6 +21,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var img: UIImageView!
     let appdata = AppData.shared
     let dataRepo = DataRepository.shared
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func btnEdit(_ sender: Any) {
@@ -36,21 +37,17 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appdata.accountList.count
+        return dataRepo.accountList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! PreferenceTableViewCell
-        //if appdata.accountList[indexPath.row] == "Live in " {
         if dataRepo.accountList[indexPath.row] == "Live in" {
             cell.accountList.text =
             "Live in \(appdata.location)"
         } else {
-            //cell.accountList.text = appdata.accountList[indexPath.row]
             cell.accountList.text = dataRepo.accountList[indexPath.row]
         }
-
-        //cell.accountIcon.image = UIImage(named: appdata.accountListIcon[indexPath.row])
         cell.accountIcon.image = UIImage(named: dataRepo.accountListIcon[indexPath.row])
         return cell
     }
@@ -60,30 +57,22 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     //@IBOutlet weak var picker: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.picker.dataSource = self
-        //self.picker.delegate = self
+
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        print("appdata")
-        print(appdata.cuisine)
-        print(appdata.id)
-        print(appdata.name)
-        print(appdata.location)
-        print(appdata.profilePicUrl)
-        print(appdata.email)
-        labelName.text = appdata.name
-        labelEmail.text = appdata.email
+
+        labelName.text = dataRepo.user?.username
+        labelEmail.text = dataRepo.user?.email
         
-        let url = URL(string: appdata.profilePicUrl)
+        
+        let url = URL(string: (dataRepo.user?.profilePic)!)
         let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
         img.image = UIImage(data: data!)
-        //img.image = UIImage(named: "log-in")
         img.layer.cornerRadius = img.frame.height / 2
         img.clipsToBounds = true
         // Do any additional setup after loading the view.
         btnLogout.layer.cornerRadius = 5
-        print("DEVICE TOEKN: ")
-        print(UserDefaults.standard.string(forKey: "deviceToken"))
+
     }
     
     
@@ -93,23 +82,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    /*func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // The number of rows of data
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return appdata.cuisine.count
-    }
-    
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return appdata.cuisine[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // code here
-    }*/
+
     
 
     /*
