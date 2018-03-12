@@ -38,6 +38,7 @@ let Notifiers = {
             body: bodyTxt,
             sound: "default",
             badge: 1,
+            topic: "edu.uw.ischool.loners.HungryPals",
             payload: {
               "sender": "node-apn",
               "post": post,
