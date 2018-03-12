@@ -32,10 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerForPushNotifications()
         
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
-            let aps = notification["aps"] as! [String: AnyObject]
-            let postData = aps["post"]
+            let postData = notification["post"]
+            let subject = notification["subject"]
             UIApplication.shared.dataRepository.addNotificationPostData(postData as! [String : AnyObject])
-            print(postData as! [String : AnyObject])
         }
         return true
     }
@@ -108,11 +107,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didReceiveRemoteNotification noteInfo: [AnyHashable : Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
-        let aps = noteInfo["aps"] as! [String: AnyObject]
+    
         let postData = noteInfo["post"]
-        print(postData)
-//        UIApplication.shared.dataRepository.addNotificationPostData(postData as! [String : AnyObject])
+        let subject = noteInfo["subject"]
+        UIApplication.shared.dataRepository.addNotificationPostData(postData as! [String : AnyObject])
     }
 }
 

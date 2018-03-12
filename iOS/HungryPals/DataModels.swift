@@ -252,12 +252,15 @@ class DataRepository {
     }
     
     private func deserializePost(_ jsonData:[String:AnyObject]) -> Post {
-        let creator = deserializeUser(jsonData["creator"] as! Dictionary<String,String>)
+        var creator:User? = nil
+        if let creatorData = jsonData["creator"] as? Dictionary<String,String> {
+            creator = deserializeUser(creatorData)
+        }
         let startTime = parseDate(jsonData["startTime"] as! String)
         let endTime = parseDate(jsonData["endTime"] as! String)
         let createdAt = parseDate(jsonData["createdAt"] as! String)
         
-        return Post(postId:jsonData["_id"] as! String, creator:creator, createdAt:createdAt, status:jsonData["status"] as! String, startTime:startTime, endTime: endTime, restaurant:jsonData["restaurant"] as! String, cuisine:jsonData["cuisine"] as! String, notes:jsonData["notes"] as! String)
+        return Post(postId:jsonData["_id"] as! String, creator:creator!, createdAt:createdAt, status:jsonData["status"] as! String, startTime:startTime, endTime: endTime, restaurant:jsonData["restaurant"] as! String, cuisine:jsonData["cuisine"] as! String, notes:jsonData["notes"] as! String)
     }
     
     private func deserializeUser(_ userDate:[String:String]) -> User {
@@ -288,7 +291,7 @@ class DataRepository {
 extension Formatter {
     static let iso8601: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
-//        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         return formatter
     }()
 }
