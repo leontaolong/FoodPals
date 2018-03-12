@@ -29,9 +29,14 @@ class LoginViewController: UIViewController {
                 self.fbLogin = true
                 self.getUserInfo { userInfo, error in
                     if let error = error { print(error.localizedDescription)}
-                    if let userInfo = userInfo, let id = userInfo["id"], let name = userInfo["name"], let email = userInfo["email"], let pictureUrl = ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String, let location = userInfo["location"] as? NSDictionary {
-
-                        self.dataRepo.createUser(username:name as! String, email:email as! String, location:(location["name"] as? String)!, userId:id as! String, profilePic:pictureUrl, deviceToken:UserDefaults.standard.string(forKey: "deviceToken")!)
+                    if let userInfo = userInfo, let id = userInfo["id"], let name = userInfo["name"], let email = userInfo["email"], let pictureUrl = ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String {
+                        
+                        var location = "Unknown"
+                        let locationData = userInfo["location"] as? NSDictionary
+                        if locationData != nil {
+                            location = (locationData!["name"] as? String)!
+                        }
+                        self.dataRepo.createUser(username:name as! String, email:email as! String, location:location, userId:id as! String, profilePic:pictureUrl, deviceToken:UserDefaults.standard.string(forKey: "deviceToken")!)
                     }
                     self.goToPref()
                 }

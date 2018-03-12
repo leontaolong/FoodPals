@@ -77,6 +77,7 @@ class DataRepository {
     public var pendingPosts:[Post] = [] // my posts and pending requested posts
     public var confirmedPosts:[Post] = []
     public var user:User? = nil
+    public var notificationPostData:Post? = nil
     
     public let baseURL = "https://appcode.leontaolong.com:8449"
     //    public let baseURL = "http://localhost:8448"
@@ -137,6 +138,10 @@ class DataRepository {
     
     func respondPost(confirmed:Bool, postId:String) {
         httpRespondPost(confirmed, postId)
+    }
+    
+    func addNotificationPostData(_ postData:[String:AnyObject]) {
+        notificationPostData = deserializePost(postData as [String : AnyObject])
     }
     
     

@@ -42,9 +42,9 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! PreferenceTableViewCell
-        if dataRepo.accountList[indexPath.row] == "Live in" {
+        if dataRepo.accountList[indexPath.row] == "Live in " {
             cell.accountList.text =
-            "Live in \(dataRepo.user?.location)"
+            "Live in \(dataRepo.user?.location ?? "Unknown")"
         } else {
             cell.accountList.text = dataRepo.accountList[indexPath.row]
         }

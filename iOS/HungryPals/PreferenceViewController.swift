@@ -26,8 +26,7 @@ class PreferenceViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "preferenceCell", for: indexPath) as! PreferenceTableViewCell
         cell.cuisine.text = dataRepo.cuisine[indexPath.row]
-
-        if (dataRepo.user?.cuisineMarked[indexPath.row])! {
+        if dataRepo.user != nil && (dataRepo.user?.cuisineMarked[indexPath.row])! {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
         return cell

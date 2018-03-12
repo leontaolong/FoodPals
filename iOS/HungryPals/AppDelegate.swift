@@ -30,6 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SDKApplicationDelegate.self.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
         registerForPushNotifications()
+        
+        if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
+            let aps = notification["aps"] as! [String: AnyObject]
+            let postData = aps["post"]
+            UIApplication.shared.dataRepository.addNotificationPostData(postData as! [String : AnyObject])
+            print(postData as! [String : AnyObject])
+        }
         return true
     }
     
@@ -95,6 +102,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register: \(error)")
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didReceiveRemoteNotification noteInfo: [AnyHashable : Any],
+        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        let aps = noteInfo["aps"] as! [String: AnyObject]
+        let postData = noteInfo["post"]
+        print(aps)
+//        UIApplication.shared.dataRepository.addNotificationPostData(postData as! [String : AnyObject])
     }
 }
 
