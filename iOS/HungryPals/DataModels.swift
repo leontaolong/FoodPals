@@ -11,6 +11,7 @@ import Foundation
 class Post {
     private var postId:String
     private var creator:User
+    private var createdAt:Date
     private var matchingStatus:String // MATCHING, WAITING_OTHER_TO_RESPOND, COMFIRMED_BY_OTHER, REJECTED, ACCEPTED
     private var matchedPost:Post? = nil
     private var matchedUser:User? = nil
@@ -20,9 +21,10 @@ class Post {
     private var cuisine:String
     private var notes:String
     
-    init(postId:String, creator:User, matchingStatus:String, startTime:Date, endTime:Date, restaurant:String, cuisine:String, notes:String ) {
+    init(postId:String, creator:User, createdAt:Date, matchingStatus:String, startTime:Date, endTime:Date, restaurant:String, cuisine:String, notes:String ) {
         self.postId = postId
         self.creator = creator
+        self.createdAt = createdAt
         self.matchingStatus = matchingStatus
         self.startTime = startTime
         self.endTime = endTime
@@ -31,23 +33,45 @@ class Post {
         self.notes = notes
     }
     
-    public func getCreator() -> User {
+    func getMatchedWithPost(matchedPost:Post, matchingStatus:String) {
+        self.matchedPost = matchedPost
+        self.matchingStatus = matchingStatus
+    }
+    
+    func getMatchedWithUser(matchedUser:User, matchingStatus:String) {
+        self.matchedUser = matchedUser
+        self.matchingStatus = matchingStatus
+    }
+    
+    func invite(userId:String) {
+        // TODO: send invite to server
+    }
+    
+    func updateMatchingStatus(matchingStatus:String) {
+        self.matchingStatus = matchingStatus
+    }
+    
+    func getCreator() -> User {
         return self.creator
     }
-
-    public func getRestaurant() -> String {
+    
+    func getMatchingStatus() -> String {
+        return self.matchingStatus
+    }
+    
+    func getRestaurant() -> String {
         return self.restaurant
     }
     
-    public func getCuisine() -> String {
+    func getCuisine() -> String {
         return self.cuisine
     }
     
-    public func getStartTime() -> Date {
+    func getStartTime() -> Date {
         return self.startTime
     }
     
-    public func getEndTime() -> Date {
+    func getEndTime() -> Date {
         return self.endTime
     }
 }
@@ -69,11 +93,11 @@ class User {
         self.deviceToken = deviceToken
     }
     
-    public func getUsername() -> String {
+    func getUsername() -> String {
         return self.username
     }
     
-    public func getProfilePic() -> String {
+    func getProfilePic() -> String {
         return self.profilePic
     }
 }
@@ -85,8 +109,25 @@ extension Date {
         dateFormatter.dateFormat = "H:mm a"
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"
-        //dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: self)
+    }
+    
+    func compareToToday() -> String {
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "MM/dd/YY"
+        
+        let currentDate = dateFormatter.string(from:date)
+        let selfDate = dateFormatter.string(from:self)
+        
+        if selfDate == currentDate {
+            return "Today"
+        }
+        else {
+            return selfDate
+        }
     }
 }
 
@@ -98,7 +139,7 @@ class PostRepository {
     
     static let shared = PostRepository()
     
-    func initialization() {
+    private func initialization() {
         let userOne = User(username: "Estelle", userId: "1234ABC", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/27073113_546712599021153_8141215265311775044_n.jpg?oh=6c3ab12fe2ba078a7598e26c7264f2a6&oe=5B0B66E1", friendList: ["Leon", "Jeff", "Joyce", "Christy", "Luga"], deviceToken: "123", cuisinePrefs:["Korean Cuisine", "Chinese Cuisine", "Pizza"])
         
         
@@ -119,29 +160,28 @@ class PostRepository {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let createdTime = formatter.date(from: "2018/02/21 12:00")
         let startTime1 = formatter.date(from: "2018/03/03 12:30")
         let endTime1 = formatter.date(from: "2018/03/03 13:30")
         let startTime2 = formatter.date(from: "2018/03/04 13:30")
         let endTime2 = formatter.date(from: "2018/03/04 14:30")
-        let startTime3 = formatter.date(from: "2018/03/04 12:30")
-        let endTime3 = formatter.date(from: "2018/03/04 13:30")
+        let startTime3 = formatter.date(from: "2018/03/11 12:30")
+        let endTime3 = formatter.date(from: "2018/03/11 13:30")
         
         //post1 matched with post2
-        let post1 = Post(postId:"123", creator: userOne, matchingStatus: "matched", startTime: startTime1!, endTime: endTime1!, restaurant: "Chinese", cuisine: "Chinese Cuisine", notes: "")
-        let post2 = Post(postId:"234", creator: userTwo, matchingStatus: "matched", startTime: startTime1!, endTime: endTime1!, restaurant: "Korean", cuisine: "Chinese Cuisine", notes: "")
+        let post1 = Post(postId:"123", creator: userOne, createdAt: createdTime!, matchingStatus: "matched", startTime: startTime1!, endTime: endTime1!, restaurant: "Chinese", cuisine: "Chinese Cuisine", notes: "")
+        let post2 = Post(postId:"234", creator: userTwo, createdAt: createdTime!, matchingStatus: "matched", startTime: startTime1!, endTime: endTime1!, restaurant: "Korean", cuisine: "Chinese Cuisine", notes: "")
         
         //post3 & post 4, no matches and put them into the main screen
-        let post3 = Post(postId:"345", creator: userThree, matchingStatus: "no-matches", startTime: startTime2!, endTime: endTime2!, restaurant: "Thai", cuisine: "Thai Cuisine", notes: "We can eat Spring Kitchen!")
-        let post4 = Post(postId:"456", creator: userFour, matchingStatus: "no-matches", startTime: startTime2!, endTime: endTime2!, restaurant: "Japanese", cuisine: "Pizza", notes: "Maybe hamburger too.")
+        let post3 = Post(postId:"345", creator: userThree, createdAt: createdTime!, matchingStatus: "no-matches", startTime: startTime2!, endTime: endTime2!, restaurant: "Thai", cuisine: "Thai Cuisine", notes: "We can eat Spring Kitchen!")
+        let post4 = Post(postId:"456", creator: userFour, createdAt: createdTime!, matchingStatus: "no-matches", startTime: startTime2!, endTime: endTime2!, restaurant: "Japanese", cuisine: "Pizza", notes: "Maybe hamburger too.")
         
         //post5 posted first and there is no matches, post 6 has same content with post5, so post6 found match(which is post5), but he is waiting for post5 response right now.
-        let post5 = Post(postId:"789", creator: userFive, matchingStatus: "no-matches", startTime: startTime3!, endTime: endTime3!, restaurant: "American", cuisine: "pho/noodle", notes: "")
-        let post6 = Post(postId:"890", creator: userSix, matchingStatus: "waitingResponse", startTime: startTime3!, endTime: endTime3!, restaurant: "Anything", cuisine: "pho/noodle", notes: "")
+        let post5 = Post(postId:"789", creator: userFive, createdAt: createdTime!, matchingStatus: "no-matches", startTime: startTime3!, endTime: endTime3!, restaurant: "American", cuisine: "pho/noodle", notes: "")
+        let post6 = Post(postId:"890", creator: userSix, createdAt: createdTime!, matchingStatus: "waitingResponse", startTime: startTime3!, endTime: endTime3!, restaurant: "Anything", cuisine: "pho/noodle", notes: "")
         
-        let userArray: [User] = [userOne, userTwo, userThree, userFour, userFive,userSix]
-        let postArray: [Post] = [post1, post2, post3, post4, post5, post6]
-        users = userArray
-        posts = postArray
+        users = [userOne, userTwo, userThree, userFour, userFive,userSix]
+        posts = [post1, post2, post3, post4, post5, post6]
     }
     
     func getPosts() -> [Post] {
@@ -155,22 +195,6 @@ class PostRepository {
     
     func getPost(id: Int) -> Post {
         return posts[id]
-    }
-    
-    func deleteAllPosts() {
-        posts = [Post]()
-    }
-    
-    func deleteSubject(id: Int) {
-        // remove from the array
-    }
-    /*
-     func addSubject(title: String, desc: String, question: [Question]) {
-     posts.append(Subject(title: title, desc: desc, question: question))
-     }
-     */
-    func updateSubject(name: Post) {
-        // send the update back to the server
     }
 }
 

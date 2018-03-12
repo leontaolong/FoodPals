@@ -10,8 +10,9 @@
 		0A50C711472D55C6FF7F3BE5 /* Pods_HungryPals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1DBCBEBF78EB409D1587BA /* Pods_HungryPals.framework */; };
 		1F10375E2050F2B100473842 /* app-design in Resources */ = {isa = PBXBuildFile; fileRef = 1F10375D2050F2B100473842 /* app-design */; };
 		1F1037612050F2D400473842 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F1037602050F2D400473842 /* Lato-Bold.ttf */; };
+		1F11CFC420545ED700F06DA6 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F11CFC320545ED700F06DA6 /* Lobster-Regular.ttf */; };
+		1F11CFC6205477D300F06DA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11CFC5205477D300F06DA6 /* HomeViewController.swift */; };
 		1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A7639204D249600E8A34A /* PostViewController.swift */; };
-		1F3A763C204D24B400E8A34A /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A763B204D24B400E8A34A /* MyPostViewController.swift */; };
 		1F773A652050A5BD000F14DA /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F773A642050A5BD000F14DA /* DataModels.swift */; };
 		9D0A763BD98B0D20B2B43499 /* Pods_HungryPalsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737D687A4DF746EDF3E84E37 /* Pods_HungryPalsUITests.framework */; };
 		C763BB19EABC1ACD47056331 /* Pods_HungryPalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33404378F1D8281CD0A6FD59 /* Pods_HungryPalsTests.framework */; };
@@ -47,8 +48,9 @@
 		1F10375D2050F2B100473842 /* app-design */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "app-design"; sourceTree = "<group>"; };
 		1F1037602050F2D400473842 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		1F1037622050F2D800473842 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		1F11CFC320545ED700F06DA6 /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lobster-Regular.ttf"; path = "HungryPals/app-design/Fonts/Lobster/Lobster-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		1F11CFC5205477D300F06DA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F3A7639204D249600E8A34A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		1F3A763B204D24B400E8A34A /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
 		1F773A642050A5BD000F14DA /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		29862B54CA84EC7312A39D62 /* Pods-HungryPals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.debug.xcconfig"; sourceTree = "<group>"; };
 		32A5C3C62E5E55A70BC4943D /* Pods-HungryPalsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		1F10375F2050F2C600473842 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				1F11CFC320545ED700F06DA6 /* Lobster-Regular.ttf */,
 				1F1037622050F2D800473842 /* Lato-Semibold.ttf */,
 				1F1037602050F2D400473842 /* Lato-Bold.ttf */,
 			);
@@ -155,8 +158,8 @@
 				1F10375D2050F2B100473842 /* app-design */,
 				F630869220477EEB000AF99F /* Main.storyboard */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
+				1F11CFC5205477D300F06DA6 /* HomeViewController.swift */,
 				1F3A7639204D249600E8A34A /* PostViewController.swift */,
-				1F3A763B204D24B400E8A34A /* MyPostViewController.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
 				F630869020477EEB000AF99F /* SecondViewController.swift */,
 				F63086BC2047806D000AF99F /* ThirdViewController.swift */,
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F630869920477EEB000AF99F /* LaunchScreen.storyboard in Resources */,
+				1F11CFC420545ED700F06DA6 /* Lobster-Regular.ttf in Resources */,
 				1F1037612050F2D400473842 /* Lato-Bold.ttf in Resources */,
 				F630869620477EEB000AF99F /* Assets.xcassets in Resources */,
 				1F10375E2050F2B100473842 /* app-design in Resources */,
@@ -494,9 +498,9 @@
 				F630869120477EEB000AF99F /* SecondViewController.swift in Sources */,
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
+				1F11CFC6205477D300F06DA6 /* HomeViewController.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
 				1F773A652050A5BD000F14DA /* DataModels.swift in Sources */,
-				1F3A763C204D24B400E8A34A /* MyPostViewController.swift in Sources */,
 				1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
