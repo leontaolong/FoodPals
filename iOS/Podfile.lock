@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.0)
+<<<<<<< HEAD
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -43,5 +44,15 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 7c3a2e6bb5be15676aebe256444afb18c5d238b3
 
 PODFILE CHECKSUM: 14200e613a479c30623f7f92b7cab06abc3d16ca
+=======
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+
+PODFILE CHECKSUM: c11aad1937eb3838d703ab0701ad337a52dc9b12
+>>>>>>> jeff-post
 
 COCOAPODS: 1.4.0

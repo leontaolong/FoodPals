@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		07E2F568C8C8AABB0603F34C /* Pods_HungryPals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C227D8910BC62952B859D006 /* Pods_HungryPals.framework */; };
+=======
+		0A50C711472D55C6FF7F3BE5 /* Pods_HungryPals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1DBCBEBF78EB409D1587BA /* Pods_HungryPals.framework */; };
+		1F1037612050F2D400473842 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F1037602050F2D400473842 /* Lato-Bold.ttf */; };
+		1F11CFC6205477D300F06DA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11CFC5205477D300F06DA6 /* HomeViewController.swift */; };
+		1F11CFCA20565BF500F06DA6 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F11CFC920565BF500F06DA6 /* Lobster-Regular.ttf */; };
+>>>>>>> jeff-post
 		1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A7639204D249600E8A34A /* PostViewController.swift */; };
-		1F3A763C204D24B400E8A34A /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A763B204D24B400E8A34A /* MyPostViewController.swift */; };
 		1F773A652050A5BD000F14DA /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F773A642050A5BD000F14DA /* DataModels.swift */; };
+<<<<<<< HEAD
 		584CFF43D86C16BEB4AB8944 /* Pods_HungryPalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BBB2364C12EEC843B19E20 /* Pods_HungryPalsTests.framework */; };
 		D547979BB338C6B1656512CF /* Pods_HungryPalsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C71E2528C01E804392F4FE /* Pods_HungryPalsUITests.framework */; };
 		EF236E5E2053AF8F00E8E741 /* PreferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF236E5D2053AF6900E8E741 /* PreferenceTableViewController.swift */; };
@@ -43,9 +50,11 @@
 		EF9B9C59204FBAD0003B574B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B9C58204FBAD0003B574B /* AccountViewController.swift */; };
 		EF9C1C442051C70900C9A3D4 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C1C432051C70800C9A3D4 /* PreferenceViewController.swift */; };
 		EF9C1C462051C75300C9A3D4 /* PreferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C1C452051C75300C9A3D4 /* PreferenceTableViewCell.swift */; };
+=======
+		9D0A763BD98B0D20B2B43499 /* Pods_HungryPalsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737D687A4DF746EDF3E84E37 /* Pods_HungryPalsUITests.framework */; };
+		C763BB19EABC1ACD47056331 /* Pods_HungryPalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33404378F1D8281CD0A6FD59 /* Pods_HungryPalsTests.framework */; };
+>>>>>>> jeff-post
 		F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868C20477EEB000AF99F /* AppDelegate.swift */; };
-		F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630868E20477EEB000AF99F /* FirstViewController.swift */; };
-		F630869120477EEB000AF99F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630869020477EEB000AF99F /* SecondViewController.swift */; };
 		F630869420477EEB000AF99F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F630869220477EEB000AF99F /* Main.storyboard */; };
 		F630869620477EEB000AF99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F630869520477EEB000AF99F /* Assets.xcassets */; };
 		F630869920477EEB000AF99F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F630869720477EEB000AF99F /* LaunchScreen.storyboard */; };
@@ -72,11 +81,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		17BBB2364C12EEC843B19E20 /* Pods_HungryPalsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPalsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		181C81BEEE14E98D1F83177B /* Pods-HungryPals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.release.xcconfig"; sourceTree = "<group>"; };
+=======
+		1F1037602050F2D400473842 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		1F1037622050F2D800473842 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		1F11CFC5205477D300F06DA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1F11CFC920565BF500F06DA6 /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster-Regular.ttf"; sourceTree = "<group>"; };
+>>>>>>> jeff-post
 		1F3A7639204D249600E8A34A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		1F3A763B204D24B400E8A34A /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
 		1F773A642050A5BD000F14DA /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		449DB918AF1FE43AE43AAC2B /* Pods-HungryPalsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		538897D050DD65B8889B7A76 /* Pods-HungryPalsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests.release.xcconfig"; sourceTree = "<group>"; };
 		888164A4D47AEAA386573761 /* Pods-HungryPalsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,10 +133,19 @@
 		EF9B9C58204FBAD0003B574B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		EF9C1C432051C70800C9A3D4 /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		EF9C1C452051C75300C9A3D4 /* PreferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceTableViewCell.swift; sourceTree = "<group>"; };
+=======
+		29862B54CA84EC7312A39D62 /* Pods-HungryPals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.debug.xcconfig"; sourceTree = "<group>"; };
+		32A5C3C62E5E55A70BC4943D /* Pods-HungryPalsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests.release.xcconfig"; sourceTree = "<group>"; };
+		33404378F1D8281CD0A6FD59 /* Pods_HungryPalsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPalsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AE2765A44F5BB658B34643 /* Pods-HungryPalsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		737D687A4DF746EDF3E84E37 /* Pods_HungryPalsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPalsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		960BA462E1AC94DA270B2922 /* Pods-HungryPals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPals.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals.release.xcconfig"; sourceTree = "<group>"; };
+		AD1DBCBEBF78EB409D1587BA /* Pods_HungryPals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEA442102202712BCD33DC76 /* Pods-HungryPalsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DEEABC133372AE9BA97D5474 /* Pods-HungryPalsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungryPalsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests.release.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> jeff-post
 		F630868920477EEB000AF99F /* HungryPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungryPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F630868C20477EEB000AF99F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F630868E20477EEB000AF99F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		F630869020477EEB000AF99F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F630869320477EEB000AF99F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F630869520477EEB000AF99F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F630869820477EEB000AF99F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -140,7 +165,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				07E2F568C8C8AABB0603F34C /* Pods_HungryPals.framework in Frameworks */,
+=======
+				0A50C711472D55C6FF7F3BE5 /* Pods_HungryPals.framework in Frameworks */,
+>>>>>>> jeff-post
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +177,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				584CFF43D86C16BEB4AB8944 /* Pods_HungryPalsTests.framework in Frameworks */,
+=======
+				C763BB19EABC1ACD47056331 /* Pods_HungryPalsTests.framework in Frameworks */,
+>>>>>>> jeff-post
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,13 +189,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				D547979BB338C6B1656512CF /* Pods_HungryPalsUITests.framework in Frameworks */,
+=======
+				9D0A763BD98B0D20B2B43499 /* Pods_HungryPalsUITests.framework in Frameworks */,
+>>>>>>> jeff-post
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		43B4672440CE52319089B6F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,10 +234,19 @@
 				EF236E662053B07B00E8E741 /* Lobster */,
 				EF236E3420534E0E00E8E741 /* Candara */,
 				EF236E412053AF5500E8E741 /* Lato2OFL */,
+=======
+		1F10375F2050F2C600473842 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				1F1037622050F2D800473842 /* Lato-Semibold.ttf */,
+				1F11CFC920565BF500F06DA6 /* Lobster-Regular.ttf */,
+				1F1037602050F2D400473842 /* Lato-Bold.ttf */,
+>>>>>>> jeff-post
 			);
 			path = Font;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		EF236E412053AF5500E8E741 /* Lato2OFL */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +281,19 @@
 				EF236E682053B07B00E8E741 /* Lobster-Regular.ttf */,
 			);
 			path = Lobster;
+=======
+		79E2088C2FCAF8323537BB8B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29862B54CA84EC7312A39D62 /* Pods-HungryPals.debug.xcconfig */,
+				960BA462E1AC94DA270B2922 /* Pods-HungryPals.release.xcconfig */,
+				AEA442102202712BCD33DC76 /* Pods-HungryPalsTests.debug.xcconfig */,
+				32A5C3C62E5E55A70BC4943D /* Pods-HungryPalsTests.release.xcconfig */,
+				50AE2765A44F5BB658B34643 /* Pods-HungryPalsUITests.debug.xcconfig */,
+				DEEABC133372AE9BA97D5474 /* Pods-HungryPalsUITests.release.xcconfig */,
+			);
+			name = Pods;
+>>>>>>> jeff-post
 			sourceTree = "<group>";
 		};
 		F630868020477EEB000AF99F = {
@@ -244,8 +304,13 @@
 				F63086A220477EEB000AF99F /* HungryPalsTests */,
 				F63086AD20477EEB000AF99F /* HungryPalsUITests */,
 				F630868A20477EEB000AF99F /* Products */,
+<<<<<<< HEAD
 				AE972B685ABFFF4F82404E37 /* Pods */,
 				43B4672440CE52319089B6F6 /* Frameworks */,
+=======
+				79E2088C2FCAF8323537BB8B /* Pods */,
+				FD850BCF015905019382B480 /* Frameworks */,
+>>>>>>> jeff-post
 			);
 			sourceTree = "<group>";
 		};
@@ -262,19 +327,24 @@
 		F630868B20477EEB000AF99F /* HungryPals */ = {
 			isa = PBXGroup;
 			children = (
+				1F10375F2050F2C600473842 /* Font */,
 				F630869220477EEB000AF99F /* Main.storyboard */,
 				EF236E842053B9EA00E8E741 /* AccountPreferenceViewController.swift */,
 				EF9C1C432051C70800C9A3D4 /* PreferenceViewController.swift */,
 				EF9C1C452051C75300C9A3D4 /* PreferenceTableViewCell.swift */,
 				EF236E5D2053AF6900E8E741 /* PreferenceTableViewController.swift */,
 				F630868C20477EEB000AF99F /* AppDelegate.swift */,
+				1F11CFC5205477D300F06DA6 /* HomeViewController.swift */,
 				1F3A7639204D249600E8A34A /* PostViewController.swift */,
+<<<<<<< HEAD
 				1F3A763B204D24B400E8A34A /* MyPostViewController.swift */,
 				F630868E20477EEB000AF99F /* FirstViewController.swift */,
 				F630869020477EEB000AF99F /* SecondViewController.swift */,
 				EF9B9C58204FBAD0003B574B /* AccountViewController.swift */,
 				EF9B9C56204FB49A003B574B /* AppData.swift */,
 				EF3492E820492A510014A9C2 /* LoginViewController.swift */,
+=======
+>>>>>>> jeff-post
 				F63086BC2047806D000AF99F /* ThirdViewController.swift */,
 				F630869520477EEB000AF99F /* Assets.xcassets */,
 				F630869720477EEB000AF99F /* LaunchScreen.storyboard */,
@@ -302,6 +372,16 @@
 			path = HungryPalsUITests;
 			sourceTree = "<group>";
 		};
+		FD850BCF015905019382B480 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD1DBCBEBF78EB409D1587BA /* Pods_HungryPals.framework */,
+				33404378F1D8281CD0A6FD59 /* Pods_HungryPalsTests.framework */,
+				737D687A4DF746EDF3E84E37 /* Pods_HungryPalsUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -309,12 +389,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F63086B320477EEB000AF99F /* Build configuration list for PBXNativeTarget "HungryPals" */;
 			buildPhases = (
+<<<<<<< HEAD
 				5587356F2589275B2FE285D1 /* [CP] Check Pods Manifest.lock */,
 				F630868520477EEB000AF99F /* Sources */,
 				F630868620477EEB000AF99F /* Frameworks */,
 				F630868720477EEB000AF99F /* Resources */,
 				EA56FBA235E1FB4EEF27638E /* [CP] Embed Pods Frameworks */,
 				29DDFC3297B20939125ED2E5 /* [CP] Copy Pods Resources */,
+=======
+				446F34FB603477E16AA7FC27 /* [CP] Check Pods Manifest.lock */,
+				F630868520477EEB000AF99F /* Sources */,
+				F630868620477EEB000AF99F /* Frameworks */,
+				F630868720477EEB000AF99F /* Resources */,
+				6C4F8A2377489EC95A25B22D /* [CP] Embed Pods Frameworks */,
+				01B5C82086771E44EE0CB360 /* [CP] Copy Pods Resources */,
+>>>>>>> jeff-post
 			);
 			buildRules = (
 			);
@@ -329,12 +418,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F63086B620477EEB000AF99F /* Build configuration list for PBXNativeTarget "HungryPalsTests" */;
 			buildPhases = (
+<<<<<<< HEAD
 				D7214DDA847003BB2B80E525 /* [CP] Check Pods Manifest.lock */,
 				F630869B20477EEB000AF99F /* Sources */,
 				F630869C20477EEB000AF99F /* Frameworks */,
 				F630869D20477EEB000AF99F /* Resources */,
 				853F4AFE603C960F296FBF9C /* [CP] Embed Pods Frameworks */,
 				671ADD6109D9847D82987210 /* [CP] Copy Pods Resources */,
+=======
+				5AF1F42202B727E9F05D9F8B /* [CP] Check Pods Manifest.lock */,
+				F630869B20477EEB000AF99F /* Sources */,
+				F630869C20477EEB000AF99F /* Frameworks */,
+				F630869D20477EEB000AF99F /* Resources */,
+				C6325B15314BF4764F07E12B /* [CP] Embed Pods Frameworks */,
+				86FCF647D6F4596FE1D4A350 /* [CP] Copy Pods Resources */,
+>>>>>>> jeff-post
 			);
 			buildRules = (
 			);
@@ -350,12 +448,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F63086B920477EEB000AF99F /* Build configuration list for PBXNativeTarget "HungryPalsUITests" */;
 			buildPhases = (
+<<<<<<< HEAD
 				FFE53C64A47F55F33E34E110 /* [CP] Check Pods Manifest.lock */,
 				F63086A620477EEB000AF99F /* Sources */,
 				F63086A720477EEB000AF99F /* Frameworks */,
 				F63086A820477EEB000AF99F /* Resources */,
 				F26B8AB86A95DF749FD4BA1F /* [CP] Embed Pods Frameworks */,
 				3BF42CD08E641ADB2A0CED80 /* [CP] Copy Pods Resources */,
+=======
+				A7FEE63E302F69D1035D7723 /* [CP] Check Pods Manifest.lock */,
+				F63086A620477EEB000AF99F /* Sources */,
+				F63086A720477EEB000AF99F /* Frameworks */,
+				F63086A820477EEB000AF99F /* Resources */,
+				DFDEDD9888F22D37E1214592 /* [CP] Embed Pods Frameworks */,
+				8CBDB40421543A0279EC9525 /* [CP] Copy Pods Resources */,
+>>>>>>> jeff-post
 			);
 			buildRules = (
 			);
@@ -426,6 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				EF236E7F2053B0BB00E8E741 /* Lato-Heavy.ttf in Resources */,
 				EF236E802053B0BB00E8E741 /* Lato-BoldItalic.ttf in Resources */,
 				EF236E812053B0BB00E8E741 /* Lato-Light.ttf in Resources */,
@@ -449,7 +557,11 @@
 				EF236E6E2053B0A200E8E741 /* Candara Bold.ttf in Resources */,
 				EF236E6F2053B0A200E8E741 /* Candara Italic.ttf in Resources */,
 				EF236E702053B0A200E8E741 /* Candara.ttf in Resources */,
+=======
+				1F11CFCA20565BF500F06DA6 /* Lobster-Regular.ttf in Resources */,
+>>>>>>> jeff-post
 				F630869920477EEB000AF99F /* LaunchScreen.storyboard in Resources */,
+				1F1037612050F2D400473842 /* Lato-Bold.ttf in Resources */,
 				F630869620477EEB000AF99F /* Assets.xcassets in Resources */,
 				F630869420477EEB000AF99F /* Main.storyboard in Resources */,
 			);
@@ -472,7 +584,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+<<<<<<< HEAD
 		29DDFC3297B20939125ED2E5 /* [CP] Copy Pods Resources */ = {
+=======
+		01B5C82086771E44EE0CB360 /* [CP] Copy Pods Resources */ = {
+>>>>>>> jeff-post
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -487,12 +603,17 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+<<<<<<< HEAD
 		3BF42CD08E641ADB2A0CED80 /* [CP] Copy Pods Resources */ = {
+=======
+		446F34FB603477E16AA7FC27 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> jeff-post
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+<<<<<<< HEAD
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -503,11 +624,7 @@
 			showEnvVarsInLog = 0;
 		};
 		5587356F2589275B2FE285D1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+=======
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
@@ -520,12 +637,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		671ADD6109D9847D82987210 /* [CP] Copy Pods Resources */ = {
+		5AF1F42202B727E9F05D9F8B /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> jeff-post
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+<<<<<<< HEAD
+				"$(DERIVED_FILE_DIR)/Pods-HungryPals-checkManifestLockResult.txt",
+=======
+				"$(DERIVED_FILE_DIR)/Pods-HungryPalsTests-checkManifestLockResult.txt",
+>>>>>>> jeff-post
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+<<<<<<< HEAD
+		671ADD6109D9847D82987210 /* [CP] Copy Pods Resources */ = {
+=======
+		6C4F8A2377489EC95A25B22D /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> jeff-post
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< HEAD
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -536,26 +681,53 @@
 			showEnvVarsInLog = 0;
 		};
 		853F4AFE603C960F296FBF9C /* [CP] Embed Pods Frameworks */ = {
+=======
+				"${SRCROOT}/Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86FCF647D6F4596FE1D4A350 /* [CP] Copy Pods Resources */ = {
+>>>>>>> jeff-post
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+<<<<<<< HEAD
 			name = "[CP] Embed Pods Frameworks";
+=======
+			name = "[CP] Copy Pods Resources";
+>>>>>>> jeff-post
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+<<<<<<< HEAD
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D7214DDA847003BB2B80E525 /* [CP] Check Pods Manifest.lock */ = {
+=======
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CBDB40421543A0279EC9525 /* [CP] Copy Pods Resources */ = {
+>>>>>>> jeff-post
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+<<<<<<< HEAD
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
@@ -569,11 +741,24 @@
 			showEnvVarsInLog = 0;
 		};
 		EA56FBA235E1FB4EEF27638E /* [CP] Embed Pods Frameworks */ = {
+=======
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7FEE63E302F69D1035D7723 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> jeff-post
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+<<<<<<< HEAD
 				"${SRCROOT}/Pods/Target Support Files/Pods-HungryPals/Pods-HungryPals-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -601,26 +786,7 @@
 			showEnvVarsInLog = 0;
 		};
 		F26B8AB86A95DF749FD4BA1F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FFE53C64A47F55F33E34E110 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+=======
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
@@ -633,6 +799,57 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C6325B15314BF4764F07E12B /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> jeff-post
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+<<<<<<< HEAD
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFE53C64A47F55F33E34E110 /* [CP] Check Pods Manifest.lock */ = {
+=======
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsTests/Pods-HungryPalsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFDEDD9888F22D37E1214592 /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> jeff-post
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< HEAD
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HungryPalsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+=======
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungryPalsUITests/Pods-HungryPalsUITests-frameworks.sh\"\n";
+>>>>>>> jeff-post
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -640,10 +857,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F630869120477EEB000AF99F /* SecondViewController.swift in Sources */,
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
 				EF9B9C59204FBAD0003B574B /* AccountViewController.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
+<<<<<<< HEAD
 				EF236E5E2053AF8F00E8E741 /* PreferenceTableViewController.swift in Sources */,
 				EF3492E920492A510014A9C2 /* LoginViewController.swift in Sources */,
 				F630868F20477EEB000AF99F /* FirstViewController.swift in Sources */,
@@ -653,6 +870,10 @@
 				1F3A763C204D24B400E8A34A /* MyPostViewController.swift in Sources */,
 				EF9C1C442051C70900C9A3D4 /* PreferenceViewController.swift in Sources */,
 				EF9C1C462051C75300C9A3D4 /* PreferenceTableViewCell.swift in Sources */,
+=======
+				1F11CFC6205477D300F06DA6 /* HomeViewController.swift in Sources */,
+				1F773A652050A5BD000F14DA /* DataModels.swift in Sources */,
+>>>>>>> jeff-post
 				1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -817,7 +1038,11 @@
 		};
 		F63086B420477EEB000AF99F /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = C342D9CF3398A1FB59A21F2B /* Pods-HungryPals.debug.xcconfig */;
+=======
+			baseConfigurationReference = 29862B54CA84EC7312A39D62 /* Pods-HungryPals.debug.xcconfig */;
+>>>>>>> jeff-post
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HungryPals/HungryPals.entitlements;
@@ -837,7 +1062,11 @@
 		};
 		F63086B520477EEB000AF99F /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 181C81BEEE14E98D1F83177B /* Pods-HungryPals.release.xcconfig */;
+=======
+			baseConfigurationReference = 960BA462E1AC94DA270B2922 /* Pods-HungryPals.release.xcconfig */;
+>>>>>>> jeff-post
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HungryPals/HungryPals.entitlements;
@@ -857,7 +1086,11 @@
 		};
 		F63086B720477EEB000AF99F /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = A50139DA39FBE19748C2C775 /* Pods-HungryPalsTests.debug.xcconfig */;
+=======
+			baseConfigurationReference = AEA442102202712BCD33DC76 /* Pods-HungryPalsTests.debug.xcconfig */;
+>>>>>>> jeff-post
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -874,7 +1107,11 @@
 		};
 		F63086B820477EEB000AF99F /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 538897D050DD65B8889B7A76 /* Pods-HungryPalsTests.release.xcconfig */;
+=======
+			baseConfigurationReference = 32A5C3C62E5E55A70BC4943D /* Pods-HungryPalsTests.release.xcconfig */;
+>>>>>>> jeff-post
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -891,7 +1128,11 @@
 		};
 		F63086BA20477EEB000AF99F /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 449DB918AF1FE43AE43AAC2B /* Pods-HungryPalsUITests.debug.xcconfig */;
+=======
+			baseConfigurationReference = 50AE2765A44F5BB658B34643 /* Pods-HungryPalsUITests.debug.xcconfig */;
+>>>>>>> jeff-post
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -907,7 +1148,11 @@
 		};
 		F63086BB20477EEB000AF99F /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 888164A4D47AEAA386573761 /* Pods-HungryPalsUITests.release.xcconfig */;
+=======
+			baseConfigurationReference = DEEABC133372AE9BA97D5474 /* Pods-HungryPalsUITests.release.xcconfig */;
+>>>>>>> jeff-post
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

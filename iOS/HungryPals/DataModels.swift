@@ -65,8 +65,25 @@ extension Date {
         dateFormatter.dateFormat = "H:mm a"
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"
-        //dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: self)
+    }
+    
+    func compareToToday() -> String {
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "MM/dd/YY"
+        
+        let currentDate = dateFormatter.string(from:date)
+        let selfDate = dateFormatter.string(from:self)
+        
+        if selfDate == currentDate {
+            return "Today"
+        }
+        else {
+            return selfDate
+        }
     }
 }
 
@@ -87,8 +104,7 @@ class DataRepository {
     public let cuisine: [String] = ["American", "Chinese", "Korean", "Italian", "Japanese", "Mexican", "Indian", "Thai", "Vegan", "Greek"]
     
     static let shared = DataRepository()
-    
-    
+
     init() {
         httpFetchPosts()
     }
@@ -143,8 +159,7 @@ class DataRepository {
     func addNotificationPostData(_ postData:[String:AnyObject]) {
         notificationPostData = deserializePost(postData as [String : AnyObject])
     }
-    
-    
+
     /* ENCAPSULATED INTERNAL HTTP METHODS */
     fileprivate func httpAddUser(username:String, email:String, location:String, userId:String, profilePic:String, deviceToken:String) {
         let jsonData = serializeUser(user!)
@@ -229,7 +244,7 @@ class DataRepository {
         }
     }
     
-    fileprivate func httpDeletePost(_ postId:String) {
+    public func httpDeletePost(_ postId:String) {
         let jsonData = ["postId": postId]
         
         Alamofire.request(baseURL + "/v1/post", method: .delete, parameters: jsonData, encoding:JSONEncoding.default)
@@ -259,7 +274,7 @@ class DataRepository {
         let startTime = parseDate(jsonData["startTime"] as! String)
         let endTime = parseDate(jsonData["endTime"] as! String)
         let createdAt = parseDate(jsonData["createdAt"] as! String)
-        
+
         return Post(postId:jsonData["_id"] as! String, creator:creator!, createdAt:createdAt, status:jsonData["status"] as! String, startTime:startTime, endTime: endTime, restaurant:jsonData["restaurant"] as! String, cuisine:jsonData["cuisine"] as! String, notes:jsonData["notes"] as! String)
     }
     
@@ -296,3 +311,9 @@ extension Formatter {
     }()
 }
 
+extension Formatter {
+    static let iso8601: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        return formatter
+    }()
+}
