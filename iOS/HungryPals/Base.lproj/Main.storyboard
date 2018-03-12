@@ -156,22 +156,34 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ytp-A7-i16">
-                                <rect key="frame" x="0.0" y="72" width="414" height="29"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smb-TB-gwl">
+                                <rect key="frame" x="0.0" y="72" width="414" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <segments>
-                                    <segment title="Waiting"/>
-                                    <segment title="Matched"/>
-                                </segments>
-                                <color key="tintColor" red="1" green="0.70196078429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="segmentedControl:" destination="9pv-A4-QxB" eventType="valueChanged" id="Qgd-B4-JvW"/>
-                                    <action selector="segmentedControl:" destination="8rJ-Kc-sve" eventType="valueChanged" id="w3D-Y0-qnB"/>
-                                </connections>
-                            </segmentedControl>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ytp-A7-i16">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <segments>
+                                            <segment title="My Waiting Post"/>
+                                            <segment title="My Matched Post"/>
+                                        </segments>
+                                        <color key="tintColor" red="1" green="0.70196078429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="segmentedControl:" destination="9pv-A4-QxB" eventType="valueChanged" id="Qgd-B4-JvW"/>
+                                            <action selector="segmentedControl:" destination="8rJ-Kc-sve" eventType="valueChanged" id="w3D-Y0-qnB"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cny-Xc-34s">
+                                        <rect key="frame" x="0.0" y="29" width="207" height="11"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.70196078429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" separatorInsetReference="fromAutomaticInsets" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0nq-fs-1aW">
-                                <rect key="frame" x="0.0" y="100" width="414" height="587"/>
+                                <rect key="frame" x="0.0" y="111" width="414" height="576"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -247,6 +259,7 @@
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="buttonBar" destination="Cny-Xc-34s" id="9AF-5a-6A5"/>
                         <outlet property="postsTable" destination="0nq-fs-1aW" id="gjj-V5-wdo"/>
                         <outlet property="segmentedControl" destination="Ytp-A7-i16" id="O7U-iy-reT"/>
                     </connections>

@@ -19,6 +19,7 @@ class PostTableViewCell: UITableViewCell {
 class PostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var postsTable: UITableView!
+    @IBOutlet weak var buttonBar: UIView!
     
     let dataRepo = DataRepository.shared
     var pendingPosts: [Post] = []
@@ -49,6 +50,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
             NSAttributedStringKey.font : UIFont(name: "Lato-Bold", size: 20)!,
             NSAttributedStringKey.foregroundColor: UIColor.white
             ], for: .normal)
+        buttonBar.translatesAutoresizingMaskIntoConstraints = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,9 +67,15 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         case 0:
             state = 0
             updateTable()
+            UIView.animate(withDuration: 0.3) {
+                self.buttonBar.frame.origin.x = (self.segmentedControl.frame.width / CGFloat(self.segmentedControl.numberOfSegments)) * CGFloat(self.segmentedControl.selectedSegmentIndex)
+            }
         case 1:
             state = 1
             updateTable()
+            UIView.animate(withDuration: 0.3) {
+                self.buttonBar.frame.origin.x = (self.segmentedControl.frame.width / CGFloat(self.segmentedControl.numberOfSegments)) * CGFloat(self.segmentedControl.selectedSegmentIndex)
+            }
         default: break;
         }
     }
@@ -90,10 +98,14 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
-        var post = pendingPosts[index]
-        if state == 1 {
-            post = confirmedPosts[index]
+        var getPost:Post? = nil
+        if state == 0 {
+            getPost = pendingPosts[index]
         }
+        else {
+            getPost = confirmedPosts[index]
+        }
+        let post = getPost!
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! PostTableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.none
@@ -126,13 +138,9 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if editingStyle == .delete {
             if state == 0 {
                 pendingPosts.remove(at: indexPath.row)
-                dataRepo.httpDeletePost(pendingPosts[indexPath.row].postId)
+                //dataRepo.httpDeletePost(pendingPosts[indexPath.row].postId)
+                tableView.deleteRows(at: [indexPath], with: .fade)
             }
-            else if state == 1 {
-                confirmedPosts.remove(at: indexPath.row)
-                dataRepo.httpDeletePost(confirmedPosts[indexPath.row].postId)
-            }
-            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 }
