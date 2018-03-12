@@ -79,6 +79,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let post = posts![index]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! PostTableViewCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.nameLabel?.text = post.getCreator().getUsername()
         cell.cuisineLabel?.text = post.getCuisine()
         cell.timeLabel?.text = "At \(post.getStartTime().toString()) - \(post.getEndTime().toString()), \(post.getStartTime().compareToToday())"

@@ -74,8 +74,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = posts![indexPath.row]
-        NSLog("User selected row at \(post.getRestaurant())")
+        //let post = posts![indexPath.row]
+        //NSLog("User selected row at \(post.getRestaurant())")
         //performSegue(withIdentifier: "showQuestion", sender: subject)
     }
 }
