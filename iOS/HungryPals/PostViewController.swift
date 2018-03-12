@@ -22,15 +22,6 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var buttonBar: UIView!
     
     let dataRepo = DataRepository.shared
-<<<<<<< HEAD
-    var posts: [Post]? = nil
-    var user: User? = nil
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        posts = UIApplication.shared.dataRepository.getMatchablePosts()
-        user = UIApplication.shared.dataRepository.getUser()
-=======
     var pendingPosts: [Post] = []
     var confirmedPosts: [Post] = []
     var user: User? = nil
@@ -46,7 +37,6 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         pendingPosts = [Post.init(postId: "12381379", creator: User.init(username: "JOyce", email: "String", location: "String", userId: "String", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/27073113_546712599021153_8141215265311775044_n.jpg?oh=6c3ab12fe2ba078a7598e26c7264f2a6&oe=5B0B66E1", deviceToken: "String"), createdAt: Date(timeIntervalSinceReferenceDate: -123456789.0), status: "WAITING", startTime: Date(timeIntervalSinceReferenceDate: -123456789.0), endTime: Date(timeIntervalSinceReferenceDate: -123456389.0), restaurant: "none", cuisine: "Chinese", notes: "I don't like spice")]
         confirmedPosts = [Post.init(postId: "12381379", creator: User.init(username: "YOU", email: "String", location: "String", userId: "String", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/27073113_546712599021153_8141215265311775044_n.jpg?oh=6c3ab12fe2ba078a7598e26c7264f2a6&oe=5B0B66E1", deviceToken: "String"), createdAt: Date(timeIntervalSinceReferenceDate: -123456789.0), status: "MATCHED", startTime: Date(timeIntervalSinceReferenceDate: -123456789.0), endTime: Date(timeIntervalSinceReferenceDate: -123456389.0), restaurant: "none", cuisine: "Chinese", notes: "I don't like spice")]
         user = User.init(username: "Joyce", email: "123@mail", location: "Seattle", userId: "abc", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/19399486_10212812938654492_7422685381260620425_n.jpg?oh=fff1d310d6981f211aa180b5ef90ca02&oe=5B4173E4", deviceToken: "wc")
->>>>>>> jeff-post
         
         // Do any additional setup after loading the view.
         postsTable.dataSource = self
@@ -117,11 +107,6 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         let post = getPost!
         
-<<<<<<< HEAD
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-        cell.textLabel?.text = post.creator.username
-        cell.detailTextLabel?.text = "Wants to eat \(post.cuisine)\nAt \(post.startTime.toString()) - \(post.endTime.toString()), Today"
-=======
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! PostTableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.nameLabel?.text = post.creator.username
@@ -139,7 +124,6 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         cell.statusLabel?.layer.cornerRadius = 3
         cell.statusLabel?.sizeToFit()
->>>>>>> jeff-post
         
         let imageUrl = URL(string: post.creator.profilePic)!
         let imageData = try! Data(contentsOf: imageUrl)
@@ -150,12 +134,6 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-<<<<<<< HEAD
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = posts![indexPath.row]
-        NSLog("User selected row at \(post.restaurant)")
-        //performSegue(withIdentifier: "showQuestion", sender: subject)
-=======
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if state == 0 {
@@ -164,6 +142,5 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
->>>>>>> jeff-post
     }
 }
