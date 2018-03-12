@@ -111,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let aps = noteInfo["aps"] as! [String: AnyObject]
         let postData = noteInfo["post"]
-        print(aps)
+        print(postData)
 //        UIApplication.shared.dataRepository.addNotificationPostData(postData as! [String : AnyObject])
     }
 }

@@ -15,9 +15,9 @@ let Notifiers = {
             topic: "edu.uw.ischool.loners.HungryPals",
             payload: {
               "sender": "node-apn",
+              "post": post,
+              "subject": "MATCH"
             },
-            post: post,
-            subject: "MATCH"
         });
 
         apnProvider.send(notification, deviceToken).then( (result) => {
@@ -66,9 +66,9 @@ let Notifiers = {
             topic: "edu.uw.ischool.loners.HungryPals",
             payload: {
               "sender": "node-apn",
+              "post": post,
+              "subject": "RESPONSE"
             },
-            post, post,
-            subject: "RESPONSE"
         });
 
         apnProvider.send(notification, deviceToken).then( (result) => {
