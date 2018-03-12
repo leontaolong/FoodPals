@@ -10,7 +10,7 @@ import UIKit
 
 class AccountPreferenceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let dataRepo = DataRepository.shared
-    let appdata = AppData.shared
+    //let appdata = AppData.shared
     @IBOutlet weak var labelName: UILabel!
     
     @IBOutlet weak var btnOK: UIButton!
@@ -52,7 +52,6 @@ class AccountPreferenceViewController: UIViewController, UITableViewDelegate, UI
         labelName.text = dataRepo.user?.username
         labelEmail.text = dataRepo.user?.email
         
-        //let url = URL(string: appdata.profilePicUrl)
         let url = URL(string: (dataRepo.user?.profilePic)!)
         let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
         img.image = UIImage(data: data!)

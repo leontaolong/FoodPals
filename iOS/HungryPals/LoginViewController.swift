@@ -12,7 +12,7 @@ import FacebookLogin
 
 class LoginViewController: UIViewController {
     //@IBOutlet weak var facebookInfo: UILabel!
-    let appdata = AppData.shared
+    //let appdata = AppData.shared
     var fbLogin = false
     let dataRepo = DataRepository.shared
     let this = self
