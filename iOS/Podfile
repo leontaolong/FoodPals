@@ -6,7 +6,6 @@ target 'HungryPals' do
   use_frameworks!
 
   # Pods for HungryPals
-  pod 'XLPagerTabStrip', '~> 8.0'
 
   target 'HungryPalsTests' do
     inherit! :search_paths
