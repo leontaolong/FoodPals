@@ -19,13 +19,13 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var labelEmail: UILabel!
     //@IBOutlet weak var labelLocation: UILabel!
     @IBOutlet weak var img: UIImageView!
-    let appdata = AppData.shared
+    //let appdata = AppData.shared
     let dataRepo = DataRepository.shared
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func btnEdit(_ sender: Any) {
-        appdata.fromProfile = true
+        //appdata.fromProfile = true
     }
     @IBAction func btnLogout(_ sender: Any) {
         LoginManager().logOut()
@@ -44,7 +44,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! PreferenceTableViewCell
         if dataRepo.accountList[indexPath.row] == "Live in" {
             cell.accountList.text =
-            "Live in \(appdata.location)"
+            "Live in \(dataRepo.user?.location)"
         } else {
             cell.accountList.text = dataRepo.accountList[indexPath.row]
         }

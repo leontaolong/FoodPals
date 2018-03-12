@@ -12,7 +12,7 @@ class PreferenceViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imgTop: UIImageView!
     @IBOutlet weak var btnStart: UIButton!
-    let appdata = AppData.shared
+    //let appdata = AppData.shared
     let dataRepo = DataRepository.shared
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -20,7 +20,6 @@ class PreferenceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
-        //return appdata.cuisine.count
         return dataRepo.cuisine.count
     }
     
