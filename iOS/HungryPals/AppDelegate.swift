@@ -9,9 +9,9 @@
 import UIKit
 
 extension UIApplication {
-    var postRepository : PostRepository {
+    var dataRepository : DataRepository {
         get {
-            return PostRepository.shared
+            return DataRepository.shared
         }
     }
 }

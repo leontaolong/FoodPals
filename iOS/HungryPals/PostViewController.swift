@@ -20,15 +20,22 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var postsTable: UITableView!
     
-    let postRepo = PostRepository.shared
-    var posts: [Post]? = nil
-    var users: [User]? = nil
+    let dataRepo = DataRepository.shared
+    var pendingPosts: [Post] = []
+    var confirmedPosts: [Post] = []
+    var user: User? = nil
+    var state: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        posts = UIApplication.shared.postRepository.getPosts()
-        users = UIApplication.shared.postRepository.getUsers()
+        //pendingPosts = dataRepo.pendingPosts
+        //confirmedPosts = dataRepo.confirmedPosts
+        //user = dataRepo.getUser()
+        //matchablePosts = dataRepo.matchablePosts
+        pendingPosts = [Post.init(postId: "12381379", creator: User.init(username: "JOyce", email: "String", location: "String", userId: "String", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/27073113_546712599021153_8141215265311775044_n.jpg?oh=6c3ab12fe2ba078a7598e26c7264f2a6&oe=5B0B66E1", deviceToken: "String"), createdAt: Date(timeIntervalSinceReferenceDate: -123456789.0), status: "WAITING", startTime: Date(timeIntervalSinceReferenceDate: -123456789.0), endTime: Date(timeIntervalSinceReferenceDate: -123456389.0), restaurant: "none", cuisine: "Chinese", notes: "I don't like spice")]
+        confirmedPosts = [Post.init(postId: "12381379", creator: User.init(username: "YOU", email: "String", location: "String", userId: "String", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/27073113_546712599021153_8141215265311775044_n.jpg?oh=6c3ab12fe2ba078a7598e26c7264f2a6&oe=5B0B66E1", deviceToken: "String"), createdAt: Date(timeIntervalSinceReferenceDate: -123456789.0), status: "MATCHED", startTime: Date(timeIntervalSinceReferenceDate: -123456789.0), endTime: Date(timeIntervalSinceReferenceDate: -123456389.0), restaurant: "none", cuisine: "Chinese", notes: "I don't like spice")]
+        user = User.init(username: "Joyce", email: "123@mail", location: "Seattle", userId: "abc", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/19399486_10212812938654492_7422685381260620425_n.jpg?oh=fff1d310d6981f211aa180b5ef90ca02&oe=5B4173E4", deviceToken: "wc")
         
         // Do any additional setup after loading the view.
         postsTable.dataSource = self
@@ -55,48 +62,58 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func segmentedControl(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
-        case 0: update(state: 0)
-        case 1: update(state: 1)
+        case 0:
+            state = 0
+            updateTable()
+        case 1:
+            state = 1
+            updateTable()
         default: break;
         }
     }
     
-    func update(state: Int) {
-        if state == 0 {
-            // display my waiting post
-        }
-        else if state == 1 {
-            // display my matched post
+    func updateTable() {
+        DispatchQueue.main.async {
+            self.postsTable.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts!.count;
+        if state == 0 {
+            return pendingPosts.count;
+        }
+        else if state == 1 {
+            return confirmedPosts.count;
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
-        let post = posts![index]
+        var post = pendingPosts[index]
+        if state == 1 {
+            post = confirmedPosts[index]
+        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! PostTableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        cell.nameLabel?.text = post.getCreator().getUsername()
-        cell.cuisineLabel?.text = post.getCuisine()
-        cell.timeLabel?.text = "At \(post.getStartTime().toString()) - \(post.getEndTime().toString()), \(post.getStartTime().compareToToday())"
-        switch post.getMatchingStatus() {
-        case "matched":
-            cell.statusLabel?.text = " Matched "
-        case "no-matches":
-            cell.statusLabel?.text = " No Matches "
-        case "waitingResponse":
+        cell.nameLabel?.text = post.creator.username
+        cell.cuisineLabel?.text = post.cuisine
+        cell.timeLabel?.text = "At \(post.startTime.toString()) - \(post.endTime.toString()), \(post.startTime.compareToToday())"
+        switch post.status {
+        case "MATCHED":
+            cell.statusLabel?.text = ""
+        case "REQUESTED":
             cell.statusLabel?.text = " Sent "
+        case "WAITING":
+            cell.statusLabel?.text = " Waiting "
         default:
             break
         }
         cell.statusLabel?.layer.cornerRadius = 3
         cell.statusLabel?.sizeToFit()
         
-        let imageUrl = URL(string: post.getCreator().getProfilePic())!
+        let imageUrl = URL(string: post.creator.profilePic)!
         let imageData = try! Data(contentsOf: imageUrl)
         let image = UIImage(data: imageData)!
         cell.profilePic?.image = image
@@ -107,7 +124,14 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            posts!.remove(at: indexPath.row)
+            if state == 0 {
+                pendingPosts.remove(at: indexPath.row)
+                dataRepo.httpDeletePost(pendingPosts[indexPath.row].postId)
+            }
+            else if state == 1 {
+                confirmedPosts.remove(at: indexPath.row)
+                dataRepo.httpDeletePost(confirmedPosts[indexPath.row].postId)
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

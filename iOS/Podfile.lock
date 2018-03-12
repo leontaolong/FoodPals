@@ -1,12 +1,12 @@
 PODS:
-  - XLPagerTabStrip (8.0.0)
+  - Alamofire (4.7.0)
 
 DEPENDENCIES:
-  - XLPagerTabStrip (~> 8.0)
+  - Alamofire (~> 4.7)
 
 SPEC CHECKSUMS:
-  XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
 
-PODFILE CHECKSUM: c58fbc9e876d3f2ba8dd259d3723be7a4b4b0680
+PODFILE CHECKSUM: c11aad1937eb3838d703ab0701ad337a52dc9b12
 
 COCOAPODS: 1.4.0
