@@ -33,20 +33,20 @@ let Notifiers = {
         let requester = post.requestedBy.username;
         let titleTxt = `${requester} wants to eat with you. `;
         let bodyTxt = `Let ${requester} know if you would love to eat ${post.cuisine} food together. `;
-        let notification = new apn.Notification({
-            title: titleTxt,
-            body: bodyTxt,
-            sound: "default",
-            contentAvailable: 1,
-            badge: 1,
-            mutableContent: 1,
-            topic: "edu.uw.ischool.loners.HungryPals",
-            payload: {
+        let notification = {
+            "aps": {
+                title: titleTxt,
+                body: bodyTxt,
+                sound: "default",
+                contentAvailable: 1,
+                badge: 1,
+                mutableContent: 1,
+                topic: "edu.uw.ischool.loners.HungryPals",
+            },
               "sender": "node-apn",
               "post": post,
               "subject": "REQUEST"
-            },
-        });
+        };
 
         apnProvider.send(notification, deviceToken).then( (result) => {
             if (result.failed.length == 0) {
