@@ -25,6 +25,7 @@ class FormViewController2: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         error.isHidden = true
         cuisine.isHidden = true
+//        cuisine.inputView?.addSubview(button)
         restaurantField.layer.borderColor = UIColor.lightGray.cgColor
         notesField.layer.borderColor = UIColor.lightGray.cgColor
         fromTime.layer.borderColor = UIColor.lightGray.cgColor
@@ -58,7 +59,7 @@ class FormViewController2: UIViewController {
         button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 55).isActive = true
         //Set the drop down menu's options
 //        button.dropView.dropDownOptions = ["Chinese", "American", "Italian", "Japanese", "Korean", "Pizza"]
-        button.dropView.dropDownOptions = AppData.shared.cuisine
+        button.dropView.dropDownOptions = DataRepository.shared.cuisine
         
         //time picker
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(FormViewController2.dismissPicker))
