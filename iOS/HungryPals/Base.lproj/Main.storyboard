@@ -314,20 +314,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food you want to eat " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOc-z8-uPo">
-                                <rect key="frame" x="54" y="180" width="158.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food you want to eat * " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOc-z8-uPo">
+                                <rect key="frame" x="54" y="180" width="171" height="21"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Specific Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3O-jo-1Yt">
-                                <rect key="frame" x="54" y="264" width="140.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Specific restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3O-jo-1Yt">
+                                <rect key="frame" x="54" y="264" width="137" height="21"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferred eating time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRR-MM-0LL">
-                                <rect key="frame" x="54" y="360" width="158" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferred eating time *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRR-MM-0LL">
+                                <rect key="frame" x="54" y="360" width="170" height="21"/>
                                 <fontDescription key="fontDescription" name="Candara-Bold" family="Candara" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -345,7 +345,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="riN-Ux-JCU" kind="show" id="RPg-Rm-oAJ"/>
+                                    <action selector="postButton:" destination="5bl-2N-0uT" eventType="touchUpInside" id="Xa0-Ep-Tc4"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="mxv-Xk-NK5">
@@ -455,6 +455,12 @@
                                     <constraint firstAttribute="bottom" secondItem="Dy5-P4-YPX" secondAttribute="bottom" constant="12" id="bAN-fe-1G1"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill in required" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCJ-K5-9Bp">
+                                <rect key="frame" x="55" y="149" width="148" height="21"/>
+                                <fontDescription key="fontDescription" name="Candara-BoldItalic" family="Candara" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.37700797226756444" blue="0.37576457337300373" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -462,6 +468,7 @@
                             <constraint firstItem="9CX-qn-2WU" firstAttribute="trailing" secondItem="OOw-QO-Oly" secondAttribute="trailing" constant="54" id="22c-6C-Ebx"/>
                             <constraint firstItem="YRR-MM-0LL" firstAttribute="leading" secondItem="9CX-qn-2WU" secondAttribute="leading" constant="54" id="2ZK-B4-gQ0"/>
                             <constraint firstItem="9CX-qn-2WU" firstAttribute="trailing" secondItem="FKy-dK-XcI" secondAttribute="trailing" constant="186" id="4eP-PP-TCb"/>
+                            <constraint firstItem="gCJ-K5-9Bp" firstAttribute="top" secondItem="byQ-er-g6c" secondAttribute="bottom" constant="8" id="6aJ-A9-XyH"/>
                             <constraint firstItem="9CX-qn-2WU" firstAttribute="trailing" secondItem="mGF-wU-rNm" secondAttribute="trailing" constant="54" id="74e-7F-Csf"/>
                             <constraint firstItem="9CX-qn-2WU" firstAttribute="trailing" secondItem="E3f-KZ-h7f" secondAttribute="trailing" id="7Ua-Pt-a9D"/>
                             <constraint firstItem="jLw-UA-s9a" firstAttribute="top" secondItem="YRR-MM-0LL" secondAttribute="bottom" constant="14" id="9gM-9l-dQx"/>
@@ -471,6 +478,7 @@
                             <constraint firstItem="FKy-dK-XcI" firstAttribute="leading" secondItem="9CX-qn-2WU" secondAttribute="leading" constant="54" id="Iu7-aQ-U8V"/>
                             <constraint firstItem="jRD-PK-DWM" firstAttribute="leading" secondItem="9CX-qn-2WU" secondAttribute="leading" constant="54" id="Jee-ad-PIA"/>
                             <constraint firstItem="9CX-qn-2WU" firstAttribute="trailing" secondItem="mxv-Xk-NK5" secondAttribute="trailing" constant="54" id="KX1-lK-VFn"/>
+                            <constraint firstItem="EOc-z8-uPo" firstAttribute="top" secondItem="gCJ-K5-9Bp" secondAttribute="bottom" constant="10" id="KeK-B9-4eE"/>
                             <constraint firstItem="E3f-KZ-h7f" firstAttribute="leading" secondItem="9CX-qn-2WU" secondAttribute="leading" id="O8m-Z8-aKR"/>
                             <constraint firstItem="d3O-jo-1Yt" firstAttribute="top" secondItem="mxv-Xk-NK5" secondAttribute="bottom" constant="17" id="OHZ-bG-rFK"/>
                             <constraint firstItem="mGF-wU-rNm" firstAttribute="leading" secondItem="9CX-qn-2WU" secondAttribute="leading" constant="54" id="Q3g-pz-Tz0"/>
@@ -498,6 +506,7 @@
                             <constraint firstItem="EOc-z8-uPo" firstAttribute="top" secondItem="byQ-er-g6c" secondAttribute="bottom" constant="39" id="pDu-yE-VfD"/>
                             <constraint firstItem="VMa-kQ-Xr9" firstAttribute="top" secondItem="yne-q8-TnF" secondAttribute="bottom" constant="25" id="pGI-Mv-c3c"/>
                             <constraint firstItem="9CX-qn-2WU" firstAttribute="trailing" secondItem="uFa-pT-z89" secondAttribute="trailing" constant="120" id="q8v-6W-kSi"/>
+                            <constraint firstItem="gCJ-K5-9Bp" firstAttribute="leading" secondItem="9CX-qn-2WU" secondAttribute="leading" constant="55" id="tPs-rK-z35"/>
                             <constraint firstItem="mxv-Xk-NK5" firstAttribute="top" secondItem="EOc-z8-uPo" secondAttribute="bottom" constant="16" id="uI2-hQ-107"/>
                             <constraint firstItem="byQ-er-g6c" firstAttribute="leading" secondItem="9CX-qn-2WU" secondAttribute="leading" constant="54" id="zCt-pg-e2a"/>
                             <constraint firstItem="mxv-Xk-NK5" firstAttribute="leading" secondItem="9CX-qn-2WU" secondAttribute="leading" constant="54" id="zSP-lm-aGg"/>
@@ -507,6 +516,7 @@
                     </view>
                     <connections>
                         <outlet property="cuisine" destination="mxv-Xk-NK5" id="V6g-Ek-37e"/>
+                        <outlet property="error" destination="gCJ-K5-9Bp" id="pz5-sj-gdY"/>
                         <outlet property="fromTime" destination="jLw-UA-s9a" id="U1M-eI-gw1"/>
                         <outlet property="notesField" destination="mGF-wU-rNm" id="n7n-f0-PTt"/>
                         <outlet property="restaurantField" destination="jRD-PK-DWM" id="c2H-0S-OAi"/>

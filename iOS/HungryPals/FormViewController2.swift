@@ -14,13 +14,16 @@ class FormViewController2: UIViewController {
     @IBOutlet weak var notesField: UITextField!
     @IBOutlet weak var fromTime: UITextField!
     @IBOutlet weak var toTime: UITextField!
+    @IBOutlet weak var error: UILabel!
     
     var button = dropDownBtn()
+    var startTime = Date()
+    var endTime = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        error.isHidden = true
         cuisine.isHidden = true
         restaurantField.layer.borderColor = UIColor.lightGray.cgColor
         notesField.layer.borderColor = UIColor.lightGray.cgColor
@@ -79,6 +82,8 @@ class FormViewController2: UIViewController {
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
         fromTime.text = timeFormatter.string(from: sender.date)
+        startTime = timeFormatter.date(from: fromTime.text!)!
+        error.isHidden = true
     }
     
     @IBAction func toTimeHandleChange(_ sender: UITextField) {
@@ -92,11 +97,35 @@ class FormViewController2: UIViewController {
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
         toTime.text = timeFormatter.string(from: sender.date)
+        endTime = timeFormatter.date(from: toTime.text!)!
+        error.isHidden = true
     }
     
+    @IBAction func postButton(_ sender: UIButton) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        
+        if button.currentTitle == "" {
+            error.text = "Please pick the food you want to eat"
+            error.isHidden = false
+        } else if fromTime.text == "" {
+            error.text = "Please enter a start time"
+            error.isHidden = false
+        } else if toTime.text == ""{
+            error.text = "Please enter a end time"
+            error.isHidden = false
+        } else if startTime > endTime {
+            error.isHidden = false
+            error.text = "Invalid time range"
+        } else {
+            error.isHidden = true
+            let dataRepo = DataRepository()
+            dataRepo.createPost(startTime: startTime, endTime: endTime, restaurant: restaurantField.text!, cuisine: button.currentTitle!, notes: notesField.text!)
+            print("Creating post... startTime: \(startTime), endTime: \(endTime), resturant: \(restaurantField.text!), cuisine: \(button.currentTitle!), notes: \(notesField.text!)")
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
