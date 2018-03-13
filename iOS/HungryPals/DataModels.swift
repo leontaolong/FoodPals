@@ -188,7 +188,7 @@ class DataRepository {
                 print("Response String: \(String(describing: response.result.value))")
                 let json = response.result.value as! [String:AnyObject]
                 let post = self.deserializePost(json)
-                self.pendingPosts.append(post);
+                self.httpFetchPosts()
         }
     }
     
@@ -203,10 +203,16 @@ class DataRepository {
                 self.pendingPosts = []
                 for post in json {
                     let post = self.deserializePost(post)
-                    if post.creator.userId != self.user?.userId {
-                        self.matchablePosts.append(post)
-                    } else {
+                    if post.status == "REQUESTED" {
                         self.pendingPosts.append(post)
+                    } else if post.status == "CONFIRMED" {
+                        self.confirmedPosts.append(post)
+                    } else {
+                        if post.creator.userId != self.user?.userId {
+                            self.matchablePosts.append(post)
+                        } else {
+                            self.pendingPosts.append(post)
+                        }
                     }
                 }
         }
@@ -225,7 +231,6 @@ class DataRepository {
                 print("Response String: \(String(describing: response.result.value))")
                 let post = self.matchablePosts[index]
                 post.status = "REQUESTED"
-                self.pendingPosts.append(post)
                 self.httpFetchPosts()
         }
     }

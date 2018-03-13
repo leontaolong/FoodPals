@@ -40,7 +40,7 @@ class MongoStore {
     }
     
     getAllPosts() {
-        return this.collection.find(query).toArray();
+        return this.collection.find().toArray();
     }
 
     updatePostStatus(requestInfo, newStatus) {

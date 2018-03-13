@@ -51,6 +51,20 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         buttonBar.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        reloadData()
+        postsTable.reloadData()
+    }
+    
+    func reloadData() {
+        pendingPosts = dataRepo.pendingPosts
+        confirmedPosts = dataRepo.confirmedPosts
+        user = dataRepo.getUser()
+        matchablePosts = dataRepo.matchablePosts
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -135,10 +149,17 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if state == 0 {
-                let postId = pendingPosts[indexPath.row].postId
-                pendingPosts.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                dataRepo.httpDeletePost(postId)
+                if (pendingPosts[indexPath.row].creator.userId == dataRepo.getUser().userId) {
+                    let postId = pendingPosts[indexPath.row].postId
+                    pendingPosts.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    dataRepo.httpDeletePost(postId)
+                } else {
+                    let alert = UIAlertController(title: "Warning", message: "You can't delete posts that were created by other users", preferredStyle: UIAlertControllerStyle.alert)
+                    let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                    alert.addAction(alertAction)
+                    present(alert, animated: true)
+                }
             }
         }
     }

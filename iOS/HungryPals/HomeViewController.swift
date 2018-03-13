@@ -27,6 +27,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         postsTable.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        reloadData()
+        postsTable.reloadData()
+    }
+    
+    func reloadData() {
+        user = dataRepo.getUser()
+        matchablePosts = dataRepo.matchablePosts
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
