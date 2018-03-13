@@ -283,10 +283,12 @@ class DataRepository {
     }
     
     private func parseDate(_ dateString:String) -> Date {
-        guard let date = Formatter.iso8601.date(from: dateString) else {
-            fatalError("ERROR: Date conversion failed due to mismatched format.")
-        }
-        return date
+//        guard let date = Formatter.iso8601.date(from: dateString) else {
+//            fatalError("ERROR: Date conversion failed due to mismatched format.")
+//        }
+        print(dateString)
+        let date = NSDate(timeIntervalSince1970: Double(dateString)!)
+        return date as Date
     }
     
     /* TEMP TEST METHODS */

@@ -28,11 +28,17 @@ class MongoStore {
             { status: "WAITING" },
             { 'creator.userId': { $not: { $eq: postInfo.creator.userId } } } //exclude self
         ] }
-        return this.collection.findOne(query);
+        let post = this.collection.findOne(query);
+        post.startTime = toTimestamp(post.startTime);
+        post.endTime = toTimestamp(post.endTime);
+        return post;
     }
 
     getPost(postId) {
-        return this.collection.findOne({_id : ObjectId(postId)});
+        let post = this.collection.findOne({_id : ObjectId(postId)});
+        post.startTime = toTimestamp(post.startTime);
+        post.endTime = toTimestamp(post.endTime);
+        return post;
     }
 
     deletePost(postId) {
@@ -41,7 +47,12 @@ class MongoStore {
     
     getAllMatchable() {
         let query = { status: "WAITING" };
-        return this.collection.find(query).toArray();
+        let posts = this.collection.find(query).toArray();
+        posts.forEach((post) => {
+            post.startTime = toTimestamp(post.startTime);
+            post.endTime = toTimestamp(post.endTime);
+        });
+        return posts;
     }
 
     updatePostStatus(requestInfo, newStatus) {
@@ -55,6 +66,11 @@ class MongoStore {
     updateRequestStatus(postId, newStatus) {
         return this.collection.updateOne({_id : ObjectId(postId)}, {$set: { status : newStatus }});
     }
+
+    toTimestamp(strDate){
+        var datum = Date.parse(strDate);
+        return datum/1000;
+     }
 }
 
 //export the class

@@ -49,6 +49,8 @@ module.exports = (userStore, postStore, apnProvider) => {
                 } else {
                     post = insertResult.ops[0];
                     let matchingResult = await postStore.match(post)
+                    post.startTime = toTimestamp(post.startTime);
+                    post.endTime = toTimestamp(post.endTime);
                     if (matchingResult) {
                         Notifiers.notifyMatching(apnProvider, matchingResult.creator.deviceToken, post)
                     }
