@@ -18,10 +18,7 @@ class AccountPreferenceViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var backImg: UIImageView!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var labelEmail: UILabel!
-    
-    @IBAction func btnOK(_ sender: Any) {
-        performSegue(withIdentifier: "prefToAccount", sender: self)
-    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("count")
         return dataRepo.cuisine.count
