@@ -4,7 +4,7 @@ const express = require('express');
 const Notifiers = require('../notifiers/notifiers.js');
 
 const requiredAddUserFields = ["username", "userId", "email", "location", "profilePic", "deviceToken"];
-const requiredAddPostFields = ["creator", "startTime", "endTime", "restaurant", "cuisine", "notes" ];
+const requiredAddPostFields = ["creator", "restaurant", "cuisine", "notes" ];
 const requiredDeletePostFields = ["postId"];
 const requiredRequestFields = ["postId", "requestedBy", "matchedPostId"];
 const requiredRespondFields = ["postId", "confirmed"];
@@ -49,8 +49,6 @@ module.exports = (userStore, postStore, apnProvider) => {
                 } else {
                     post = insertResult.ops[0];
                     let matchingResult = await postStore.match(post)
-                    post.startTime = toTimestamp(post.startTime);
-                    post.endTime = toTimestamp(post.endTime);
                     if (matchingResult) {
                         Notifiers.notifyMatching(apnProvider, matchingResult.creator.deviceToken, post)
                     }
@@ -185,8 +183,3 @@ let validateRequest = (requestBody, requiredFields) => {
     });
     return missingInfo;
 }
-
-let toTimestamp = (strDate) => {
-    var datum = Date.parse(strDate);
-    return datum/1000;
- }
