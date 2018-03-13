@@ -45,13 +45,16 @@ class MongoStore {
         return this.collection.deleteOne({_id : ObjectId(postId)});
     }
     
-    getAllMatchable() {
+    async getAllMatchable() {
         let query = { status: "WAITING" };
-        let posts = this.collection.find(query).toArray();
-        posts.forEach((post) => {
-            post.startTime = toTimestamp(post.startTime);
-            post.endTime = toTimestamp(post.endTime);
-        });
+        let posts = await this.collection.find(query).toArray();
+        console.log(posts)
+        if (posts) {
+            posts.forEach((post) => {
+                post.startTime = toTimestamp(post.startTime);
+                post.endTime = toTimestamp(post.endTime);
+            });
+        }
         return posts;
     }
 
