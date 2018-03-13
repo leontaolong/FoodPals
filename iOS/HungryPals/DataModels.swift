@@ -283,10 +283,10 @@ class DataRepository {
     }
     
     private func parseDate(_ dateString:String) -> Date {
-        guard let date = Formatter.iso8601.date(from: dateString) else {
-            fatalError("ERROR: Date conversion failed due to mismatched format.")
-        }
-        return date
+        let trimmedIsoString = dateString.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
+        let formatter = ISO8601DateFormatter()
+        let date = formatter.date(from: trimmedIsoString)
+        return date!
     }
     
     /* TEMP TEST METHODS */
@@ -301,12 +301,4 @@ class DataRepository {
     //        requestPost(index: 0)
     //        respondPost(confirmed: true, postId: "5aa4b2104516d86b88f0474d")
     //    }
-}
-
-extension Formatter {
-    static let iso8601: ISO8601DateFormatter = {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        return formatter
-    }()
 }
