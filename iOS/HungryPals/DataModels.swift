@@ -167,6 +167,7 @@ class DataRepository {
             .responseString {response in
                 print("Success: \(response.result.isSuccess)")
                 print("Response String: \(String(describing: response.result.value))")
+                self.httpFetchPosts()
         }
     }
     

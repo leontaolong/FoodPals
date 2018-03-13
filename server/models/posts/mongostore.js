@@ -39,8 +39,7 @@ class MongoStore {
         return this.collection.deleteOne({_id : ObjectId(postId)});
     }
     
-    getAllMatchable() {
-        let query = { status: "WAITING" };
+    getAllPosts() {
         return this.collection.find(query).toArray();
     }
 

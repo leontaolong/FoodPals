@@ -21,22 +21,20 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var postsTable: UITableView!
     @IBOutlet weak var buttonBar: UIView!
     
-    let dataRepo = DataRepository.shared
+    let dataRepo = UIApplication.shared.dataRepository
     var pendingPosts: [Post] = []
     var confirmedPosts: [Post] = []
+    var matchablePosts: [Post] = []
     var user: User? = nil
     var state: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //pendingPosts = dataRepo.pendingPosts
-        //confirmedPosts = dataRepo.confirmedPosts
-        //user = dataRepo.getUser()
-        //matchablePosts = dataRepo.matchablePosts
-        pendingPosts = [Post.init(postId: "12381379", creator: User.init(username: "JOyce", email: "String", location: "String", userId: "String", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/27073113_546712599021153_8141215265311775044_n.jpg?oh=6c3ab12fe2ba078a7598e26c7264f2a6&oe=5B0B66E1", deviceToken: "String"), createdAt: Date(timeIntervalSinceReferenceDate: -123456789.0), status: "WAITING", startTime: Date(timeIntervalSinceReferenceDate: -123456789.0), endTime: Date(timeIntervalSinceReferenceDate: -123456389.0), restaurant: "none", cuisine: "Chinese", notes: "I don't like spice")]
-        confirmedPosts = [Post.init(postId: "12381379", creator: User.init(username: "YOU", email: "String", location: "String", userId: "String", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/27073113_546712599021153_8141215265311775044_n.jpg?oh=6c3ab12fe2ba078a7598e26c7264f2a6&oe=5B0B66E1", deviceToken: "String"), createdAt: Date(timeIntervalSinceReferenceDate: -123456789.0), status: "MATCHED", startTime: Date(timeIntervalSinceReferenceDate: -123456789.0), endTime: Date(timeIntervalSinceReferenceDate: -123456389.0), restaurant: "none", cuisine: "Chinese", notes: "I don't like spice")]
-        user = User.init(username: "Joyce", email: "123@mail", location: "Seattle", userId: "abc", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/19399486_10212812938654492_7422685381260620425_n.jpg?oh=fff1d310d6981f211aa180b5ef90ca02&oe=5B4173E4", deviceToken: "wc")
+        pendingPosts = dataRepo.pendingPosts
+        confirmedPosts = dataRepo.confirmedPosts
+        user = dataRepo.getUser()
+        matchablePosts = dataRepo.matchablePosts
         
         // Do any additional setup after loading the view.
         postsTable.dataSource = self
@@ -137,9 +135,10 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if state == 0 {
+                let postId = pendingPosts[indexPath.row].postId
                 pendingPosts.remove(at: indexPath.row)
-                //dataRepo.httpDeletePost(pendingPosts[indexPath.row].postId)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                dataRepo.httpDeletePost(postId)
             }
         }
     }
