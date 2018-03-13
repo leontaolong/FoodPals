@@ -11,6 +11,7 @@
 		1F11CFC6205477D300F06DA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11CFC5205477D300F06DA6 /* HomeViewController.swift */; };
 		1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A7639204D249600E8A34A /* PostViewController.swift */; };
 		1F773A652050A5BD000F14DA /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F773A642050A5BD000F14DA /* DataModels.swift */; };
+		27BE519520587D19007F078D /* DirectMsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BE519420587D19007F078D /* DirectMsgViewController.swift */; };
 		2FAD07DE20559CED002EBBFA /* FormViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD07DC20559CED002EBBFA /* FormViewController2.swift */; };
 		2FAD07E120559D47002EBBFA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD07E020559D46002EBBFA /* ResultsViewController.swift */; };
 		584CFF43D86C16BEB4AB8944 /* Pods_HungryPalsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BBB2364C12EEC843B19E20 /* Pods_HungryPalsTests.framework */; };
@@ -73,6 +74,7 @@
 		1F11CFC5205477D300F06DA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F3A7639204D249600E8A34A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		1F773A642050A5BD000F14DA /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		27BE519420587D19007F078D /* DirectMsgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMsgViewController.swift; sourceTree = "<group>"; };
 		2FAD07DC20559CED002EBBFA /* FormViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController2.swift; sourceTree = "<group>"; };
 		2FAD07DD20559CED002EBBFA /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		2FAD07E020559D46002EBBFA /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				2FAD07E020559D46002EBBFA /* ResultsViewController.swift */,
 				2FAD07DD20559CED002EBBFA /* FormViewController.swift */,
 				2FAD07DC20559CED002EBBFA /* FormViewController2.swift */,
+				27BE519420587D19007F078D /* DirectMsgViewController.swift */,
 				EF3492E820492A510014A9C2 /* LoginViewController.swift */,
 				F63086BC2047806D000AF99F /* ThirdViewController.swift */,
 				F630869520477EEB000AF99F /* Assets.xcassets */,
@@ -653,6 +656,7 @@
 				EF9C1C462051C75300C9A3D4 /* PreferenceTableViewCell.swift in Sources */,
 				1F11CFC6205477D300F06DA6 /* HomeViewController.swift in Sources */,
 				2FAD07E120559D47002EBBFA /* ResultsViewController.swift in Sources */,
+				27BE519520587D19007F078D /* DirectMsgViewController.swift in Sources */,
 				1F3A763A204D249600E8A34A /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

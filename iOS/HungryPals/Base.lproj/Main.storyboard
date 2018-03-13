@@ -931,10 +931,10 @@
             </objects>
             <point key="canvasLocation" x="2224.8000000000002" y="739.88005997001505"/>
         </scene>
-        <!--View Controller-->
+        <!--Direct Msg View Controller-->
         <scene sceneID="5af-hY-PoM">
             <objects>
-                <viewController id="ryU-jt-01y" sceneMemberID="viewController">
+                <viewController id="ryU-jt-01y" customClass="DirectMsgViewController" customModule="HungryPals" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WH7-aB-l06">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -950,6 +950,9 @@
                                 <rect key="frame" x="76" y="463" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="YES"/>
+                                <connections>
+                                    <action selector="btnYes:" destination="ryU-jt-01y" eventType="touchUpInside" id="LlD-iO-gCw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5r-ne-8o3">
                                 <rect key="frame" x="320" y="463" width="30" height="30"/>
@@ -1083,6 +1086,7 @@
         <image name="profile" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8nL-zr-kp8"/>
         <segue reference="Bij-3P-d9a"/>
         <segue reference="390-GC-OTf"/>
     </inferredMetricsTieBreakers>
