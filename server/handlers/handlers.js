@@ -185,3 +185,8 @@ let validateRequest = (requestBody, requiredFields) => {
     });
     return missingInfo;
 }
+
+let toTimestamp = (strDate) => {
+    var datum = Date.parse(strDate);
+    return datum/1000;
+ }
