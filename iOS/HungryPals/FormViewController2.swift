@@ -77,6 +77,7 @@ class FormViewController2: UIViewController {
     
     @IBAction func fromTimeHandleChange(_ sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
+        //datePickerView.timeZone = NSTimeZone(name: "PTD")! as TimeZone
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(FormViewController2.fromPickerValueChanged), for: UIControlEvents.valueChanged)
@@ -89,14 +90,21 @@ class FormViewController2: UIViewController {
     
     @objc func fromPickerValueChanged(sender:UIDatePicker) {
         let timeFormatter = DateFormatter()
+        timeFormatter.locale = NSLocale.current
+        //timeFormatter.timeZone = TimeZone(abbreviation: "GMT-7:00")
+        timeFormatter.timeZone = TimeZone.current
+        
+        timeFormatter.dateStyle = DateFormatter.Style.full
         timeFormatter.timeStyle = .short
         fromTime.text = timeFormatter.string(from: sender.date)
         startTime = timeFormatter.date(from: fromTime.text!)!
+        print(startTime)
         error.isHidden = true
     }
     
     @IBAction func toTimeHandleChange(_ sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
+        //datePickerView.timeZone = NSTimeZone(name: "PT")! as TimeZone
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(FormViewController2.toPickerValueChanged), for: UIControlEvents.valueChanged)
@@ -105,6 +113,9 @@ class FormViewController2: UIViewController {
     @objc func toPickerValueChanged(sender:UIDatePicker) {
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
+        timeFormatter.locale = NSLocale.current
+        timeFormatter.timeZone = TimeZone(abbreviation: "PDT")
+        timeFormatter.dateStyle = DateFormatter.Style.full
         toTime.text = timeFormatter.string(from: sender.date)
         endTime = timeFormatter.date(from: toTime.text!)!
         error.isHidden = true
@@ -286,7 +297,11 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     }
     
 }
-
+extension Date {
+    var localizedDescription: String {
+        return description(with: .current)
+    }
+}
 extension UIToolbar {
     
     func ToolbarPiker(mySelect : Selector) -> UIToolbar {
@@ -306,5 +321,7 @@ extension UIToolbar {
         
         return toolBar
     }
+    
+
     
 }

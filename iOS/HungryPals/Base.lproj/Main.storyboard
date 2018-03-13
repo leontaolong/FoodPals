@@ -1086,7 +1086,6 @@
         <image name="profile" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8nL-zr-kp8"/>
         <segue reference="Bij-3P-d9a"/>
         <segue reference="390-GC-OTf"/>
     </inferredMetricsTieBreakers>
