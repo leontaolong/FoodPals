@@ -63,6 +63,7 @@
                                         <state key="normal" image="add(white)"/>
                                         <connections>
                                             <action selector="addPost:" destination="9pv-A4-QxB" eventType="touchUpInside" id="PXj-Hj-GzI"/>
+                                            <segue destination="5bl-2N-0uT" kind="show" id="L2w-LD-37k"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -74,7 +75,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabelCell" rowHeight="80" id="ch9-1q-9Xq" customClass="PostTableViewCell" customModule="HungryPals" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabelCell" rowHeight="80" id="ch9-1q-9Xq" customClass="PostTableViewCell" customModule="HungryPals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ch9-1q-9Xq" id="fV0-Lb-N4f">
@@ -198,7 +199,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabelCell" rowHeight="80" id="VAu-0Z-1j2" customClass="PostTableViewCell" customModule="HungryPals" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabelCell" rowHeight="80" id="VAu-0Z-1j2" customClass="PostTableViewCell" customModule="HungryPals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VAu-0Z-1j2" id="mw3-P8-3fU">
@@ -217,7 +218,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEC-Jg-Uyy">
-                                                    <rect key="frame" x="322" y="10.000000000000002" width="116" height="19.666666666666671"/>
+                                                    <rect key="frame" x="283" y="10.000000000000002" width="116" height="19.666666666666671"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                     <color key="textColor" red="1" green="0.99998790029999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -344,7 +345,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountCell" id="fXe-Gt-JhZ" customClass="PreferenceTableViewCell" customModule="HungryPals" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountCell" id="fXe-Gt-JhZ" customClass="PreferenceTableViewCell" customModule="HungryPals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="271" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fXe-Gt-JhZ" id="13K-aK-jyx">
@@ -471,7 +472,7 @@
                                     <constraint firstAttribute="height" constant="439" id="kau-ya-CBp"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="preferenceCell" rowHeight="52" id="6Yh-qQ-GPN" customClass="PreferenceTableViewCell" customModule="HungryPals" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="preferenceCell" rowHeight="52" id="6Yh-qQ-GPN" customClass="PreferenceTableViewCell" customModule="HungryPals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="311" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Yh-qQ-GPN" id="MRk-cW-1ao">
@@ -575,7 +576,7 @@
                                     <constraint firstAttribute="height" constant="412" id="KPQ-qO-QsI"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="preferenceCell" rowHeight="50" id="gjd-es-Oeo" customClass="PreferenceTableViewCell" customModule="HungryPals" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="preferenceCell" rowHeight="50" id="gjd-es-Oeo" customClass="PreferenceTableViewCell" customModule="HungryPals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="319" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gjd-es-Oeo" id="T75-y4-bjH">
@@ -775,7 +776,7 @@
                                 <rect key="frame" x="120" y="618" width="140" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Find">
+                                <state key="normal" title="Post">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -784,7 +785,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="riN-Ux-JCU" kind="show" id="RPg-Rm-oAJ"/>
+                                    <action selector="postButton:" destination="5bl-2N-0uT" eventType="touchUpInside" id="LAP-xk-5qm"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="mxv-Xk-NK5">
@@ -826,6 +827,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fromTimeHandleChange:" destination="5bl-2N-0uT" eventType="editingDidEnd" id="po5-vN-rMX"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OOw-QO-Oly">
                                 <rect key="frame" x="229" y="395" width="97" height="30"/>
@@ -836,6 +840,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="toTimeHandleChange:" destination="5bl-2N-0uT" eventType="editingDidEnd" id="vyQ-59-zdp"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="F:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yne-q8-TnF">
                                 <rect key="frame" x="55" y="400" width="13" height="21"/>
@@ -864,6 +871,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuY-OI-k9c">
+                                <rect key="frame" x="54" y="151" width="38" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Candara-BoldItalic" family="Candara" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -912,6 +926,7 @@
                     </view>
                     <connections>
                         <outlet property="cuisine" destination="mxv-Xk-NK5" id="V6g-Ek-37e"/>
+                        <outlet property="error" destination="HuY-OI-k9c" id="rUc-s1-agc"/>
                         <outlet property="fromTime" destination="jLw-UA-s9a" id="U1M-eI-gw1"/>
                         <outlet property="notesField" destination="mGF-wU-rNm" id="n7n-f0-PTt"/>
                         <outlet property="restaurantField" destination="jRD-PK-DWM" id="c2H-0S-OAi"/>
@@ -953,9 +968,6 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="5bl-2N-0uT" kind="show" id="c9y-qh-Wtb"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8C-eb-WSW">
                                 <rect key="frame" x="236" y="645" width="145" height="38"/>
@@ -1037,7 +1049,6 @@
         <image name="profile" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RPg-Rm-oAJ"/>
         <segue reference="Bij-3P-d9a"/>
     </inferredMetricsTieBreakers>
 </document>

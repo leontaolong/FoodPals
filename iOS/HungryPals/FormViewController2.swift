@@ -14,14 +14,18 @@ class FormViewController2: UIViewController {
     @IBOutlet weak var notesField: UITextField!
     @IBOutlet weak var fromTime: UITextField!
     @IBOutlet weak var toTime: UITextField!
+    @IBOutlet weak var error: UILabel!
     
     var button = dropDownBtn()
+    var startTime = Date()
+    var endTime = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        error.isHidden = true
         cuisine.isHidden = true
+//        cuisine.inputView?.addSubview(button)
         restaurantField.layer.borderColor = UIColor.lightGray.cgColor
         notesField.layer.borderColor = UIColor.lightGray.cgColor
         fromTime.layer.borderColor = UIColor.lightGray.cgColor
@@ -54,22 +58,84 @@ class FormViewController2: UIViewController {
         button.topAnchor.constraint(equalTo: view.topAnchor, constant: 210).isActive = true
         button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 55).isActive = true
         //Set the drop down menu's options
-        button.dropView.dropDownOptions = ["Chinese", "American", "Italian", "Japanese", "Korean", "Pizza"]
+//        button.dropView.dropDownOptions = ["Chinese", "American", "Italian", "Japanese", "Korean", "Pizza"]
+        var prefs:[String] = []
+        let userPref:[Bool] = (DataRepository.shared.user?.cuisineMarked)!
+        let cuisines:[String] = DataRepository.shared.cuisine
+        for (index, item) in userPref.enumerated() {
+            if item {
+                prefs.append(cuisines[index])
+            }
+        }
+        button.dropView.dropDownOptions = prefs
         
         //time picker
-        let datePicker = UIDatePicker()
-        let timeFormatter = DateFormatter()
-        timeFormatter.timeStyle = .short
-        datePicker.datePickerMode = UIDatePickerMode.time
-        self.fromTime.inputView = datePicker
-        self.fromTime.text = timeFormatter.string(from: datePicker.date) as String
-        self.toTime.inputView = datePicker
-        self.toTime.text = timeFormatter.string(from: datePicker.date) as String
+        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(FormViewController2.dismissPicker))
+        fromTime.inputAccessoryView = toolBar
+        toTime.inputAccessoryView = toolBar
     }
     
+    @IBAction func fromTimeHandleChange(_ sender: UITextField) {
+        let datePickerView:UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePickerMode.time
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(FormViewController2.fromPickerValueChanged), for: UIControlEvents.valueChanged)
+        
+    }
+    
+    @objc func dismissPicker() {
+        view.endEditing(true)
+    }
+    
+    @objc func fromPickerValueChanged(sender:UIDatePicker) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        fromTime.text = timeFormatter.string(from: sender.date)
+        startTime = timeFormatter.date(from: fromTime.text!)!
+        error.isHidden = true
+    }
+    
+    @IBAction func toTimeHandleChange(_ sender: UITextField) {
+        let datePickerView:UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePickerMode.time
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(FormViewController2.toPickerValueChanged), for: UIControlEvents.valueChanged)
+    }
+    
+    @objc func toPickerValueChanged(sender:UIDatePicker) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        toTime.text = timeFormatter.string(from: sender.date)
+        endTime = timeFormatter.date(from: toTime.text!)!
+        error.isHidden = true
+    }
+    
+    @IBAction func postButton(_ sender: UIButton) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        
+        if button.currentTitle == "" {
+            error.text = "Please pick the food you want to eat"
+            error.isHidden = false
+        } else if fromTime.text == "" {
+            error.text = "Please enter a start time"
+            error.isHidden = false
+        } else if toTime.text == ""{
+            error.text = "Please enter a end time"
+            error.isHidden = false
+        } else if startTime > endTime {
+            error.isHidden = false
+            error.text = "Invalid time range"
+        } else {
+            error.isHidden = true
+            let dataRepo = DataRepository()
+            let creator:User = (DataRepository.shared.user)!
+            dataRepo.createPost(creator: creator, startTime: startTime, endTime: endTime, restaurant: restaurantField.text!, cuisine: button.currentTitle!, notes: notesField.text!)
+            print("Creating post... startTime: \(startTime), endTime: \(endTime), resturant: \(restaurantField.text!), cuisine: \(button.currentTitle!), notes: \(notesField.text!)")
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
@@ -217,6 +283,28 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
         self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
         self.tableView.deselectRow(at: indexPath, animated: true)
         NSLog(dropDownOptions[indexPath.row])
+    }
+    
+}
+
+extension UIToolbar {
+    
+    func ToolbarPiker(mySelect : Selector) -> UIToolbar {
+        
+        let toolBar = UIToolbar()
+        
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor.black
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: mySelect)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        
+        toolBar.setItems([ spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        return toolBar
     }
     
 }

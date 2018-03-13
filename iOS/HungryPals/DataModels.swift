@@ -119,7 +119,7 @@ class DataRepository {
     func createUser(username:String, email:String, location:String, userId:String, profilePic:String, deviceToken:String) {
         
         user = User(username: username, email: email, location: location, userId: userId, profilePic: profilePic, deviceToken: deviceToken)
-        
+
         httpAddUser(username: username, email: email, location: location, userId: userId, profilePic: profilePic, deviceToken: deviceToken)
     }
     
@@ -127,10 +127,10 @@ class DataRepository {
         return user!
     }
     
-    func createPost(startTime:Date, endTime:Date, restaurant:String, cuisine:String, notes:String) {
-        let creator = serializeUser(user!)
+    func createPost(creator:User, startTime:Date, endTime:Date, restaurant:String, cuisine:String, notes:String) {
+        let user = serializeUser(creator)
         
-        httpAddPost(creator:creator, startTime: String(startTime.timeIntervalSince1970), endTime: String(endTime.timeIntervalSince1970), restaurant: restaurant, cuisine: cuisine, notes: notes)
+        httpAddPost(creator:user, startTime: String(startTime.timeIntervalSince1970), endTime: String(endTime.timeIntervalSince1970), restaurant: restaurant, cuisine: cuisine, notes: notes)
     }
     
     func getMatchablePostById(_ postId:String) -> Post {
