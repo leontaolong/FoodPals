@@ -51,8 +51,8 @@ class MongoStore {
         console.log(posts)
         if (posts) {
             posts.forEach((post) => {
-                post.startTime = toTimestamp(post.startTime);
-                post.endTime = toTimestamp(post.endTime);
+                post.startTime = this.toTimestamp(post.startTime);
+                post.endTime = this.toTimestamp(post.endTime);
             });
         }
         return posts;
