@@ -77,7 +77,7 @@ class FormViewController2: UIViewController {
     
     @IBAction func fromTimeHandleChange(_ sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePickerMode.time
+        datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(FormViewController2.fromPickerValueChanged), for: UIControlEvents.valueChanged)
         
@@ -97,7 +97,7 @@ class FormViewController2: UIViewController {
     
     @IBAction func toTimeHandleChange(_ sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePickerMode.time
+        datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(FormViewController2.toPickerValueChanged), for: UIControlEvents.valueChanged)
     }
