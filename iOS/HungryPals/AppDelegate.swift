@@ -33,7 +33,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
             let postData = notification["post"]
-            let subject = notification["subject"]
+            switch(notification["subject"] as! String) {
+                case "MATCH":
+                    
+                break
+                case "REQUEST":
+                    
+                break
+                case "REQUEST":
+                    
+                break
+                default: break
+            }
             UIApplication.shared.dataRepository.addNotificationPostData(postData as! [String : AnyObject])
         }
         return true
@@ -107,9 +118,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didReceiveRemoteNotification noteInfo: [AnyHashable : Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-    
         let postData = noteInfo["post"]
-        let subject = noteInfo["subject"]
+        switch(noteInfo["subject"] as! String) {
+        case "MATCH":
+            
+            break
+        case "REQUEST":
+            
+            break
+        case "REQUEST":
+            
+            break
+        default: break
+        }
         UIApplication.shared.dataRepository.addNotificationPostData(postData as! [String : AnyObject])
     }
 }

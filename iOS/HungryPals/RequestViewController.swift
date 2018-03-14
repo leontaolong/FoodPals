@@ -31,7 +31,7 @@ class RequestViewController: UIViewController {
         nameLabel.text = "\(post?.creator.username ?? "")"
         cuisineLabel.text = "\(post?.cuisine ?? "") food"
         timeLabel.text = "At \(post?.startTime.toString() ?? "") - \(post?.endTime.toString() ?? "")"
-        notesLabel.text = "\(post?.notes ?? ""))"
+        notesLabel.text = "\(post?.notes ?? "")"
     }
     
     @IBAction func btnEatTogether(_ sender: UIButton) {

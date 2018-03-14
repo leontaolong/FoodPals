@@ -186,8 +186,6 @@ class DataRepository {
             .responseJSON {response in
                 print("Success: \(response.result.isSuccess)")
                 print("Response String: \(String(describing: response.result.value))")
-                let json = response.result.value as! [String:AnyObject]
-                let post = self.deserializePost(json)
                 self.httpFetchPosts()
         }
     }
