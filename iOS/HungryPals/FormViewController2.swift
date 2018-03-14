@@ -139,9 +139,8 @@ class FormViewController2: UIViewController {
             error.text = "Invalid time range"
         } else {
             error.isHidden = true
-            let dataRepo = DataRepository()
-            let creator:User = (DataRepository.shared.user)!
-            dataRepo.createPost(creator: creator, startTime: startTime, endTime: endTime, restaurant: restaurantField.text!, cuisine: button.currentTitle!, notes: notesField.text!)
+            let creator:User = UIApplication.shared.dataRepository.user!
+            UIApplication.shared.dataRepository.createPost(creator: creator, startTime: startTime, endTime: endTime, restaurant: restaurantField.text!, cuisine: button.currentTitle!, notes: notesField.text!)
             print("Creating post... startTime: \(startTime), endTime: \(endTime), resturant: \(restaurantField.text!), cuisine: \(button.currentTitle!), notes: \(notesField.text!)")
         }
     }

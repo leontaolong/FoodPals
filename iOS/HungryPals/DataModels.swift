@@ -145,7 +145,7 @@ class DataRepository {
         })[0]
     }
     
-    /*func requestPost(index:Int) {
+    func requestPost(index:Int) {
         let postId = matchablePosts[index].postId
         let requestedBy = serializeUser(user!)
         let matchedPostId = getMatchablePostById(postId).matchedPostId
@@ -154,7 +154,7 @@ class DataRepository {
     
     func respondPost(confirmed:Bool, postId:String) {
         httpRespondPost(confirmed, postId)
-    }*/
+    }
     
     func addNotificationPostData(_ postData:[String:AnyObject]) {
         //notificationPostData = deserializePost(postData as [String : AnyObject])
@@ -167,6 +167,7 @@ class DataRepository {
             .responseString {response in
                 print("Success: \(response.result.isSuccess)")
                 print("Response String: \(String(describing: response.result.value))")
+                self.httpFetchPosts()
         }
     }
     
@@ -185,14 +186,12 @@ class DataRepository {
             .responseJSON {response in
                 print("Success: \(response.result.isSuccess)")
                 print("Response String: \(String(describing: response.result.value))")
-                let json = response.result.value as! [String:AnyObject]
-                //let post = self.deserializePost(json)
-                //self.pendingPosts.append(post);
+                self.httpFetchPosts()
         }
     }
     
     
-    /*fileprivate func httpFetchPosts() {
+    fileprivate func httpFetchPosts() {
         Alamofire.request(baseURL + "/v1/posts", method: .get)
             .responseJSON {response in
                 print("Success: \(response.result.isSuccess)")
@@ -201,11 +200,17 @@ class DataRepository {
                 self.matchablePosts = []
                 self.pendingPosts = []
                 for post in json {
-                    //let post = self.deserializePost(post)
-                    if post.creator.userId != self.user?.userId {
-                        self.matchablePosts.append(post)
-                    } else {
+                    let post = self.deserializePost(post)
+                    if post.status == "REQUESTED" {
                         self.pendingPosts.append(post)
+                    } else if post.status == "CONFIRMED" {
+                        self.confirmedPosts.append(post)
+                    } else {
+                        if post.creator.userId != self.user?.userId {
+                            self.matchablePosts.append(post)
+                        } else {
+                            self.pendingPosts.append(post)
+                        }
                     }
                 }
         }
@@ -224,7 +229,6 @@ class DataRepository {
                 print("Response String: \(String(describing: response.result.value))")
                 let post = self.matchablePosts[index]
                 post.status = "REQUESTED"
-                self.pendingPosts.append(post)
                 self.httpFetchPosts()
         }
     }
@@ -253,7 +257,7 @@ class DataRepository {
                 print("Response String: \(String(describing: response.result.value))")
                 self.httpFetchPosts()
         }
-    }*/
+    }
     
     private func serializeUser(_ user:User) -> [String:String] {
         return [
@@ -266,28 +270,28 @@ class DataRepository {
         ]
     }
     
-    /*private func deserializePost(_ jsonData:[String:AnyObject]) -> Post {
+    private func deserializePost(_ jsonData:[String:AnyObject]) -> Post {
         var creator:User? = nil
         if let creatorData = jsonData["creator"] as? Dictionary<String,String> {
-            //creator = deserializeUser(creatorData)
+            creator = deserializeUser(creatorData)
         }
-        //let startTime = parseDate(jsonData["startTime"] as! String)
-        //let endTime = parseDate(jsonData["endTime"] as! String)
-        //let createdAt = parseDate(jsonData["createdAt"] as! String)
+        let startTime = parseDate(jsonData["startTime"] as! String)
+        let endTime = parseDate(jsonData["endTime"] as! String)
+        let createdAt = parseDate(jsonData["createdAt"] as! String)
 
         return Post(postId:jsonData["_id"] as! String, creator:creator!, createdAt:createdAt, status:jsonData["status"] as! String, startTime:startTime, endTime: endTime, restaurant:jsonData["restaurant"] as! String, cuisine:jsonData["cuisine"] as! String, notes:jsonData["notes"] as! String)
-    }*/
+    }
     
-    /*private func deserializeUser(_ userDate:[String:String]) -> User {
+    private func deserializeUser(_ userDate:[String:String]) -> User {
         return User(username: userDate["username"]!, email: userDate["email"]!, location: userDate["location"]!, userId: userDate["userId"]!, profilePic: userDate["profilePic"]!, deviceToken: userDate["deviceToken"]!)
-    }*/
+    }
     
-    /*private func parseDate(_ dateString:String) -> Date {
-        guard let date = Formatter.iso8601.date(from: dateString) else {
-            fatalError("ERROR: Date conversion failed due to mismatched format.")
-        }
-        return date
-    }*/
+    private func parseDate(_ dateString:String) -> Date {
+        let trimmedIsoString = dateString.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
+        let formatter = ISO8601DateFormatter()
+        let date = formatter.date(from: trimmedIsoString)
+        return date!
+    }
     
     /* TEMP TEST METHODS */
     //    func test() {
@@ -301,12 +305,4 @@ class DataRepository {
     //        requestPost(index: 0)
     //        respondPost(confirmed: true, postId: "5aa4b2104516d86b88f0474d")
     //    }
-}
-
-extension Formatter {
-    static let iso8601: ISO8601DateFormatter = {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        return formatter
-    }()
 }

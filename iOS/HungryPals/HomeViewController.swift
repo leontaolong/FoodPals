@@ -11,21 +11,32 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var postsTable: UITableView!
     
-    let dataRepo = DataRepository.shared
+    let dataRepo = UIApplication.shared.dataRepository
     var matchablePosts: [Post] = []
     var user: User? = nil
+    var selectedPost:Post? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //matchablePosts = dataRepo.matchablePosts
-        matchablePosts = [Post.init(postId: "12381379", creator: User.init(username: "JOyce", email: "String", location: "String", userId: "String", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/27073113_546712599021153_8141215265311775044_n.jpg?oh=6c3ab12fe2ba078a7598e26c7264f2a6&oe=5B0B66E1", deviceToken: "String"), createdAt: Date(timeIntervalSinceReferenceDate: -123456789.0), status: "PENDING", startTime: Date(timeIntervalSinceReferenceDate: -123456789.0), endTime: Date(timeIntervalSinceReferenceDate: -123456389.0), restaurant: "none", cuisine: "Chinese", notes: "I don't like spice")]
-        //users = dataRepo.getUser()
-        user = User.init(username: "Joyce", email: "123@mail", location: "Seattle", userId: "abc", profilePic: "https://scontent.fsea1-1.fna.fbcdn.net/v/t1.0-1/p320x320/19399486_10212812938654492_7422685381260620425_n.jpg?oh=fff1d310d6981f211aa180b5ef90ca02&oe=5B4173E4", deviceToken: "wc")
+        matchablePosts = dataRepo.matchablePosts
+        user = dataRepo.getUser()
         
         // Do any additional setup after loading the view.
         postsTable.dataSource = self
         postsTable.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        reloadData()
+        postsTable.reloadData()
+    }
+    
+    func reloadData() {
+        user = dataRepo.getUser()
+        matchablePosts = dataRepo.matchablePosts
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,8 +75,24 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let post = posts![indexPath.row]
-        //NSLog("User selected row at \(post.getRestaurant())")
-        //performSegue(withIdentifier: "showQuestion", sender: subject)
+
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RequestSegue" ,
+            let nextScene = segue.destination as? RequestViewController ,
+            let indexPath = self.postsTable.indexPathForSelectedRow {
+            let selectedPost = matchablePosts[indexPath.row]
+            nextScene.post = selectedPost
+            nextScene.postIndex = indexPath.row
+        }
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "RequestSegue" {
+//            if segue.destination is RequestViewController {
+//                segue.destination.post = selectedPost
+//            }
+//        }
+//    }
 }

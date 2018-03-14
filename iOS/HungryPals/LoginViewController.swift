@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
                         if locationData != nil {
                             location = (locationData!["name"] as? String)!
                         }
-                        self.dataRepo.createUser(username:name as! String, email:email as! String, location:location, userId:id as! String, profilePic:pictureUrl, deviceToken: "123456789" /*UserDefaults.standard.string(forKey: "deviceToken")!*/)
+                        self.dataRepo.createUser(username:name as! String, email:email as! String, location:location, userId:id as! String, profilePic:pictureUrl, deviceToken: UserDefaults.standard.string(forKey: "deviceToken")!)
                     }
                     self.goToPref()
                 }

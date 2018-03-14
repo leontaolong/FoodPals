@@ -86,7 +86,7 @@ module.exports = (userStore, postStore, apnProvider) => {
     router.get('/v1/posts', async (req, res, next) => {
         var posts = {};
         try { 
-            posts = await postStore.getAllMatchable();
+            posts = await postStore.getAllPosts();
             if (!posts) {
                 res.status(500).send("Server internal error deletiing post");
             } else {

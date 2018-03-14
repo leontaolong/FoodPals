@@ -49,6 +49,7 @@
 		F63086A420477EEB000AF99F /* HungryPalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63086A320477EEB000AF99F /* HungryPalsTests.swift */; };
 		F63086AF20477EEB000AF99F /* HungryPalsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63086AE20477EEB000AF99F /* HungryPalsUITests.swift */; };
 		F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63086BC2047806D000AF99F /* ThirdViewController.swift */; };
+		F6FE4FAB205882C600DF0DD4 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FE4FAA205882C600DF0DD4 /* RequestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +77,6 @@
 		1F773A642050A5BD000F14DA /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		27BE519420587D19007F078D /* DirectMsgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMsgViewController.swift; sourceTree = "<group>"; };
 		2FAD07DC20559CED002EBBFA /* FormViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController2.swift; sourceTree = "<group>"; };
-		2FAD07DD20559CED002EBBFA /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		2FAD07E020559D46002EBBFA /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		3568A7812057441B00EA0A01 /* Candara Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Candara Bold Italic.ttf"; path = "/Users/Leon/Desktop/HungryPals/iOS/Font/Candara Bold Italic.ttf"; sourceTree = "<absolute>"; };
 		3568A7822057441C00EA0A01 /* Candara Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Candara Italic.ttf"; path = "/Users/Leon/Desktop/HungryPals/iOS/Font/Candara Italic.ttf"; sourceTree = "<absolute>"; };
@@ -130,6 +130,7 @@
 		F63086AE20477EEB000AF99F /* HungryPalsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungryPalsUITests.swift; sourceTree = "<group>"; };
 		F63086B020477EEB000AF99F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F63086BC2047806D000AF99F /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		F6FE4FAA205882C600DF0DD4 /* RequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		F9C71E2528C01E804392F4FE /* Pods_HungryPalsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungryPalsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -278,7 +279,7 @@
 				EF9B9C58204FBAD0003B574B /* AccountViewController.swift */,
 				EF9B9C56204FB49A003B574B /* AppData.swift */,
 				2FAD07E020559D46002EBBFA /* ResultsViewController.swift */,
-				2FAD07DD20559CED002EBBFA /* FormViewController.swift */,
+				F6FE4FAA205882C600DF0DD4 /* RequestViewController.swift */,
 				2FAD07DC20559CED002EBBFA /* FormViewController2.swift */,
 				27BE519420587D19007F078D /* DirectMsgViewController.swift */,
 				EF3492E820492A510014A9C2 /* LoginViewController.swift */,
@@ -645,6 +646,7 @@
 			files = (
 				2FAD07DE20559CED002EBBFA /* FormViewController2.swift in Sources */,
 				F630868D20477EEB000AF99F /* AppDelegate.swift in Sources */,
+				F6FE4FAB205882C600DF0DD4 /* RequestViewController.swift in Sources */,
 				EF9B9C59204FBAD0003B574B /* AccountViewController.swift in Sources */,
 				F63086BD2047806D000AF99F /* ThirdViewController.swift in Sources */,
 				EF236E5E2053AF8F00E8E741 /* PreferenceTableViewController.swift in Sources */,
@@ -829,7 +831,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UZHVQ52BK;
 				INFOPLIST_FILE = HungryPals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.loners.HungryPals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -849,7 +851,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UZHVQ52BK;
 				INFOPLIST_FILE = HungryPals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.ischool.loners.HungryPals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
